@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Style.css"; // CSS file for styling
+import "./Style.css"; 
 
 function Navbar() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -9,7 +9,8 @@ function Navbar() {
   };
 
   return (
-    <nav className="navbar">
+    <div className="container ">
+    <nav className="navbar text-white bg-black">
       <div className="navbar-logo">MyLogo</div>
       <ul className={`navbar-links ${isMobileMenuOpen ? "active" : ""}`}>
         <li><a href="#home">Home</a></li>
@@ -21,6 +22,7 @@ function Navbar() {
         <span className="menu-icon">&#9776;</span> {/* Hamburger Icon */}
       </div>
     </nav>
+    </div>
   );
 }
 
