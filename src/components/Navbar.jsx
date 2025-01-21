@@ -1,3 +1,6 @@
+
+import React from 'react'
+
 import React, { useState } from "react";
 import "./Style.css"; 
 
@@ -9,7 +12,15 @@ function Navbar() {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
 
+
+const Navbar = () => {
   return (
+
+    <div>
+      
+    </div>
+  )
+
     
    <div className="navbar text-white bg-white flex flex-col shadow-sm">
   <div className="container mx-auto flex flex-col">
@@ -126,6 +137,7 @@ function Navbar() {
   
     
   );
+
 }
 
-export default Navbar;
+export default Navbar
