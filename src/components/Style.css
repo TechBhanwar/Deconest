@@ -1,0 +1,98 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+
+body{
+    font-family: "Plus Jakarta Sans", serif;
+}
+
+/* Styling for the dots */
+.slick-dots {
+    bottom: 20px;             /* Positioning the dots below the slider */
+    display: flex;
+    justify-content: center;  /* Center the dots horizontally */
+}
+
+.slick-dots li {
+    margin: 0 5px;
+}
+
+.slick-dots li button {
+    width: 10px;               /* Inactive dot width */
+    height: 10px;              /* Inactive dot height */
+    background: #ffffff;      /* Inactive dot background color */
+    border-width: 1px;        /* Border width for inactive dot */
+    border-radius: 50%;       /* Circular shape */
+    border-color: #ffffff;    /* Border color */
+    border-style: solid;      /* Solid border style */
+    opacity: 1;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.slick-dots li.slick-active button {
+    background: transparent;  /* Active dot background is transparent */
+    border-color: #ffffff;    /* Active dot border color is white */
+    transform: scale(1.2);     /* Slightly increase the size of the active dot */
+}
+
+/* Optional: Hover effect for inactive dots */
+.slick-dots li button:hover {
+    opacity: 1;
+}
+.slick-dots li button::before {
+    content: ''; /* Remove the default prefix content */
+    display: none; /* Hide the default prefix */
+}
+
+
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0); /* Start at the current position */
+    }
+    100% {
+      transform: translateX(-100%); /* Move completely out of view to the left */
+    }
+  }
+  
+.marquee {
+ 
+    animation: marquee 5s linear infinite; /* Use the marquee animation */
+    width: max-content;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  @media screen and (max-width: 768px) {
+    .slick-dots li button {
+      width: 8px;              /* Smaller dot width for small screens */
+      height: 8px;             /* Smaller dot height for small screens */
+      border-width: 0.5px;     /* Thinner border for small screens */
+      background-color: black; /* Background color for inactive dots */
+      border-color: black;     /* Border color for inactive dots */
+      border-style: solid;     /* Ensures border is solid */
+    }
+  
+    .slick-dots li.slick-active button {
+      transform: scale(1.1);   /* Slightly larger active dot size */
+      border-color: black;     /* Active dot border color */
+      background-color: transparent; /* Transparent background for active dots */
+      border-width: 1px;       /* Slightly thicker border for active dots */
+      border-style: solid;     /* Ensures border is solid */
+    }
+  }
