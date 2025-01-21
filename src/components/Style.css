@@ -63,6 +63,10 @@ body{
     width: max-content;
   }
 
+  .navul{
+    display: flex;
+    flex-direction: row !important;
+  }
 
 
 
