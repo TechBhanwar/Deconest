@@ -1,3 +1,4 @@
+
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
@@ -96,3 +97,22 @@ body{
       border-style: solid;     /* Ensures border is solid */
     }
   }
+
+.hoverbefore::before {
+  content: "";
+    width: 0;
+    height: 1px;
+    background: var(--menu-color);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    transition: all .3s ease;
+    background-color: black;
+}
+.hoverbefore:hover::before {
+  width: 100%; /* Full width on hover */
+  left: 0; /* Start from the left */
+  transform: none; /* Reset centering */
+}
+
