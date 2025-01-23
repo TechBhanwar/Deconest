@@ -18,7 +18,7 @@ const SliderComponent = () => {
         <div>
         <div className="slider-container overflow-hidden ">
             <Slider {...settings} className="w-full h-[470px] lg:h-[100vh]">
-                <div className="relative h-[500px] lg:h-full">
+                <div className="relative h-[500px] lg:h-full ">
                     <img src="/images/slider1.jpg" alt="slide 1" className='h-[250px] lg:h-full w-full' />
                     <div className="absolute  h-1/2 lg:h-full lg:top-0  left-0 right-0 bottom-11 flex flex-col space-y-3 justify-center items-center bg-transparent lg:bg-black lg:bg-opacity-20 text-black lg:text-white">
                   <h1 className='text-xl font-bold text-black lg:hidden'>Seeting statement</h1>
