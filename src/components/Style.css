@@ -69,7 +69,63 @@ body{
   }
 
 
-
+  .hoverbefore::before {
+    content: "";
+      width: 0;
+      height: 1px;
+      background: var(--menu-color);
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%);
+      transition: all .3s ease;
+      background-color: black;
+  }
+  .hoverbefore:hover::before {
+    width: 100%; /* Full width on hover */
+    left: 0; /* Start from the left */
+    transform: none; /* Reset centering */
+  }
+  
+  .icon-wrapper {
+    background-color: white;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    position: relative;
+    transition: background-color 0.3s ease;
+  }
+  
+  .icon-wrapper:hover {
+    background-color: black;
+    
+  }
+  
+  .icon-wrapper .icon {
+    fill: black;
+    transition: fill 0.3s ease;
+  }
+  
+  .icon-wrapper:hover .icon {
+    fill: white;
+  }
+  .icon-wrapper svg {
+    fill: black;
+    stroke: white;
+    transition: all 0.3s ease;
+  }
+  
+  .icon-wrapper:hover svg {
+    fill: white;
+    stroke: black;
+  }
+  .icon-wrapper:hover span {
+    visibility: visible; /* Show the span when hovering over the icon-wrapper */
+    
+  }
+  .icon-wrapper span{
+    visibility: hidden;
+  }
 
 
 
@@ -101,22 +157,4 @@ body{
       border-style: solid;     /* Ensures border is solid */
     }
   }
-
-.hoverbefore::before {
-  content: "";
-    width: 0;
-    height: 1px;
-    background: var(--menu-color);
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%);
-    transition: all .3s ease;
-    background-color: black;
-}
-.hoverbefore:hover::before {
-  width: 100%; /* Full width on hover */
-  left: 0; /* Start from the left */
-  transform: none; /* Reset centering */
-}
 
