@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar'
 
 import SliderComponent from '../components/SliderComponent'
 import Category from '../components/Category'
-import Product from '../components/Product'
+import Sliderproduct from '../components/Sliderproduct'
 
 const Home = () => {
   return (
@@ -12,7 +12,7 @@ const Home = () => {
       <Navbar />
      <SliderComponent  />
      <Category />
-     <Product />
+     <Sliderproduct />
     </div>
   )
 }

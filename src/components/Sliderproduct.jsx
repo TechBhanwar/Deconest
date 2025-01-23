@@ -89,14 +89,14 @@ const Sliderproduct = () => {
 
   return (
     <div className="container mx-auto px-4">
-      <div className="flex flex-row justify-between">
-        <div className='flex flex-col'> 
+      <div className="flex lg:flex-row flex-col justify-center items-center lg:justify-between">
+        <div className='flex flex-col justify-center items-center'> 
         <h2 className="text-[30px] font-bold text-black">Bestseller</h2>
-        <p className="text-[16px] font-normal text-gray-500 mb-6">
+        <p className="text-[16px] font-normal text-gray-500 lg:mb-6 mb-5">
           Experience the best products at our store!
         </p>
         </div>
-        <div className='mt-9'>
+        <div className='lg:mt-9 mb-3'>
           <span className='px-5 py-2 bg-transparent border-black border font-medium hover:bg-black hover:text-white transition duration-300 rounded-full '>
             View All
           </span>
