@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar'
 
 import SliderComponent from '../components/SliderComponent'
 import Category from '../components/Category'
+import Product from '../components/Product'
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Navbar />
      <SliderComponent  />
      <Category />
+     <Product />
     </div>
   )
 }
