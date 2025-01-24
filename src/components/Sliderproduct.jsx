@@ -1,13 +1,9 @@
 import React from 'react';
 import Slider from 'react-slick';
 
-// CSS Import for React Slick (You must also include slick-carousel's CSS in your project)
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
 const Sliderproduct = () => {
   const settings = {
-    dots: true,               // Navigation dots
+    dots: false,               // Navigation dots
     infinite: true,           // Infinite loop
     speed: 1500,              // Transition speed
     slidesToShow: 4,          // Show three items at a time
@@ -39,6 +35,7 @@ const Sliderproduct = () => {
       id: 1,
       image: '/images/product1.png',
       name: 'Egg Dining Table',
+      cutprice:'$80.00',
       price: '$55.00',
       star:'str',
       outOfStock: true,
@@ -49,6 +46,7 @@ const Sliderproduct = () => {
       id: 2,
       image: '/images/product2.png',
       name: 'Blue Flower Vase',
+      cutprice:'$90.00',
       price: '$75.00',
       tooltip: true,
     },
@@ -56,6 +54,7 @@ const Sliderproduct = () => {
       id: 3,
       image: '/images/product3.png',
       name: ' Modern desk Lamp',
+      cutprice:'$180.00',
       price: '$150.00',
     
       tooltip: true,
@@ -64,6 +63,7 @@ const Sliderproduct = () => {
       id: 4,
       image: '/images/product4 .png',
       name: 'Classy side Table',
+      cutprice:'$130.00',
       price: '$120.00',
       outOfStock: true,
       tooltip: true,
@@ -72,6 +72,7 @@ const Sliderproduct = () => {
       id: 5,
       image: '/images/product5.png',
       name: 'Pink Flower Vase',
+      cutprice:'$140.00',
       price: '$120.00',
 
       
@@ -81,6 +82,7 @@ const Sliderproduct = () => {
       id: 6,
       image: '/images/product6.png',
       name: 'Floral Print Vase',
+      cutprice:'$140.00',
       price: '$120.00',
       
       tooltip: true,
@@ -88,15 +90,15 @@ const Sliderproduct = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4">
-      <div className="flex flex-row justify-between">
-        <div className='flex flex-col'> 
+    <div className="container mx-auto px-4 py-4">
+    <div className="flex lg:flex-row flex-col justify-center items-center lg:justify-between">
+        <div className='flex flex-col justify-center items-center lg:items-start'> 
         <h2 className="text-[30px] font-bold text-black">Bestseller</h2>
-        <p className="text-[16px] font-normal text-gray-500 mb-6">
+        <p className="text-[16px] font-normal text-gray-500 lg:mb-6 mb-5">
           Experience the best products at our store!
         </p>
         </div>
-        <div className='mt-9'>
+        <div className='lg:mt-9 mb-3'>
           <span className='px-5 py-2 bg-transparent border-black border font-medium hover:bg-black hover:text-white transition duration-300 rounded-full '>
             View All
           </span>
@@ -119,8 +121,8 @@ const Sliderproduct = () => {
 
               {product.tooltip &&(
                     <div className='flex flex-row absolute bottom-20 gap-1 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out justify-center items-center'>
-                    <div className='icon-wrapper relative'>
-                      <span
+  <div className="icon-wrapper  relative transform transition-all duration-300 ease-out group-hover:translate-y-0 translate-y-8 group-hover:delay-100"style={{padding:"8px",}} >
+  <span
                         className='px-3 py-1 bg-black text-white absolute flex items-center justify-center top-[-35px] left-[-13px]'
                         style={{
                           clipPath:
@@ -136,8 +138,8 @@ const Sliderproduct = () => {
                         fill='black'
                         stroke-width='0'
                         viewBox='0 0 24 24'
-                        height='1em'
-                        width='1em'
+                        height='1.5em'
+                        width='1.5em'
                         xmlns='http://www.w3.org/2000/svg'
                       >
                         <g id='Heart'>
@@ -145,8 +147,8 @@ const Sliderproduct = () => {
                         </g>
                       </svg>
                     </div>
-                    <div className='icon-wrapper relative'>
-                      <span
+                    <div className="icon-wrapper relative transform transition-all duration-300 ease-out group-hover:translate-y-0 translate-y-8 group-hover:delay-200">
+                    <span
                         className='px-3 py-1 bg-black text-white absolute flex items-center justify-center top-[-35px] left-[-18px]'
                         style={{
                           clipPath:
@@ -168,8 +170,8 @@ const Sliderproduct = () => {
                         <path d='M142.9 142.9c-17.5 17.5-30.1 38-37.8 59.8c-5.9 16.7-24.2 25.4-40.8 19.5s-25.4-24.2-19.5-40.8C55.6 150.7 73.2 122 97.6 97.6c87.2-87.2 228.3-87.5 315.8-1L455 55c6.9-6.9 17.2-8.9 26.2-5.2s14.8 12.5 14.8 22.2l0 128c0 13.3-10.7 24-24 24l-8.4 0c0 0 0 0 0 0L344 224c-9.7 0-18.5-5.8-22.2-14.8s-1.7-19.3 5.2-26.2l41.1-41.1c-62.6-61.5-163.1-61.2-225.3 1zM16 312c0-13.3 10.7-24 24-24l7.6 0 .7 0L168 288c9.7 0 18.5 5.8 22.2 14.8s1.7 19.3-5.2 26.2l-41.1 41.1c62.6 61.5 163.1 61.2 225.3-1c17.5-17.5 30.1-38 37.8-59.8c5.9-16.7 24.2-25.4 40.8-19.5s25.4 24.2 19.5 40.8c-10.8 30.6-28.4 59.3-52.9 83.8c-87.2 87.2-228.3 87.5-315.8 1L57 457c-6.9 6.9-17.2 8.9-26.2 5.2S16 449.7 16 440l0-119.6 0-.7 0-7.6z'></path>
                       </svg>
                     </div>
-                    <div className='icon-wrapper relative'>
-                      <span
+                    <div className="icon-wrapper relative transform transition-all duration-300 ease-out group-hover:translate-y-0 translate-y-8 group-hover:delay-300">
+                    <span
                         className='w-[66px]  h-9 bg-black text-white absolute flex items-center justify-center top-[-38px] left-[-13px]'
                         style={{
                           clipPath:
@@ -208,7 +210,7 @@ const Sliderproduct = () => {
               <h2 className="text-[15px] text-black font-medium mb-1">
                 {product.name}
               </h2>
-              <h1 className="text-sm font-semibold">{product.price}</h1>
+              <h1 className="text-sm font-semibold"><span className='line-through pr-2 text-red-700'>{product.cutprice} </span>  {product.price}</h1>
             </div>
           </div>
         ))}
