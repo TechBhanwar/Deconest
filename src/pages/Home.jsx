@@ -7,6 +7,7 @@ import Category from '../components/Category'
 import Sliderproduct from '../components/Sliderproduct'
 import Testimonials from '../components/Testimonials'
 import News from '../components/News'
+import Footernav from '../components/Footernav'
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
    <Sliderproduct />
    <Testimonials />
    <News />
+   <Footernav />
     </div>
   )
 }

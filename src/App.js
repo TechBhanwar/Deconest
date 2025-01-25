@@ -7,6 +7,7 @@ import Singup from './auth/Singup';
 import Login from './auth/Login';
 import Wishlist from './pages/Wishlist';
 import Productcart from './pages/Productcart';
+import Product from './pages/Product';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/productcart" element={<Productcart />} />
+        <Route path="/product" element={<Product />} />
 
       </Routes>
     </BrowserRouter>

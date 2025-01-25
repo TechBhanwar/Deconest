@@ -2,14 +2,13 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Footernav from '../components/Footernav'
 
-const Wishlist = () => {
+const Product = () => {
   return (
     <div>
-      <Navbar />
-      Hey , This is Your Wishlisted prodct
-      <Footernav />
+     <Navbar />
+     <Footernav />
     </div>
   )
 }
 
-export default Wishlist
+export default Product

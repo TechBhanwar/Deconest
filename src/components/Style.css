@@ -6,7 +6,7 @@
 
 body{
     font-family: "Plus Jakarta Sans", serif;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
 }
 
 
@@ -270,7 +270,6 @@ body{
 .news_image img{
   transition: all .8s ease;
 }
-
 
 
 
