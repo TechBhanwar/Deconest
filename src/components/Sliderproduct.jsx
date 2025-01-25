@@ -1,24 +1,22 @@
 import React from 'react';
 import Slider from 'react-slick';
 
-// CSS Import for React Slick (You must also include slick-carousel's CSS in your project)
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+
 
 const Sliderproduct = () => {
   const settings = {
-    dots: true,               // Navigation dots
-    infinite: true,           // Infinite loop
-    speed: 1500,              // Transition speed
-    slidesToShow: 4,          // Show three items at a time
-    slidesToScroll: 1,        // Scroll one item at a time
-    autoplay: true,           // Enable autoplay
-    autoplaySpeed: 4000,      // 4-second delay between auto slides
-    cssEase: 'ease-out',      // Smooth transition effect
-    pauseOnHover: true,       // Pause autoplay on hover
-    responsive: [             // Responsiveness for different viewports
+    dots: false,               
+    infinite: true,          
+    speed: 1500,              
+    slidesToShow: 4,          
+    slidesToScroll: 1,        
+    autoplay: true,           
+    autoplaySpeed: 4000,     
+    cssEase: 'ease-out',      
+    pauseOnHover: true,       
+    responsive: [             
       {
-        breakpoint: 1024, // Tablet
+        breakpoint: 1024, 
         settings: {
           slidesToShow: 4,
           slidesToScroll: 1,
@@ -88,9 +86,9 @@ const Sliderproduct = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto  ">
       <div className="flex lg:flex-row flex-col justify-center items-center lg:justify-between">
-        <div className='flex flex-col justify-center items-center'> 
+        <div className='flex flex-col lg:items-start items-center justify-center lg:justify-start '> 
         <h2 className="text-[30px] font-bold text-black">Bestseller</h2>
         <p className="text-[16px] font-normal text-gray-500 lg:mb-6 mb-5">
           Experience the best products at our store!

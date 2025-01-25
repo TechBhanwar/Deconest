@@ -25,7 +25,7 @@ const Category = () => {
                             </div>
 
                             {/* Grid of Products */}
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-9">
+                            <div className="grid grid-cols-2 lg:grid-cols-2 gap-3 lg:gap-9">
                                 {/* Chair */}
                                 <div className="catogryproduct relative h-[277px] lg:h-[599px] rounded-[20px] overflow-hidden group duration-700">
                                     <img
@@ -76,4 +76,4 @@ const Category = () => {
     );
 };
 
-export default Category;
+export default Category; 
