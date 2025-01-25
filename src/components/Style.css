@@ -6,7 +6,9 @@
 
 body{
     font-family: "Plus Jakarta Sans", serif;
+
     overflow-x: hidden !important;
+
 }
 
 
@@ -285,6 +287,10 @@ body{
 
 
   @media screen and (max-width: 768px) {
+    
+   
+
+
     .slick-dots li button {
       width: 8px;              /* Smaller dot width for small screens */
       height: 8px;             /* Smaller dot height for small screens */
