@@ -6,8 +6,14 @@
 
 body{
     font-family: "Plus Jakarta Sans", serif;
-    overflow-x: hidden;
+
+    overflow-x: hidden !important;
+
 }
+
+
+
+
 
 /* Styling for the dots */
 .slick-dots {
@@ -46,6 +52,51 @@ body{
     content: ''; /* Remove the default prefix content */
     display: none; /* Hide the default prefix */
 }
+
+
+.hoverbefore::before {
+  content: "";
+    width: 0;
+    height: 1px;
+    background: var(--menu-color);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    transition: all .3s ease;
+    background-color: black;
+}
+.hoverbefore:hover::before {
+  width: 100%; /* Full width on hover */
+  left: 0; /* Start from the left */
+  transform: none; /* Reset centering */
+}
+
+.catogryproduct:hover{
+  animation: shake 0.8s ease-in-out;
+}
+
+@keyframes shake {
+  0% {
+      transform: translateX(0);
+  }
+  25% {
+      transform: translateX(-10px);
+  }
+  50% {
+      transform: translateX(10px);
+  }
+  75% {
+      transform: translateX(-5px);
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
+
+
+
+
 
 
 
@@ -95,11 +146,15 @@ body{
     border-radius: 50%;
     position: relative;
     transition: background-color 0.3s ease;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform transition */
+
   }
   
   .icon-wrapper:hover {
     background-color: black;
-    
+    transform: translateY(-5px); /* Moves the element up by 5px */
+
   }
   
   .icon-wrapper .icon {
@@ -211,9 +266,12 @@ body{
   animation: slideOut 0.8s ease-out forwards;
 }
 /* Additional styles */
-
-
-
+.news_image{
+  transition: all .8s ease;
+}
+.news_image img{
+  transition: all .8s ease;
+}
 
 
 
@@ -303,47 +361,4 @@ body{
 
 
   }
-
-
-.hoverbefore::before {
-  content: "";
-    width: 0;
-    height: 1px;
-    background: var(--menu-color);
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%);
-    transition: all .3s ease;
-    background-color: black;
-}
-.hoverbefore:hover::before {
-  width: 100%; /* Full width on hover */
-  left: 0; /* Start from the left */
-  transform: none; /* Reset centering */
-}
-
-.catogryproduct:hover{
-  animation: shake 0.8s ease-in-out;
-}
-
-@keyframes shake {
-  0% {
-      transform: translateX(0);
-  }
-  25% {
-      transform: translateX(-10px);
-  }
-  50% {
-      transform: translateX(10px);
-  }
-  75% {
-      transform: translateX(-5px);
-  }
-  100% {
-      transform: translateX(0);
-  }
-}
-
-
 
