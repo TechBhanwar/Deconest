@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {  removeFromCart, clearCart } from '../redux/cartSlice';
@@ -27,6 +28,7 @@ const Productcart = () => {
     dispatch(clearCart());
   };
 
+
   const [quantity, setQuantity] = useState(1);
 
   const increment = () => {
@@ -38,6 +40,7 @@ const Productcart = () => {
       setQuantity(quantity - 1);
     }
   };
+
 
  
     const [isStateOpen, setIsStateOpen] = useState(false);
@@ -80,6 +83,7 @@ const Productcart = () => {
     <div>
      <Navbar />
 
+
       <div className="container space-y-3 py-10">
         <div className="flex justify-center py-5 mb-5 items-center">
           <h1 className="text-black text-3xl font-semibold">Shopping Cart</h1>
@@ -88,11 +92,14 @@ const Productcart = () => {
         <div className="flex lg:flex-row flex-col space-y-3  lg:space-x-7">
           <div className="lg:w-2/3 w-full py-2 flex space-y-5 flex-col">
 
+
  {cartItems.length > 0 ? (
         cartItems.map((item) => (
+
             <div className=" grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-0  py-3 border px-3">
 
               <div className="flex flex-row space-x-4 ">
+
 
               <div class="lg:w-1/3 bg-pink-100 lg:h-48 h-36  flex justify-center items-center  rounded-md ">
                <img src={item.image} alt={item.title} className="w-28" />
@@ -120,10 +127,12 @@ const Productcart = () => {
                     
                    
                  
+
                     <h4 className="text-gray-500">Size: M</h4>
                     <p className="text-gray-500">In Stock</p>
                   </div>
                  </div>
+
 
                  <div class="flex flex-row space-x-5 items-center py-4 text-sm"><div class=" flex flex-row "><button> Edit  </button><span class="px-1 py-1"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="m14.06 9.02.92.92L5.92 19H5v-.92l9.06-9.06M17.66 3c-.25 0-.51.1-.7.29l-1.83 1.83 3.75 3.75 1.83-1.83a.996.996 0 0 0 0-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29zm-3.6 3.19L3 17.25V21h3.75L17.81 9.94l-3.75-3.75z"></path></svg></span></div><div class=" flex flex-row  items-center "><button onClick={() => handleRemoveFromCart(item)} > Remove  </button><span><svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 15 15" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z" fill="currentColor"></path></svg></span></div></div>
                 </div>
@@ -161,11 +170,13 @@ const Productcart = () => {
                   <h2 className="text-black lg:text-xl text-lg font-medium">Total</h2>
                   <h3 className="text-black lg:text-lg text-base  font-semibold">
                   {item.realPrice * quantity}₹/
+
                   </h3>
                 </div>
                
               </div>
             </div>
+
  ))
 ) : (
   <div className='flex flex-col justify-center lg:flex-row lg:justify-between space-y-2 lg:space-y-0 items-center'>
@@ -188,6 +199,7 @@ const Productcart = () => {
 </div>
 
            
+
             <div className="flex space-y-4 flex-col">
               <label htmlFor="" className=" text-black text-sm font-medium">Special instructions for seller</label>
               <textarea name="" id="" placeholder=" How Can We Help You" className=" focus:outline-none active:outline-none active:border-none border px-2 py-2 rounded-md border-slate-300 " rows={5}></textarea>
@@ -224,6 +236,7 @@ const Productcart = () => {
               <h2 className="text-black text-base font-semibold">
                 Get shipping estimates
               </h2>
+
               <div className="relative w-full text-left">
       {/* Select Button */}
       <button
@@ -261,6 +274,7 @@ const Productcart = () => {
         </ul>
       )}
     </div>
+
               <input type="address" placeholder="Zip Code" className="py-2 px-2 border-none rounded-lg outline-none" />
               <button type="button" className="bg-black text-white flex items-center justify-center rounded-full px-2 py-2">ESTIMATE</button>
 
@@ -293,10 +307,14 @@ const Productcart = () => {
       </div>
 
 
+
      <Footer />
      <Footernav />
+
     </div>
   );
 };
 
+
 export default Productcart;
+

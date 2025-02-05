@@ -67,7 +67,10 @@ const Newarrival = () => {
 
   return (
     <div>
+
       <div className="container  py-10 lg:py-16 overflow-hidden">
+
+   
         <div className="flex flex-col lg:items-start mb-8 items-center justify-center lg:justify-start">
           <h2 className="text-[30px] font-bold text-black">New Arrival</h2>
           <p className="text-[16px] font-normal text-gray-500 lg:mb-6 mb-5">

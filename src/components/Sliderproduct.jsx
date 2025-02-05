@@ -122,9 +122,12 @@ const Sliderproduct = () => {
 
   return (
 
+
     <div className="container  px-4 py-4 overflow-hidden">
       <div className="flex lg:flex-row flex-col justify-center items-center lg:justify-between">
         <div className='flex flex-col justify-center items-center lg:items-start'>
+
+  
 
           <h2 className="text-[30px] font-bold text-black">Bestseller</h2>
           <p className="text-[16px] font-normal text-gray-500 lg:mb-6 mb-5">

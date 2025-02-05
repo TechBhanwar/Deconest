@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar'
 import Footernav from '../components/Footernav'
+import { Link } from "react-router-dom";
 
 const Profile = () => {
 
@@ -106,6 +107,7 @@ const Profile = () => {
   return (
     <div>
       <Navbar />
+
    <div className="container flex">
     <div className='w-1/4'>
     <div className='bg-[#f2f4f3]'>
@@ -291,7 +293,7 @@ const Profile = () => {
         <p className="text-xl text-blue-600">${orderData.totalAmount}</p>
       </div>
 
-      <button className="w-full mt-6 py-3 bg-black text-white font-medium rounded-md bg-black">
+      <button className="w-full mt-6 py-3 bg-black text-white font-medium rounded-md ">
         Track Order
       </button>
     </div>}
@@ -381,7 +383,7 @@ const Profile = () => {
            <div>
              <h3 className="text-xl font-semibold mb-4">Login to PayPal</h3>
              <p className="text-sm text-gray-600">Please login to your PayPal account to complete the payment.</p>
-             <button className="mt-4 w-full py-3 bg-black text-white font-medium rounded-md bg-black">
+             <button className="mt-4 w-full py-3 bg-black text-white font-medium rounded-md ">
                Login with PayPal
              </button>
            </div>
@@ -429,7 +431,7 @@ const Profile = () => {
                />
                <button
                  onClick={handleAddFunds}
-                 className="py-3 px-4 bg-black text-white font-semibold rounded-md bg-black"
+                 className="py-3 px-4 bg-black text-white font-semibold rounded-md "
                >
                  Add Funds
                </button>
@@ -469,7 +471,7 @@ const Profile = () => {
            <div className="text-center mb-6">
              <button
                onClick={handleRedeemPoints}
-               className="py-3 px-6 bg-black text-white font-semibold rounded-md bg-black"
+               className="py-3 px-6  text-white font-semibold rounded-md bg-black"
              >
                Redeem 100 Points
              </button>
@@ -577,7 +579,7 @@ const Profile = () => {
              <div className="text-center">
                <button
                  type="submit"
-                 className="w-full py-3 bg-black text-white font-medium rounded-md bg-black"
+                 className="w-full py-3  text-white font-medium rounded-md bg-black"
                >
                  Submit Address
                </button>

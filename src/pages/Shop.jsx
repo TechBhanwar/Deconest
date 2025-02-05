@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footernav from '../components/Footernav';
@@ -7,6 +8,7 @@ import { productItems } from '../data/data';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/cartSlice';
 
+
 const images = [
   "/images/product5.png",
   "/images/product6.png",
@@ -15,6 +17,7 @@ const images = [
 ];
 
 const Shop = () => {
+
 
   const { id } = useParams(); // URL se product ID le raha hai
   const product = productItems.find((product) => product.id === parseInt(id));
@@ -33,6 +36,7 @@ const Shop = () => {
     console.log("Product Image Path:", product.image);
   };
 
+
   const increment = () => {
     setQuantity(quantity + 1);
   };
@@ -43,7 +47,9 @@ const Shop = () => {
     }
   };
 
+
   // Image navigation functions
+
   const nextImage = () => {
     setCurrentImage((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
@@ -101,6 +107,7 @@ const Shop = () => {
 
   const tabs = ["Description", "Review", "Shipping", "Return"];
 
+
   return (
     <div>
       <Navbar />
@@ -111,6 +118,7 @@ const Shop = () => {
             <li>home<span className='text-gray-400 px-1'>/</span></li>
             <li>{product.category}<span className='text-gray-400 px-1'>/</span></li>
             <li>{product.title}</li>
+
           </ul>
         </div>
 
@@ -120,12 +128,15 @@ const Shop = () => {
 
             <div className='flex lg:flex-row flex-col  lg:space-y-3 space-y-0 space-x-0 lg:space-x-7 '>
 
+
+
               <div className='flex flex-row lg:flex-col lg:order-1 order-2 lg:space-y-4 space-y-3 space-x-5 lg:space-x-0 items-center'>
                 {images.map((img, index) => (
                   <div key={index} className="hover:border border-black pt-1 rounded-md transition-transform duration-300">
                     <div
                       className="bg-pink-100 lg:px-6 px-7 flex justify-center hover:scale-75 items-center py-8 lg:py-7 rounded-md transition-transform duration-300"
                       onClick={() => setCurrentImage(index)} // Set the clicked thumbnail as the main image
+
                     >
                       <img src={img} alt="Product" className="w-9" />
                     </div>
@@ -139,6 +150,8 @@ const Shop = () => {
               <div className='bg-pink-100 lg:order-2 order-1 relative rounded-lg lg:w-[720px] w-full py-10 h-96 lg:h-[900px] flex justify-center items-center overflow-hidden'>
                 <img src={`/${product.image}`} alt="Product" className='w-auto h-96 lg:h-fit  object-contain' />
                 <span className='bg-red-600 absolute top-3 px-2 py-1 rounded-full text-white text-sm font-medium right-3'>-{product.discount}%</span>
+
+
 
                 {/* Arrows */}
                 <button onClick={prevImage} className='absolute left-4  text-3xl  bg-white hover:bg-black hover:text-white duration-300 transition transform  lg:px-3 px-1 py-1 lg:py-3 rounded-full shadow-lg'>
@@ -157,6 +170,7 @@ const Shop = () => {
 
             <div className='flex flex-col space-y-3 py-1  border-b items-start justify-start ' >
               <h1 className='text-black lg:text-3xl text-xl font-semibold'>{product.title}</h1>
+
               <span className='text-gray-400 space-x-1  flex flex-row '>
                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.595 6.252L8 1 6.405 6.252H1l4.373 3.4L3.75 15 8 11.695 12.25 15l-1.623-5.348L15 6.252H9.595z"></path></svg>
                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.595 6.252L8 1 6.405 6.252H1l4.373 3.4L3.75 15 8 11.695 12.25 15l-1.623-5.348L15 6.252H9.595z"></path></svg>
@@ -169,6 +183,7 @@ const Shop = () => {
                 <h1 className='text-red-600 lg:text-xl text-lg font-semibold line-through'>{product.cutPrice}₹/</h1>
                 <h1 className='text-black lg:text-xl text-lg font-semibold '>{product.realPrice} ₹/-</h1>
               </span>
+
 
             </div>
 
@@ -210,6 +225,7 @@ const Shop = () => {
               </div>
 
 
+
               <div className='flex flex-row space-x-3 lg:space-x-3 py-3'>
                 <div className="flex justify-between items-center lg:space-x-4 space-x-2 border lg:w-28 lg:h-14 h-10   w-20 py-0 lg:py-2 px-5 lg:px-3 rounded-full">
                   <button
@@ -235,6 +251,7 @@ const Shop = () => {
                     Item added to cart!
                   </div>
                 )}
+
 
                 <button className='lg:px-5 px-3 py-2 lg:py-4 hover:bg-black group  rounded-full border'>
                   <span className='text-gray-500 hover:text-white  '>
@@ -327,6 +344,7 @@ const Shop = () => {
                 </span>
                 <div className='flex flex-col'>
                   <p className='text-gray-400 text-xs lg:text-base flex-row'>Pickup available a <span className='text-black'>{product.seller} </span></p>
+
                   <h5 className='text-gray-400 lg:text-xs text-[10px] '>Usually ready in 24 hours</h5>
                   <h2 className='text-black lg:text-sm text-xs underline py-3'>View store information</h2>
                 </div>
@@ -521,6 +539,9 @@ const Shop = () => {
 
       <Footernav />
       <Footer />
+
+           
+        
     </div>
   );
 };
