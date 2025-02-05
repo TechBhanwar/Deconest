@@ -293,7 +293,10 @@ const Profile = () => {
         <p className="text-xl text-blue-600">${orderData.totalAmount}</p>
       </div>
 
+
       <button className="w-full mt-6 py-3 bg-black text-white font-medium rounded-md ">
+
+   
         Track Order
       </button>
     </div>}
@@ -432,6 +435,7 @@ const Profile = () => {
                <button
                  onClick={handleAddFunds}
                  className="py-3 px-4 bg-black text-white font-semibold rounded-md "
+
                >
                  Add Funds
                </button>
@@ -598,3 +602,4 @@ const Profile = () => {
 }
 
 export default Profile
+
