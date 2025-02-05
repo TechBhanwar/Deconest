@@ -104,7 +104,7 @@ const Sliderproduct = () => {
 
   return (
 
-    <div className="container mx-auto px-4 py-4">
+    <div className="container  px-4 py-4">
     <div className="flex lg:flex-row flex-col justify-center items-center lg:justify-between">
         <div className='flex flex-col justify-center items-center lg:items-start'> 
 

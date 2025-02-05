@@ -68,7 +68,7 @@ function Navbar() {
   return (
     <div>
       <div className="navbar text-white bg-white flex flex-col shadow-sm">
-        <div className="container mx-auto flex flex-col">
+        <div className="container  flex flex-col">
           <div className="flex lg:flex-row flex-col justify-center lg:justify-between py-4 lg:py-2 space-y-2 lg:space-y-0 items-center border-b">
             <div className="text-black justify-center items-center flex text-center">
               <h1 className="lg:text-[13px] text-[13px] font-normal lg:font-medium">
@@ -470,8 +470,8 @@ function Navbar() {
                       <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path>
                     </svg>
                   </li>
-                  <li className="px-4 py-4 cursor-pointer flex justify-between items-center rounded-lg border-b border-gray-300 hover:bg-[#f0f0f0]">
-                    About
+                  <Link to="/shop"   >  <li className="px-4 py-4 cursor-pointer flex justify-between items-center rounded-lg border-b border-gray-300 hover:bg-[#f0f0f0]">
+                    Shop
                     <svg
                       className="ml-2"
                       stroke="currentColor"
@@ -484,7 +484,7 @@ function Navbar() {
                     >
                       <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path>
                     </svg>
-                  </li>
+                  </li></Link>
                   <li className="px-4 py-4 cursor-pointer flex justify-between items-center rounded-lg border-b border-gray-300 hover:bg-[#f0f0f0]">
                     Services
                     <svg
