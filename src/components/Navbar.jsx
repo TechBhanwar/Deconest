@@ -3,6 +3,7 @@ import "./Style.css";
 import menuItems from "../data/data";
 import { products, furniture, decor, kitchenDining } from '../data/data';
 import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 
 function Navbar() {
@@ -64,10 +65,16 @@ function Navbar() {
     }, 500);
   };
 
+  const cartItems = useSelector((state) => state.cart.items);
+
+  // Get the count of items in the cart
+  const cartItemCount = cartItems.length;
+
+
 
   return (
     <div>
-      <div className="navbar text-white bg-white flex flex-col shadow-sm">
+      <div className=" navbar text-white bg-white flex flex-col shadow-sm">
         <div className="container mx-auto flex flex-col">
           <div className="flex lg:flex-row flex-col justify-center lg:justify-between py-4 lg:py-2 space-y-2 lg:space-y-0 items-center border-b">
             <div className="text-black justify-center items-center flex text-center">
@@ -174,8 +181,8 @@ function Navbar() {
           <div className="flex lg:flex-row py-3 lg:py-1 px-1 lg:px-0 items-center justify-between">
 
             <div className="navbar-logo flex justify-center lg:px-0  order-2  lg:order-2">
-            <Link to="/"   >  <img className="w-32 lg:w-40" src="./images/logo.png" alt="logo" />
-          </Link>
+              <Link to="/"   >  <img className="w-32 lg:w-40" src="/images/logo.png" alt="logo" />
+              </Link>
             </div>
 
             {/* Menu Items */}
@@ -183,8 +190,8 @@ function Navbar() {
 
               <li className="flex items-center cursor-pointer group py-6">
                 {/* Home text and SVG icon */}
-           <Link to="/"   > <div className="hoverbefore relative flex items-center">
-           Home
+                <Link to="/"   > <div className="hoverbefore relative flex items-center peer">
+                  Home
                   <svg
                     stroke="currentColor"
                     fill="currentColor"
@@ -198,11 +205,11 @@ function Navbar() {
                     <path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path>
                   </svg>
                 </div>
-                </Link> 
+                </Link>
 
-                {/* Hover box */}
-                <div className="w-[100%] absolute bg-white py-14 top-[123px] mt-2 left-0 hidden group-hover:block z-50 h-auto transition-all duration-300 ease-in-out" style={{ boxShadow: '0 6px 15px #0000001f' }}>
-                  <div className="container">
+            
+                <div className="w-[100%] absolute bg-white py-14 top-[123px] mt-2 left-0 opacity-0 invisible peer-hover:opacity-100 peer-hover:visible group-hover:opacity-100 group-hover:visible z-50 h-auto transition-all duration-300 ease-in-out" style={{ boxShadow: '0 6px 15px #0000001f' }}>
+                <div className="container">
                     <div className="grid grid-cols-4">
                       <img src="/images/shop1.jpg" alt="" className="w-[322px] h-[380px]" />
                       <img src="/images/shop2.jpg" alt="" className="w-[322px] h-[380px]" />
@@ -216,8 +223,8 @@ function Navbar() {
 
 
               <li className=" flex items-center cursor-pointer group py-6">
-              <Link to="/shop" >   <div className="hoverbefore relative flex items-center ">
-        Shop
+                <Link to="/shop" >   <div className="hoverbefore relative flex items-center peer ">
+                  Shop
                   <svg
                     stroke="currentColor"
                     fill="currentColor"
@@ -229,12 +236,12 @@ function Navbar() {
                     className="text-black "
                   >
                     <path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path>
-                  </svg> 
+                  </svg>
                 </div>
                 </Link>
-                 
 
-                <div className="w-[100%] absolute bg-white py-14 top-[123px] mt-2 left-0 hidden group-hover:block z-50 h-auto transition-all duration-300 ease-in-out" style={{ boxShadow: '0 6px 15px #0000001f' }}>
+
+                <div className="w-[100%] absolute bg-white py-14 top-[123px] mt-2 left-0 opacity-0 invisible peer-hover:opacity-100 peer-hover:visible group-hover:opacity-100 group-hover:visible z-50 h-auto transition-all duration-300 ease-in-out" style={{ boxShadow: '0 6px 15px #0000001f' }}>
                   <div className="container">
                     <div className="grid grid-cols-2">
                       <div className="grid grid-cols-2">
@@ -292,8 +299,8 @@ function Navbar() {
                 </div>
               </li>
               <li className=" flex items-center cursor-pointer group py-6">
-              <Link to="/Product"   >   <div className="hoverbefore relative flex items-center ">
-            Product
+                <Link to="/Product"   >   <div className="hoverbefore relative flex items-center peer ">
+                  Product
                   <svg
                     stroke="currentColor"
                     fill="currentColor"
@@ -309,7 +316,7 @@ function Navbar() {
                 </div>
                 </Link>
 
-                <div className=" w-[100%] absolute bg-white py-14 top-[123px] mt-2 left-0 hidden group-hover:block z-50 h-auto transition-all duration-300 ease-in-out" style={{ boxShadow: '0 6px 15px #0000001f' }}>
+                <div className=" overflow-hidden w-[100%] absolute bg-white py-14 top-[123px]  mt-2 left-0 opacity-0 invisible peer-hover:opacity-100 peer-hover:visible group-hover:opacity-100 group-hover:visible z-50 h-auto transition-all duration-300 ease-in-out" style={{ boxShadow: '0 6px 15px #0000001f' }}>
                   <div className="container">
                     <div className="grid grid-cols-4 gap-16">
                       <ul className="list-none p-0 m-0 space-y-2 ">
@@ -361,13 +368,13 @@ function Navbar() {
                 </div>
               </li>
 
-              <li className="hoverbefore relative flex items-center cursor-pointer ">
+              <Link to="/blog"   >     <li className="hoverbefore relative flex items-center cursor-pointer ">
                 Blog
                 <svg stroke="currentColor" fill="black" stroke-width="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path>
                 </svg>
 
-              </li>
+              </li></Link>
               <li className="hoverbefore relative flex items-center cursor-pointer">
                 Featured
                 <svg stroke="currentColor" fill="black" stroke-width="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
@@ -470,8 +477,38 @@ function Navbar() {
                       <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path>
                     </svg>
                   </li>
-                  <li className="px-4 py-4 cursor-pointer flex justify-between items-center rounded-lg border-b border-gray-300 hover:bg-[#f0f0f0]">
-                    About
+                  <Link to="/shop"   >  <li className="px-4 py-4 cursor-pointer flex justify-between items-center rounded-lg border-b border-gray-300 hover:bg-[#f0f0f0]">
+                    Shop
+                    <svg
+                      className="ml-2"
+                      stroke="currentColor"
+                      fill="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 320 512"
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path>
+                    </svg>
+                  </li></Link>
+                  <Link to="/Product"   >  <li className="px-4 py-4 cursor-pointer flex justify-between items-center rounded-lg border-b border-gray-300 hover:bg-[#f0f0f0]">
+                    Product
+                    <svg
+                      className="ml-2"
+                      stroke="currentColor"
+                      fill="currentColor"
+                      stroke-width="0"
+                      viewBox="0 0 320 512"
+                      height="1em"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path>
+                    </svg>
+                  </li></Link>
+                  <Link to="/blog"   >     <li className="px-4 py-4 cursor-pointer flex justify-between items-center rounded-lg border-b border-gray-300 hover:bg-[#f0f0f0]">
+                    Blog
                     <svg
                       className="ml-2"
                       stroke="currentColor"
@@ -485,21 +522,7 @@ function Navbar() {
                       <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path>
                     </svg>
                   </li>
-                  <li className="px-4 py-4 cursor-pointer flex justify-between items-center rounded-lg border-b border-gray-300 hover:bg-[#f0f0f0]">
-                    Services
-                    <svg
-                      className="ml-2"
-                      stroke="currentColor"
-                      fill="currentColor"
-                      stroke-width="0"
-                      viewBox="0 0 320 512"
-                      height="1em"
-                      width="1em"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path>
-                    </svg>
-                  </li>
+                  </Link>
                   <li className="px-4 py-4 cursor-pointer flex justify-between items-center rounded-lg border-b border-gray-300 hover:bg-[#f0f0f0]">
                     Contact
                     <svg
@@ -602,11 +625,11 @@ function Navbar() {
                 0
               </div>
               <Link to="/productcart"   >
-              <svg stroke="black" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"> <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M80 176a16 16 0 0 0-16 16v216c0 30.24 25.76 56 56 56h272c30.24 0 56-24.51 56-54.75V192a16 16 0 0 0-16-16zm80 0v-32a96 96 0 0 1 96-96h0a96 96 0 0 1 96 96v32"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M160 224v16a96 96 0 0 0 96 96h0a96 96 0 0 0 96-96v-16"></path>
-              </svg>
+                <svg stroke="black" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"> <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M80 176a16 16 0 0 0-16 16v216c0 30.24 25.76 56 56 56h272c30.24 0 56-24.51 56-54.75V192a16 16 0 0 0-16-16zm80 0v-32a96 96 0 0 1 96-96h0a96 96 0 0 1 96 96v32"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M160 224v16a96 96 0 0 0 96 96h0a96 96 0 0 0 96-96v-16"></path>
+                </svg>
               </Link>
               <div class="absolute top-0 lg:top-0 -right-1 transform translate-x-1/3 -translate-y-1/3 bg-black text-white text-xs font-bold w-[18px] h-[18px] text-[10px] rounded-full flex items-center justify-center">
-                5
+              {cartItemCount} 
               </div>
             </div>
           </div>

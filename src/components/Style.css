@@ -11,6 +11,13 @@ body{
 
 }
 
+.sticky-navbar {
+  position: sticky !important;
+  top: 0 !important;
+  background-color: white;
+  z-index: 50;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: adds shadow */
+}
 
 
 
@@ -94,12 +101,6 @@ body{
   }
 }
 
-
-
-
-
-
-
   @keyframes marquee {
     0% {
       transform: translateX(0); /* Start at the current position */
@@ -139,53 +140,8 @@ body{
     transform: none; /* Reset centering */
   }
   
-  .icon-wrapper {
-    background-color: white;
-    padding: 12px;
-    cursor: pointer;
-    border-radius: 50%;
-    position: relative;
-    transition: background-color 0.3s ease;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform transition */
 
-  }
   
-  .icon-wrapper:hover {
-    background-color: black;
-    transform: translateY(-5px); /* Moves the element up by 5px */
-
-  }
-  
-  .icon-wrapper .icon {
-    fill: black;
-    transition: fill 0.3s ease;
-  }
-  
-  .icon-wrapper:hover .icon {
-    fill: white;
-  }
-  .icon-wrapper svg {
-    fill: black;
-    stroke: white;
-    transition: all 0.3s ease;
-  }
-  
-  .icon-wrapper:hover svg {
-    fill: white;
-    stroke: black;
-  }
-  .icon-wrapper:hover span {
-    visibility: visible; /* Show the span when hovering over the icon-wrapper */
-    
-  }
-  .icon-wrapper span{
-    visibility: hidden;
-  }
-
-  /* SearchBox.css */
-
-/* Style for search box container */
 .search-box {
   position: fixed; /* Use fixed positioning to place it in the center of the screen */
   top: 38%;

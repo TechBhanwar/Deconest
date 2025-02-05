@@ -3,7 +3,7 @@ import React from 'react';
 const Category = () => {
     return (
         <div>
-            <div className="container py-10 lg:py-20">
+            <div className="container py-10 lg:py-10">
                 <div className="flex flex-col">
                     <h1 className="text-center lg:text-left text-xl lg:text-3xl font-bold">
                         Shop By Category

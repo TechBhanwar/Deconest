@@ -1,10 +1,9 @@
 import React from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
 
 const Newarrival = () => {
-  // Data for the slides
+
   const slides = [
     {
       id: 1,
@@ -39,7 +38,7 @@ const Newarrival = () => {
 
   // Slider settings
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 2,
@@ -68,7 +67,7 @@ const Newarrival = () => {
 
   return (
     <div>
-      <div className="container mx-auto py-10 lg:py-16">
+      <div className="container  py-10 lg:py-16 overflow-hidden">
         <div className="flex flex-col lg:items-start mb-8 items-center justify-center lg:justify-start">
           <h2 className="text-[30px] font-bold text-black">New Arrival</h2>
           <p className="text-[16px] font-normal text-gray-500 lg:mb-6 mb-5">

@@ -1,13 +1,60 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Footernav from '../components/Footernav'
+import Footer from '../components/Footer'
+import { useSelector } from 'react-redux';
+
 
 const Wishlist = () => {
+  const wishlist = useSelector((state) => state.wishlist.wishlist);
+
+
+
   return (
     <div>
       <Navbar />
-      Hey , This is Your Wishlisted prodct
+      
+          <div className='container'>
+
+            <div className='flex flex-col space-y-8 py-8'>
+
+              <div className='flex justify-center '>
+                <h1 className=' text-4xl text-black font-bold'>My  Wishlist</h1>
+              </div>
+              {wishlist.length === 0 ? (
+        <p>No items in wishlist.</p>
+      ) :(
+
+              <div className='grid grid-cols-1 lg:grid-cols-3 gap-16'>
+{wishlist.map((item) => (
+              <div className='flex w-full  space-y-2 flex-col'>
+                <div className='bg-pink-50  items-center w-full justify-center flex h-96 relative'>
+                  <img src=" /images/product1.png" alt="" className='w-60'  />
+                  <button className='absolute border-none outline-none bg-white px-4 py-4 shadow-md right-1 top-1 rounded-full '>
+                    <span>
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M7 4V2H17V4H22V6H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V6H2V4H7ZM6 6V20H18V6H6ZM9 9H11V17H9V9ZM13 9H15V17H13V9Z"></path></svg>
+                    </span>
+                  </button>
+                </div>
+                <div className='flex space-y-3 flex-col'>
+                  <h2 className='text-xl font-medium'>{item}</h2>
+                  <h1 className='text-lg font-medium' >$55.00</h1>
+                  <h3 className='text-base font-medium'>Color:White</h3>
+                  <button className='bg-black px-3 flex justify-center items-center flex-row  py-2 text-white'> <span className='text-white px-2  '><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 256 256" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M233.21,56.31A12,12,0,0,0,224,52H66L60.53,21.85A12,12,0,0,0,48.73,12H24a12,12,0,0,0,0,24H38.71L63.62,173a28,28,0,0,0,4.07,10.21A32,32,0,1,0,123,196h34a32,32,0,1,0,31-24H91.17a4,4,0,0,1-3.93-3.28L84.92,156H196.1a28,28,0,0,0,27.55-23l12.16-66.86A12,12,0,0,0,233.21,56.31ZM100,204a8,8,0,1,1-8-8A8,8,0,0,1,100,204Zm88,8a8,8,0,1,1,8-8A8,8,0,0,1,188,212Zm12-83.28A4,4,0,0,1,196.1,132H80.56L70.38,76H209.62Z"></path></svg></span> Add to Cart </button>
+                </div>
+              </div>
+               
+              ))}
+            
+
+              </div>
+               )}
+            </div>
+
+          </div>
+
       <Footernav />
+      <Footer />
     </div>
   )
 }

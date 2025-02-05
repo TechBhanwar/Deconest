@@ -36,7 +36,7 @@ const Testimonials = () => {
 
     return (
         <div>
-            <div className="container py-5 lg:py-10">
+            <div className="container py-5 lg:py-10 overflow-hidden">
                 <div className="grid grid-cols-1 lg:grid-cols-2">
                     <div className='py-2 lg:py-9'>
                         <div className=' py-5 text-[30px] font-bold text-center lg:text-start' >Testimonial</div>
