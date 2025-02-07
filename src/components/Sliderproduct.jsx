@@ -135,10 +135,13 @@ const Sliderproduct = () => {
           </p>
         </div>
         <div className='lg:mt-9 mb-3'>
-          <span className='px-5 py-2 bg-transparent border-black border font-medium hover:bg-black hover:text-white transition duration-300 rounded-full '>
-            View All
-          </span>
-        </div>
+      <button 
+        onClick={() => navigate('/product')} 
+        className='px-5 py-2 bg-transparent border-black border font-medium hover:bg-black hover:text-white transition duration-300 rounded-full'
+      >
+        View All
+      </button>
+    </div>
       </div>
       <Slider {...settings}>
         {filteredItems.map((item) => (
@@ -148,7 +151,7 @@ const Sliderproduct = () => {
               onClick={() => navigate(`/shop/${item.id}`)}
                 src={item.image}
                 alt={item.name}
-                className="w-[50%] transition-transform duration-500 ease-in-out transform group-hover:scale-110"
+                className="w-[60%] transition-transform duration-500 ease-in-out transform group-hover:scale-110"
               />
               {item.outOfStock && (
                 <span className="px-2 py-1 absolute bg-black text-white text-[14px] font-medium rounded-full top-3 left-3">

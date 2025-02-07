@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import "./Style.css";
 import menuItems from "../data/data";
 import { products, furniture, decor, kitchenDining } from '../data/data';
@@ -71,9 +71,28 @@ function Navbar() {
   const cartItemCount = cartItems.length;
 
 
+  const [isSticky, setIsSticky] = useState(false);
+
+  // Effect to track scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsSticky(true);  // Make navbar sticky after 50px scroll
+      } else {
+        setIsSticky(false);  // Remove sticky if scrolled back to top
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);  // Attach scroll event
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);  // Cleanup on unmount
+    };
+  }, []);
+
 
   return (
-    <div>
+    <div className="">
 
       <div className=" navbar text-white bg-white flex flex-col shadow-sm">
         <div className="container mx-auto flex flex-col">
@@ -178,7 +197,7 @@ function Navbar() {
 
         </div>
       </div>
-      <nav className="bg-white ">
+      <nav className={`transition-all duration-300 ease-in-out bg-white  ${isSticky ? 'fixed top-0 w-full shadow-md z-50' : ''}`}>
         <div className="container">
           <div className="flex lg:flex-row py-3 lg:py-1 px-1 lg:px-0 items-center justify-between">
 
@@ -190,11 +209,12 @@ function Navbar() {
             {/* Menu Items */}
 
             <ul className="hidden lg:flex lg:flex-row flex-col lg:space-x-10 space-y-4 lg:space-y-0 text-base font-normal justify-start lg:justify-center items-start lg:items-center text-black  order-1 lg:order-2">
-          
+
 
               <li className="flex items-center cursor-pointer group py-6">
                 {/* Home text and SVG icon */}
-                <Link to="/"   > <div className="hoverbefore relative flex items-center peer">
+                <Link to="/"   > 
+                <div className="relative after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-full group-hover:after:left-0 group-hover:after:translate-x-0 flex items-center peer">
                   Home
                   <svg
                     stroke="currentColor"
@@ -211,9 +231,12 @@ function Navbar() {
                 </div>
                 </Link>
 
-            
-                <div className="w-[100%] absolute bg-white py-14 top-[123px] mt-2 left-0 opacity-0 invisible peer-hover:opacity-100 peer-hover:visible group-hover:opacity-100 group-hover:visible z-50 h-auto transition-all duration-300 ease-in-out" style={{ boxShadow: '0 6px 15px #0000001f' }}>
-                <div className="container">
+
+                <div
+                  className={`w-[100%] absolute bg-white py-14 mt-2 left-0 opacity-0 invisible peer-hover:opacity-100 peer-hover:visible group-hover:opacity-100 group-hover:visible z-50 h-auto transition-all duration-300 ease-in-out ${isSticky ? 'top-[73px]' : 'top-[123px]'}`}
+                  style={{ boxShadow: '0 6px 15px #0000001f' }}
+                >
+                  <div className="container">
                     <div className="grid grid-cols-4">
                       <img src="/images/shop1.jpg" alt="" className="w-[322px] h-[380px]" />
                       <img src="/images/shop2.jpg" alt="" className="w-[322px] h-[380px]" />
@@ -227,7 +250,7 @@ function Navbar() {
 
 
               <li className=" flex items-center cursor-pointer group py-6">
-                <Link to="/shop" >   <div className="hoverbefore relative flex items-center peer ">
+                <Link to="/shop" >   <div className="relative after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-full group-hover:after:left-0 group-hover:after:translate-x-0 flex items-center peer ">
                   Shop
                   <svg
                     stroke="currentColor"
@@ -245,8 +268,10 @@ function Navbar() {
                 </Link>
 
 
-                <div className="w-[100%] absolute bg-white py-14 top-[123px] mt-2 left-0 opacity-0 invisible peer-hover:opacity-100 peer-hover:visible group-hover:opacity-100 group-hover:visible z-50 h-auto transition-all duration-300 ease-in-out" style={{ boxShadow: '0 6px 15px #0000001f' }}>
-                  <div className="container">
+                <div
+                  className={`w-[100%] absolute bg-white py-14 mt-2 left-0 opacity-0 invisible peer-hover:opacity-100 peer-hover:visible group-hover:opacity-100 group-hover:visible z-50 h-auto transition-all duration-300 ease-in-out ${isSticky ? 'top-[73px]' : 'top-[123px]'}`}
+                  style={{ boxShadow: '0 6px 15px #0000001f' }}
+                >                  <div className="container">
                     <div className="grid grid-cols-2">
                       <div className="grid grid-cols-2">
                         <img src="/images/shop1.jpg" alt="" className="w-[322px] h-[380px]" />
@@ -303,7 +328,8 @@ function Navbar() {
                 </div>
               </li>
               <li className=" flex items-center cursor-pointer group py-6">
-                <Link to="/Product"   >   <div className="hoverbefore relative flex items-center peer ">
+                <Link to="/Product"   > 
+                  <div className=" after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-full group-hover:after:left-0 group-hover:after:translate-x-0 relative flex items-center peer ">
                   Product
                   <svg
                     stroke="currentColor"
@@ -320,8 +346,10 @@ function Navbar() {
                 </div>
                 </Link>
 
-                <div className=" overflow-hidden w-[100%] absolute bg-white py-14 top-[123px]  mt-2 left-0 opacity-0 invisible peer-hover:opacity-100 peer-hover:visible group-hover:opacity-100 group-hover:visible z-50 h-auto transition-all duration-300 ease-in-out" style={{ boxShadow: '0 6px 15px #0000001f' }}>
-                  <div className="container">
+                <div
+                  className={`overflow-hidden w-[100%] absolute bg-white py-14 mt-2 left-0 opacity-0 invisible peer-hover:opacity-100 peer-hover:visible group-hover:opacity-100 group-hover:visible z-50 h-auto transition-all duration-300 ease-in-out ${isSticky ? 'top-[73px]' : 'top-[123px]'}`}
+                  style={{ boxShadow: '0 6px 15px #0000001f' }}
+                >                  <div className="container">
                     <div className="grid grid-cols-4 gap-16">
                       <ul className="list-none p-0 m-0 space-y-2 ">
                         <h2 className="m-0 border-b pb-2 font-semibold">Products</h2>
@@ -372,19 +400,22 @@ function Navbar() {
                 </div>
               </li>
 
-              <Link to="/blog"   >     <li className="hoverbefore relative flex items-center cursor-pointer ">
+                <li className="group relative flex items-center cursor-pointer ">
+                <Link to="/blog"   >
+                     <div className=" after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-full group-hover:after:left-0 group-hover:after:translate-x-0 relative flex items-center peer ">
                 Blog
                 <svg stroke="currentColor" fill="black" stroke-width="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path>
                 </svg>
-
-              </li></Link>
-              <li className="hoverbefore relative flex items-center cursor-pointer">
+</div></Link>
+              </li>
+              <li className="group relative flex items-center cursor-pointer">
+              <div className=" after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-full group-hover:after:left-0 group-hover:after:translate-x-0 relative flex items-center peer ">
                 Featured
                 <svg stroke="currentColor" fill="black" stroke-width="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path>
                 </svg>
-
+</div>
               </li>
             </ul>
 
@@ -515,7 +546,7 @@ function Navbar() {
                   <Link to="/blog"   >     <li className="px-4 py-4 cursor-pointer flex justify-between items-center rounded-lg border-b border-gray-300 hover:bg-[#f0f0f0]">
                     Blog
 
-                  
+
                     <svg
                       className="ml-2"
                       stroke="currentColor"
@@ -636,7 +667,7 @@ function Navbar() {
                 </svg>
               </Link>
               <div class="absolute top-0 lg:top-0 -right-1 transform translate-x-1/3 -translate-y-1/3 bg-black text-white text-xs font-bold w-[18px] h-[18px] text-[10px] rounded-full flex items-center justify-center">
-              {cartItemCount} 
+                {cartItemCount}
               </div>
             </div>
           </div>

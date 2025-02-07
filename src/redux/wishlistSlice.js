@@ -1,45 +1,55 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// Initial state from localStorage
 const initialState = {
-  wishlist: JSON.parse(localStorage.getItem('wishlist')) || [], // Load wishlist or use empty array
+  wishlist: JSON.parse(localStorage.getItem('wishlist')) || [], 
 };
 
 const wishlistSlice = createSlice({
   name: 'wishlist',
   initialState,
   reducers: {
-    // Add product to wishlist
     addToWishlist: (state, action) => {
       const newItem = action.payload;
 
-      // Check if item already exists in wishlist
+      if (!newItem || !newItem.id) {
+        console.error('Invalid product object:', newItem);
+        return;  
+      }
+
+      if (!Array.isArray(state.wishlist)) {
+        state.wishlist = [];
+      }
+
       const existingItem = state.wishlist.find(item => item.id === newItem.id);
 
       if (!existingItem) {
-        state.wishlist.push(newItem); // Add item if not already in wishlist
+        state.wishlist.push(newItem); 
       }
 
-      // Update localStorage with the new wishlist
       localStorage.setItem('wishlist', JSON.stringify(state.wishlist));
     },
 
-    // Remove product from wishlist
     removeFromWishlist: (state, action) => {
-      // Remove the item with the matching id
-      state.wishlist = state.wishlist.filter(item => item.id !== action.payload.id);
+      const itemToRemove = action.payload;
 
-      // Update localStorage with the new wishlist
+      // Ensure the item to remove is valid
+      if (!itemToRemove || !itemToRemove.id) {
+        console.error('Invalid product object:', itemToRemove);
+        return; 
+      }
+
+      state.wishlist = state.wishlist.filter(item => item.id !== itemToRemove.id);
+      
       localStorage.setItem('wishlist', JSON.stringify(state.wishlist));
     },
 
-    // Clear the wishlist
     clearWishlist: (state) => {
-      state.wishlist = []; // Empty the wishlist
-      localStorage.setItem('wishlist', JSON.stringify(state.wishlist)); // Update localStorage
+      state.wishlist = [];
+      localStorage.setItem('wishlist', JSON.stringify(state.wishlist));  
     },
   },
 });
 
 export const { addToWishlist, removeFromWishlist, clearWishlist } = wishlistSlice.actions;
+
 export default wishlistSlice.reducer;

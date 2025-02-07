@@ -34,7 +34,7 @@ const News = () => {
 
     return (
         <div>
-            <div className="container py-3 mb-5 overflow-hidden">
+            <div className="container py-3 mb-8 overflow-hidden">
                 <div className='flex flex-col justify-center lg:justify-start'>
                     <h2 className="text-[30px] font-bold text-black">News</h2>
                     <p className="text-[16px] font-normal text-gray-500 lg:mb-6 mb-5">

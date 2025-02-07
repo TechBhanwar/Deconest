@@ -64,9 +64,8 @@ const Product = (product) => {
   });
 
   const sortedProducts = [...filteredProducts].sort((a, b) => {
-    console.log("Sorting based on:", sortOption);  // Debugging sortOption
+    console.log("Sorting based on:", sortOption); 
 
-    // Handling sorting for alphabetical order
     if (sortOption === 'alphabetical') {
       return (a.title || '').localeCompare(b.title || '');
     }
@@ -131,7 +130,7 @@ const Product = (product) => {
 
   const dispatch = useDispatch();
   const [showPopup, setShowPopup] = useState(false);
-
+const navigate = useNavigate();
   const handleAddToCart = (product) => {
     console.log('Adding product to cart:', product); // Log the product being added
     if (product && product.id) {
@@ -146,7 +145,9 @@ const Product = (product) => {
       setShowPopup(false);
     }, 3000);
   };
-const navigate = useNavigate();
+
+
+
 
 
 
@@ -422,7 +423,7 @@ const navigate = useNavigate();
                           </button>
                         </div>
                       </div>
-                      <div className='bg-[#d81717] text-white px-2 py-1 text-[10px] rounded-2xl absolute top-2 left-2'> {item.discount} % </div>
+                      <div className='bg-[#d81717] text-white px-2 py-1 text-[10px] rounded-2xl absolute top-2 left-2'> -{item.discount} % </div>
                   
 
 
@@ -505,9 +506,9 @@ const navigate = useNavigate();
 
 
         </div>
-        {/* Pagination Controls */}
+     
         <div className="flex justify-center items-center py-5 space-x-3">
-          {/* Previous Button */}
+        
           {currentPage > 1 && (
             <button
               className="rounded-full w-[45px] h-[45px] p-2 flex justify-center items-center border  border-[#8a8a8a]  text-[#8a8a8a] duration-300 hover:bg-black"
@@ -520,7 +521,7 @@ const navigate = useNavigate();
             </button>
           )}
 
-          {/* Page Number Buttons */}
+          
           {[...Array(totalPages)].map((_, index) => (
             <button
               key={index}
@@ -534,7 +535,7 @@ const navigate = useNavigate();
             </button>
           ))}
 
-          {/* Next Button */}
+       
           {currentPage < totalPages && (
             <button
               className="rounded-full w-[45px] h-[45px] p-2 flex justify-center items-center border border-[#8a8a8a]  text-[#8a8a8a] duration-300 hover:bg-black"

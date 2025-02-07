@@ -7,11 +7,10 @@ import { blogs } from '../data/data'; // Import blog data
 
 
 const Blogopen = () => {
-  const { id } = useParams(); // Get blog ID from URL
+  const { id } = useParams(); 
   const navigate = useNavigate();
   const blog = blogs.find(blog => blog.id === parseInt(id)); // Find the blog
 
-  // If no blog is found, show error
   if (!blog) {
     return (
       <div>
@@ -26,7 +25,6 @@ const Blogopen = () => {
     );
   }
 
-  // Get the previous and next blog details
   const currentIndex = blogs.findIndex(b => b.id === parseInt(id));
   const previousBlog = blogs[currentIndex - 1];
   const nextBlog = blogs[currentIndex + 1];
@@ -36,16 +34,16 @@ const Blogopen = () => {
         <div>
            <Navbar />
             <div className="container">
-                <div className='text-[15px] font-medium flex space-x-2 cursor-pointer'>
+                <div className='text-[16px] font-medium flex pt-3 space-x-2 cursor-pointer'>
                     <span  onClick={() => navigate(`/blog/`)} >Blog</span>
                     <span>/</span>
                     <span onClick={() => navigate(`/blog/`)}>{blog.category}</span>
                     <span>/</span>
                     <span>{blog.title}</span>
-                    <span></span> {/* Dynamically render the category name */}
+                    <span></span> 
                 </div>
 
-                <div className='flex flex-col justify-start items-start lg:justify-center lg:items-center py-6 space-y-4'>
+                <div className='flex flex-col justify-start items-start lg:justify-center lg:items-center py-2 space-y-4'>
                     <div className='w-full  lg:h-[700px]'>
                         <img src={blog.image} alt={blog.title} className='w-full h-full object-cover' />
                     </div>
@@ -71,7 +69,7 @@ const Blogopen = () => {
 
                 </div>
                 <div className="w-full lg:w-[75%] border-t border-b border-[#d6d6d6] py-7 lg:mx-auto flex justify-between items-center">
-        {/* Previous button */}
+      
         {previousBlog && (
           <span
             onClick={() => navigate(`/blog/${previousBlog.id}`)}
@@ -81,7 +79,6 @@ const Blogopen = () => {
           </span>
         )}
         
-        {/* Category button (if you want it in the middle) */}
         <div
       onClick={() => navigate(`/blog/`)} // Navigate to the specific blog page directly
       className="relative w-10 h-10 rounded-full text-black text-2xl flex justify-center items-center border border-[#d6d6d6] group cursor-pointer"
@@ -100,14 +97,12 @@ const Blogopen = () => {
     </svg>
   </span>
 
-  {/* Tooltip with arrow */}
   <div className="absolute w-[150px] bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-black text-white text-sm px-4 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md">
     <p className="text-center">Back to {blog.category}</p>
     <div className="absolute left-1/2 transform -translate-x-1/2 bottom-[-6px] w-0 h-0 border-l-[6px] border-r-[6px] border-t-[6px] border-t-black border-l-transparent border-r-transparent"></div>
   </div>
 </div>
 
-        {/* Next button */}
         {nextBlog && (
           <span
             onClick={() => navigate(`/blog/${nextBlog.id}`)}

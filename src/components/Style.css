@@ -11,22 +11,16 @@ body{
 
 }
 
-.sticky-navbar {
-  position: sticky !important;
-  top: 0 !important;
-  background-color: white;
-  z-index: 50;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: adds shadow */
-}
 
 
 
 
-/* Styling for the dots */
+
+
 .slick-dots {
-    bottom: 20px;             /* Positioning the dots below the slider */
+    bottom: 20px;           
     display: flex;
-    justify-content: center;  /* Center the dots horizontally */
+    justify-content: center; 
 }
 
 .slick-dots li {
@@ -34,50 +28,33 @@ body{
 }
 
 .slick-dots li button {
-    width: 10px;               /* Inactive dot width */
-    height: 10px;              /* Inactive dot height */
-    background: #ffffff;      /* Inactive dot background color */
-    border-width: 1px;        /* Border width for inactive dot */
-    border-radius: 50%;       /* Circular shape */
-    border-color: #ffffff;    /* Border color */
-    border-style: solid;      /* Solid border style */
+    width: 10px;              
+    height: 10px;            
+    background: #ffffff;     
+    border-width: 1px;      
+    border-radius: 50%;      
+    border-color: #ffffff;   
+    border-style: solid;     
     opacity: 1;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .slick-dots li.slick-active button {
-    background: transparent;  /* Active dot background is transparent */
-    border-color: #ffffff;    /* Active dot border color is white */
-    transform: scale(1.2);     /* Slightly increase the size of the active dot */
+    background: transparent; 
+    border-color: #ffffff;   
+    transform: scale(1.2);   
 }
 
-/* Optional: Hover effect for inactive dots */
 .slick-dots li button:hover {
     opacity: 1;
 }
 .slick-dots li button::before {
-    content: ''; /* Remove the default prefix content */
-    display: none; /* Hide the default prefix */
+    content: ''; 
+    display: none; 
 }
 
 
-.hoverbefore::before {
-  content: "";
-    width: 0;
-    height: 1px;
-    background: var(--menu-color);
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%);
-    transition: all .3s ease;
-    background-color: black;
-}
-.hoverbefore:hover::before {
-  width: 100%; /* Full width on hover */
-  left: 0; /* Start from the left */
-  transform: none; /* Reset centering */
-}
+
 
 .catogryproduct:hover{
   animation: shake 0.8s ease-in-out;
@@ -161,7 +138,6 @@ body{
   z-index: 9999;
 }
 
-/* Animation for search box slide-in */
 @keyframes slideInFromTop {
   0% {
     top: -60px; /* Start from above */
@@ -184,7 +160,6 @@ body{
   }
 }
 
-/* Style for search input */
 .search-input {
   display: flex;
     width: 100%;
@@ -200,7 +175,6 @@ body{
   border: 1px solid #e7e7e7;
 }
 
-/* Style for close button */
 .close-btn {
   background: none;
   border: none;
@@ -213,7 +187,6 @@ body{
   top: 5px;
 }
 
-/* Close button hover effect */
 .close-btn:hover {
   color: black;
 }
@@ -221,7 +194,6 @@ body{
 .search-box.slide-out {
   animation: slideOut 0.8s ease-out forwards;
 }
-/* Additional styles */
 .news_image{
   transition: all .8s ease;
 }
@@ -244,35 +216,31 @@ body{
 
   @media screen and (max-width: 768px) {
     
-   
-
-
     .slick-dots li button {
-      width: 8px;              /* Smaller dot width for small screens */
-      height: 8px;             /* Smaller dot height for small screens */
-      border-width: 0.5px;     /* Thinner border for small screens */
-      background-color: black; /* Background color for inactive dots */
-      border-color: black;     /* Border color for inactive dots */
-      border-style: solid;     /* Ensures border is solid */
+      width: 8px;             
+      height: 8px;            
+      border-width: 0.5px;     
+      background-color: black;
+      border-color: black;   
+      border-style: solid;   
     }
   
     .slick-dots li.slick-active button {
-      transform: scale(1.1);   /* Slightly larger active dot size */
-      border-color: black;     /* Active dot border color */
-      background-color: transparent; /* Transparent background for active dots */
-      border-width: 1px;       /* Slightly thicker border for active dots */
-      border-style: solid;     /* Ensures border is solid */
+      transform: scale(1.1);  
+      border-color: black;   
+      background-color: transparent; 
+      border-width: 1px;      
+      border-style: solid;   
     }
 
 
-/* Style for search box container */
 .search-box {
-  position: fixed; /* Use fixed positioning to place it in the center of the screen */
+  position: fixed;
   top: 30%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Center it vertically and horizontally */
+  transform: translate(-50%, -50%); 
   width: 100%;
-  max-width: 800px; /* Max width of the box */
+  max-width: 800px; 
   max-height: calc(100% - 200px);
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -285,25 +253,24 @@ body{
   z-index: 9999;
 }
 
-/* Animation for search box slide-in */
 @keyframes slideInFromTop {
   0% {
-    top: -60px; /* Start from above */
+    top: -60px; 
     opacity: 0;
   }
   100% {
-    top: 30%; /* Center vertically */
+    top: 30%;
     opacity: 1;
   }
 }
 
 @keyframes slideOut {
   0% {
-    top: 50%; /* Start from center */
+    top: 50%;
     opacity: 1;
   }
   100% {
-    top: -60px; /* Slide up and hide */
+    top: -60px; 
     opacity: 0;
   }
 }

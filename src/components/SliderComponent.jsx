@@ -3,15 +3,15 @@ import Slider from 'react-slick';
 
 const SliderComponent = () => {
     const settings = {
-        dots: true,               // To show navigation dots
-        infinite: true,           // Infinite loop of slides
-        speed: 1500,              // Transition speed (increase for smoother transition)
-        slidesToShow: 1,          // Number of slides to show at a time
-        slidesToScroll: 1,        // Number of slides to scroll on each scroll
-        autoplay: false,           // Enables autoplay
-        autoplaySpeed: 4000,      // Number of slides to scroll on each scroll (adjusted for smooth experience)
-        cssEase: 'ease-out',      // Smooth transition effect, 'ease-out' for smoother end movement
-        pauseOnHover: false,      // Disable pause on hover
+        dots: true,             
+        infinite: true,         
+        speed: 1500,              
+        slidesToShow: 1,         
+        slidesToScroll: 1,       
+        autoplay: false,         
+        autoplaySpeed: 4000,      
+        cssEase: 'ease-out',      
+        pauseOnHover: false,     
     };
 
     return (
@@ -37,6 +37,7 @@ const SliderComponent = () => {
                    <h2 className=' font-bold text-sm lg:text-4xl'>
                    Transform Your Living Room with Elegant Sofas
                    </h2>
+                  
                    <button className='px-3 py-1  lg:px-5 lg:py-2 border border-black lg:border-white rounded-3xl   hover:bg-black hover:text-white duration-300 hover:border-black' >Shop Now</button>
                     </div>
                 </div>

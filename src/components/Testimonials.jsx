@@ -6,6 +6,7 @@ const Testimonials = () => {
     const sliderRef = useRef(null);
     const settings = {
         dots: false,
+        arrows: false, 
         infinite: true,
         speed: 1500,
         slidesToShow: 1,
@@ -16,14 +17,14 @@ const Testimonials = () => {
         pauseOnHover: true,
         responsive: [
             {
-                breakpoint: 1024, // Tablet
+                breakpoint: 1024, 
                 settings: {
                     slidesToShow: 4,
                     slidesToScroll: 1,
                 },
             },
             {
-                breakpoint: 768, // Mobile
+                breakpoint: 768,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
@@ -133,7 +134,7 @@ const Testimonials = () => {
 
                     </div>
                     <div className='flex px-1 lg:px-0 justify-start lg:justify-end'>
-                        <img src="/images/testimonial1.jpg" alt="" className=' w-full lg:w-[95%] rounded-lg lg:shadow-md' />
+                        <img src="/images/testimonial1.jpg" alt="" className=' w-full lg:w-full rounded-lg ' />
                     </div>
                 </div>
             </div>

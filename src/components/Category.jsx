@@ -10,7 +10,6 @@ const Category = () => {
                     </h1>
                     <div className="py-9 flex flex-col lg:flex-row lg:space-x-9 space-y-3 lg:space-y-0">
                         <div className="flex flex-col lg:w-[66%] space-y-3 lg:space-y-9">
-                            {/* First Product */}
                             <div className="catogryproduct relative h-[199px] lg:h-[434px] rounded-[20px] overflow-hidden group duration-700">
                                 <img
                                     src="/images/Category1.jpg"
@@ -24,9 +23,7 @@ const Category = () => {
                                 </div>
                             </div>
 
-                            {/* Grid of Products */}
                             <div className="grid grid-cols-2 lg:grid-cols-2 gap-3 lg:gap-9">
-                                {/* Chair */}
                                 <div className="catogryproduct relative h-[277px] lg:h-[599px] rounded-[20px] overflow-hidden group duration-700">
                                     <img
                                         src="/images/Category3.jpg"
@@ -40,7 +37,6 @@ const Category = () => {
                                     </div>
                                 </div>
 
-                                {/* Lamp */}
                                 <div className="catogryproduct relative h-[277px] lg:h-[599px] rounded-[20px] overflow-hidden group duration-700">
                                     <img
                                         src="/images/Category4.jpg"
@@ -56,7 +52,6 @@ const Category = () => {
                             </div>
                         </div>
 
-                        {/* Furniture */}
                         <div className="catogryproduct relative lg:w-[33.9%] h-[600px] lg:h-[1069px] rounded-[20px] overflow-hidden group duration-700">
                             <img
                                 src="/images/Category2.jpg"
@@ -67,6 +62,8 @@ const Category = () => {
                                 <p className="text-white text-xl lg:text-2xl font-bold">
                                     Furniture
                                 </p>
+
+
                             </div>
                         </div>
                     </div>

@@ -48,7 +48,6 @@ const Shop = () => {
   };
 
 
-  // Image navigation functions
 
   const nextImage = () => {
     setCurrentImage((prev) => (prev === images.length - 1 ? 0 : prev + 1));
@@ -62,7 +61,7 @@ const Shop = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   const handleAddToCart = (product) => {
-    console.log('Adding product to cart:', product); // Log the product being added
+    console.log('Adding product to cart:', product); 
     if (product && product.id) {
       dispatch(addToCart(product));
     } else {
@@ -70,7 +69,6 @@ const Shop = () => {
     }
     setShowPopup(true);
 
-    // Hide popup after 3 seconds
     setTimeout(() => {
       setShowPopup(false);
     }, 3000);
@@ -80,9 +78,8 @@ const Shop = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // ✅ Filter related products dynamically
   useEffect(() => {
-    if (!product) return; // Prevent errors if product is not found
+    if (!product) return; 
 
     const relatedProducts = productItems.filter(
       (item) => item.category === product.category && item.id !== product.id
@@ -115,7 +112,7 @@ const Shop = () => {
 
         <div className='flex flex-row py-3 '>
           <ul className='text-black text-base flex space-x-3 cursor-pointer'>
-            <li>home<span className='text-gray-400 px-1'>/</span></li>
+            <li>Home<span className='text-gray-400 px-1'>/</span></li>
             <li>{product.category}<span className='text-gray-400 px-1'>/</span></li>
             <li>{product.title}</li>
 
@@ -146,14 +143,12 @@ const Shop = () => {
 
 
 
-              {/* Slider Box */}
               <div className='bg-pink-100 lg:order-2 order-1 relative rounded-lg lg:w-[720px] w-full py-10 h-96 lg:h-[900px] flex justify-center items-center overflow-hidden'>
                 <img src={`/${product.image}`} alt="Product" className='w-auto h-96 lg:h-fit  object-contain' />
                 <span className='bg-red-600 absolute top-3 px-2 py-1 rounded-full text-white text-sm font-medium right-3'>-{product.discount}%</span>
 
 
 
-                {/* Arrows */}
                 <button onClick={prevImage} className='absolute left-4  text-3xl  bg-white hover:bg-black hover:text-white duration-300 transition transform  lg:px-3 px-1 py-1 lg:py-3 rounded-full shadow-lg'>
                   <span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"></path></svg></span>
                 </button>
@@ -497,7 +492,6 @@ const Shop = () => {
                 <h1 className='text-gray-400 text-lg font-semibold'>Write a Review</h1>
                 <p className='text-gray-400 text-sm font-normal'>Rating</p>
                 <span className='flex flex-row text-orange-500'>
-                  {/* Stars Icons */}
                   {[...Array(5)].map((_, index) => (
                     <svg key={index} stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
                       <path d="M11.9998 17L6.12197 20.5902L7.72007 13.8906L2.48926 9.40983L9.35479 8.85942L11.9998 2.5L14.6449 8.85942L21.5104 9.40983L16.2796 13.8906L17.8777 20.5902L11.9998 17ZM11.9998 14.6564L14.8165 16.3769L14.0507 13.1664L16.5574 11.0192L13.2673 10.7554L11.9998 7.70792L10.7323 10.7554L7.44228 11.0192L9.94893 13.1664L9.18311 16.3769L11.9998 14.6564Z"></path>
@@ -505,7 +499,6 @@ const Shop = () => {
                   ))}
                 </span>
 
-                {/* Review Form */}
                 <p className='text-gray-400 text-base'>Review Title <span className='text-gray-400 text-sm'>(100)</span></p>
                 <input type="text" className='border outline-none w-full lg:w-[50%] px-3 py-2 flex justify-start items-start placeholder:text-gray-400 text-base' placeholder='Give your review a title' />
                 <p className='text-gray-400 text-xs'>Review</p>
