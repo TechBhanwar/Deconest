@@ -80,24 +80,24 @@ const Newarrival = () => {
 
         <Slider {...settings}>
           {slides.map((slide) => (
-            <div className="flex lg:flex-row lg:justify-between gap-10">
+            <div className="flex lg:flex-row lg:justify-between gap-10 lg:h-full ">
             <div
               
-              className="flex flex-row  group justify-between rounded-lg overflow-hidden bg-[#f5f5f5] w-full lg:w-[98%] lg:h-[450px] h-[380px]"
+              className="flex flex-row  group justify-between rounded-lg overflow-hidden bg-[#f5f5f5] w-full lg:w-[98%] lg:h-[450px] h-[300px]"
             >
 
-              <div className="flex overflow-hidden order-2  w-[50%] lg:h-full h-[350px]  ">
+              <div className="flex overflow-hidden order-2  w-[50%] lg:h-full h-[300px]  ">
                 <img
                   src={slide.img}
                   alt={slide.title}
                   className="transform  scale-100 group-hover:scale-110 transition-transform duration-500 ease-in-out"
                 />
               </div>
-              <div className="flex px-5 flex-col order-1 w-[50%] justify-center items-center">
-                <h1 className="lg:text-4xl text-2xl mb-7 text-black font-semibold">
+              <div className="flex px-5 flex-col order-1 w-[50%] justify-center items-center space-y-2 lg:space-y-4">
+                <h1 className="lg:text-4xl text-2xl  text-black font-semibold">
                   {slide.title}
                 </h1>
-                <p className="lg:text-2xl  mb-6 text-gray-400 font-medium">
+                <p className="lg:text-2xl  text-gray-400 font-medium">
                   {slide.description}
                 </p>
                 <button className="lg:px-5 lg:py-3 px-4 py-2  bg-transparent border-black border font-medium hover:bg-black hover:text-white transition duration-300 rounded-full">
