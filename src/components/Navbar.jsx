@@ -213,22 +213,22 @@ function Navbar() {
 
               <li className="flex items-center cursor-pointer group py-6">
                 {/* Home text and SVG icon */}
-                <Link to="/"   > 
-                <div className="relative after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-full group-hover:after:left-0 group-hover:after:translate-x-0 flex items-center peer">
-                  Home
-                  <svg
-                    stroke="currentColor"
-                    fill="currentColor"
-                    strokeWidth="0"
-                    viewBox="0 0 24 24"
-                    height="1.5em"
-                    width="1.5em"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="text-black"
-                  >
-                    <path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path>
-                  </svg>
-                </div>
+                <Link to="/"   >
+                  <div className="relative after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-full group-hover:after:left-0 group-hover:after:translate-x-0 flex items-center peer">
+                    Home
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth="0"
+                      viewBox="0 0 24 24"
+                      height="1.5em"
+                      width="1.5em"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="text-black"
+                    >
+                      <path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path>
+                    </svg>
+                  </div>
                 </Link>
 
 
@@ -328,22 +328,22 @@ function Navbar() {
                 </div>
               </li>
               <li className=" flex items-center cursor-pointer group py-6">
-                <Link to="/Product"   > 
+                <Link to="/Product"   >
                   <div className=" after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-full group-hover:after:left-0 group-hover:after:translate-x-0 relative flex items-center peer ">
-                  Product
-                  <svg
-                    stroke="currentColor"
-                    fill="currentColor"
-                    strokeWidth="0"
-                    viewBox="0 0 24 24"
-                    height="1.5em"
-                    width="1.5em"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="text-black "
-                  >
-                    <path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path>
-                  </svg>
-                </div>
+                    Product
+                    <svg
+                      stroke="currentColor"
+                      fill="currentColor"
+                      strokeWidth="0"
+                      viewBox="0 0 24 24"
+                      height="1.5em"
+                      width="1.5em"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="text-black "
+                    >
+                      <path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path>
+                    </svg>
+                  </div>
                 </Link>
 
                 <div
@@ -400,22 +400,22 @@ function Navbar() {
                 </div>
               </li>
 
-                <li className="group relative flex items-center cursor-pointer ">
+              <li className="group relative flex items-center cursor-pointer ">
                 <Link to="/blog"   >
-                     <div className=" after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-full group-hover:after:left-0 group-hover:after:translate-x-0 relative flex items-center peer ">
-                Blog
-                <svg stroke="currentColor" fill="black" stroke-width="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path>
-                </svg>
-</div></Link>
+                  <div className=" after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-full group-hover:after:left-0 group-hover:after:translate-x-0 relative flex items-center peer ">
+                    Blog
+                    <svg stroke="currentColor" fill="black" stroke-width="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path>
+                    </svg>
+                  </div></Link>
               </li>
               <li className="group relative flex items-center cursor-pointer">
-              <div className=" after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-full group-hover:after:left-0 group-hover:after:translate-x-0 relative flex items-center peer ">
-                Featured
-                <svg stroke="currentColor" fill="black" stroke-width="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path>
-                </svg>
-</div>
+                <div className=" after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-full group-hover:after:left-0 group-hover:after:translate-x-0 relative flex items-center peer ">
+                  Featured
+                  <svg stroke="currentColor" fill="black" stroke-width="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path>
+                  </svg>
+                </div>
               </li>
             </ul>
 
@@ -445,8 +445,9 @@ function Navbar() {
                   <path d="M20.031,20.79c0.46,0.46,1.17-0.25,0.71-0.7l-3.75-3.76c1.27-1.41,2.04-3.27,2.04-5.31 c0-4.39-3.57-7.96-7.96-7.96s-7.96,3.57-7.96,7.96c0,4.39,3.57,7.96,7.96,7.96c1.98,0,3.81-0.73,5.21-1.94L20.031,20.79z M4.11,11.02c0-3.84,3.13-6.96,6.96-6.96c3.84,0,6.96,3.12,6.96,6.96c0,3.84-3.12,6.96-6.96,6.96C7.24,17.98,4.11,14.86,4.11,11.02 z"></path>
                 </svg>
                 {isSearchOpen && (
-                  <div className={`search-box ${isClosing ? 'slide-out' : ''}`}>
-                    <div className="search-input flex space-x-2 items-center">
+                  <div className={` fixed top-[20%] left-[48%] transform -translate-x-1/2 w-[95%] mr-4  max-h-[calc(100%-200px)] bg-white shadow-lg flex items-center justify-center mx-auto  px-[20px] py-[50px] ${isClosing ? 'animate-slideOut' : 'animate-slideInFromTop'} z-[9999]  `}>
+
+                    <div className="search-input flex items-center w-full h-[50px] leading-[48px] relative border border-[#e7e7e7] rounded-[5px] pl-[10px] text-base outline-none transition-all duration-300 ease-in-out">
                       <svg
                         stroke="currentColor"
                         fill="black"
@@ -470,7 +471,7 @@ function Navbar() {
                         className="w-full border-none outline-none"
                       />
                     </div>
-                    <button className="close-btn" onClick={closeSearch}>
+                    <button className="absolute right-[15px] top-[5px] text-[1.5rem] text-[#333] bg-none border-none cursor-pointer transition-all duration-300 ease-in-out hover:text-black" onClick={closeSearch}>
                       &times;
                     </button>
                   </div>
@@ -608,10 +609,15 @@ function Navbar() {
                   <path d="M20.031,20.79c0.46,0.46,1.17-0.25,0.71-0.7l-3.75-3.76c1.27-1.41,2.04-3.27,2.04-5.31 c0-4.39-3.57-7.96-7.96-7.96s-7.96,3.57-7.96,7.96c0,4.39,3.57,7.96,7.96,7.96c1.98,0,3.81-0.73,5.21-1.94L20.031,20.79z M4.11,11.02c0-3.84,3.13-6.96,6.96-6.96c3.84,0,6.96,3.12,6.96,6.96c0,3.84-3.12,6.96-6.96,6.96C7.24,17.98,4.11,14.86,4.11,11.02 z"></path>
                 </svg>
 
-                {/* Search Box */}
+              
                 {isSearchOpen && (
-                  <div className={`search-box ${isClosing ? 'slide-out' : ''}`}>
-                    <div className="search-input flex space-x-2 items-center">
+                 <div
+                 className={`fixed top-[25%] left-1/2 transform -translate-x-1/2 w-[800px] lg:w-full lg:max-w-[1200px] max-h-[calc(100%-200px)] bg-white shadow-lg flex items-center justify-between px-[90px] py-[70px] 
+                   ${isClosing ? 'animate-slideOutDesktop' : 'animate-slideInFromTopDesktop'} 
+                   z-[9999] transition-all duration-300 ease-out 
+                   `}
+               >
+                    <div className="search-input flex items-center w-full h-[50px] leading-[48px] relative border border-[#e7e7e7] rounded-[5px] pl-[10px] text-base outline-none transition-all duration-300 ease-in-out">
                       <svg
                         stroke="currentColor"
                         fill="black"
@@ -635,10 +641,16 @@ function Navbar() {
                         className="w-full border-none outline-none"
                       />
                     </div>
-                    <button className="close-btn" onClick={closeSearch}>
-                      &times;
-                    </button>
+
+                    <button
+  className="absolute right-[15px] top-[5px] text-[1.5rem] text-[#333] bg-none border-none cursor-pointer transition-all duration-300 ease-in-out hover:text-black"
+  onClick={closeSearch}
+>
+  &times;
+</button>
+
                   </div>
+
                 )}
               </div>
 

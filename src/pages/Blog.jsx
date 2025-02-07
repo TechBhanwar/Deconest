@@ -46,34 +46,45 @@ const Blog = () => {
                     <div>
                         <ul className='flex flex-row space-x-4 lg:space-x-14 text-[12px] lg:text-[18px] font-semibold'>
                             <li
-                                className={`hoverbefore relative cursor-pointer ${selectedCategory === 'Dining & Kitchen' ? 'text-black' : 'text-gray-500'}`}
+                                className={`group relative cursor-pointer ${selectedCategory === 'Dining & Kitchen' ? 'text-black' : 'text-gray-500'}`}
                                 onClick={() => handleCategoryClick('Dining & Kitchen')}
                             >
-                                Dining & Kitchen
+  <span className="relative after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:bottom-[-2px] after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-full group-hover:after:left-0 group-hover:after:translate-x-0">
+  Dining & Kitchen
+  </span>
                             </li>
                             <li
-                                className={`hoverbefore relative cursor-pointer ${selectedCategory === 'Furniture' ? 'text-black' : 'text-gray-500'}`}
+                                className={`group relative cursor-pointer ${selectedCategory === 'Furniture' ? 'text-black' : 'text-gray-500'}`}
                                 onClick={() => handleCategoryClick('Furniture')}
                             >
-                                Furniture
+                                   
+                                   <span className="relative after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:bottom-[-2px] after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-full group-hover:after:left-0 group-hover:after:translate-x-0">
+    Furniture
+  </span>
                             </li>
                             <li
-                                className={`hoverbefore relative cursor-pointer ${selectedCategory === 'Home Decor' ? 'text-black' : 'text-gray-500'}`}
+                                className={`group relative cursor-pointer ${selectedCategory === 'Home Decor' ? 'text-black' : 'text-gray-500'}`}
                                 onClick={() => handleCategoryClick('Home Decor')}
                             >
-                                Home Decor
+                                       <span className="relative after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:bottom-[-2px] after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-full group-hover:after:left-0 group-hover:after:translate-x-0">
+                                       Home Decor
+  </span>
                             </li>
                             <li
-                                className={`hoverbefore relative cursor-pointer ${selectedCategory === 'News' ? 'text-black' : 'text-gray-500'}`}
+                                className={`group relative cursor-pointer ${selectedCategory === 'News' ? 'text-black' : 'text-gray-500'}`}
                                 onClick={() => handleCategoryClick('News')}
                             >
-                                News
+                               <span className="relative after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:bottom-[-2px] after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-full group-hover:after:left-0 group-hover:after:translate-x-0">
+    News
+  </span>
                             </li>
                             <li
-                                className={`hoverbefore relative cursor-pointer ${selectedCategory === 'Life Style' ? 'text-black' : 'text-gray-500'}`}
+                                className={`group relative cursor-pointer ${selectedCategory === 'Life Style' ? 'text-black' : 'text-gray-500'}`}
                                 onClick={() => handleCategoryClick('Life Style')}
                             >
-                                Life Style
+                                 <span className="relative after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:bottom-[-2px] after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-full group-hover:after:left-0 group-hover:after:translate-x-0">
+                                 Life Style
+  </span>
                             </li>
                         </ul>
                     </div>

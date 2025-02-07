@@ -53,12 +53,13 @@ const SliderComponent = () => {
                     </div>
                 </div>
             </Slider>
+            
         </div>
         <div class="py-[28px] overflow-hidden  border-b border-black border-opacity-10">
         <ul className="flex w-[100000000000px] space-x-5 text-[14px] text-black font-medium">
     {[...Array(50)].map((_, index) => (
-      <li key={index} className="marquee">
-        <div className="wpbingo-title flex flex-row space-x-5">
+      <li key={index} className="animate-marquee" >
+        <div className=" flex flex-row space-x-5">
           <h5>20% OFF YOUR FIRST ORDER</h5> <span>*</span>
         </div>
       </li>

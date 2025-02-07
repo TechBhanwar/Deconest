@@ -45,13 +45,14 @@ const News = () => {
                     {homeDecorNews.map((item) => (
                         <div>
                             <div className='flex flex-col space-y-3 px-2 lg:px-3'>
-                                <div className="w-full news_image h-[200px] lg:h-[420px] rounded-3xl overflow-hidden group  transition-transform cursor-pointer ">
-                                    <img
-                                        src={item.image}
-                                        alt=""
-                                        className="h-full w-full transform scale-100 group-hover:scale-125 transition-transform  ease-in-out"
-                                    />
-                                </div>
+                            <div className="w-full transition-all duration-500 ease-in-out h-[200px] lg:h-[420px] rounded-3xl overflow-hidden group cursor-pointer">
+  <img
+    src={item.image}
+    alt=""
+    className="h-full w-full transform scale-100 group-hover:scale-125 transition-all duration-500 ease-in-out"
+  />
+</div>
+
                                 <time className='text-[18px]'>{item.date}</time>
                                 <h2 className='text-[20px] lg:text-[25px] font-semibold'>{item.title}</h2>
                                 <div>
