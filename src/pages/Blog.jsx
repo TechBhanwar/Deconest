@@ -152,7 +152,7 @@ const Blog = () => {
                                 <div className="max-w-lg bg-white rounded-lg  overflow-hidden">
                                     <div className="flex">
                                         <div className="w-1/3  flex justify-center items-center">
-                                            <img src="/images/SideBlog1.jpg" alt='' className="  object-cover" />
+                                            <img src="/images/SideBlog1.webp" alt='' className="  object-cover" />
                                         </div>
                                         <div className="w-2/3 p-4">
                                             <span className='text-[14px] text-[#8a8a8a]'>News</span>
@@ -164,7 +164,7 @@ const Blog = () => {
                                 <div className="max-w-lg bg-white rounded-lg  overflow-hidden">
                                     <div className="flex">
                                         <div className="w-1/3 flex justify-center items-center">
-                                            <img src="/images/SideBlog2.jpg" alt='' className=" object-cover" />
+                                            <img src="/images/SideBlog2.webp" alt='' className=" object-cover" />
                                         </div>
                                         <div className="w-2/3 p-4">
                                             <span className='text-[14px] text-[#8a8a8a]'>News</span>
@@ -176,7 +176,7 @@ const Blog = () => {
                                 <div className="max-w-lg bg-white rounded-lg  overflow-hidden">
                                     <div className="flex">
                                         <div className="w-1/3 flex justify-center items-center">
-                                            <img src="/images/SideBlog2.jpg" alt='' className=" object-cover" />
+                                            <img src="/images/SideBlog2.webp" alt='' className=" object-cover" />
                                         </div>
                                         <div className="w-2/3 p-4">
                                             <div class="flex str justify-start mb-1 gap-1 items-center"><svg stroke="currentColor" fill="gray" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M496 203.3H312.36L256 32l-56.36 171.3H16l150.21 105.4-58.5 171.3L256 373.84 404.29 480l-58.61-171.3z"></path></svg><svg stroke="currentColor" fill="gray" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M496 203.3H312.36L256 32l-56.36 171.3H16l150.21 105.4-58.5 171.3L256 373.84 404.29 480l-58.61-171.3z"></path></svg><svg stroke="currentColor" fill="gray" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M496 203.3H312.36L256 32l-56.36 171.3H16l150.21 105.4-58.5 171.3L256 373.84 404.29 480l-58.61-171.3z"></path></svg><svg stroke="currentColor" fill="gray" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M496 203.3H312.36L256 32l-56.36 171.3H16l150.21 105.4-58.5 171.3L256 373.84 404.29 480l-58.61-171.3z"></path></svg><svg stroke="currentColor" fill="gray" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M496 203.3H312.36L256 32l-56.36 171.3H16l150.21 105.4-58.5 171.3L256 373.84 404.29 480l-58.61-171.3z"></path></svg></div>

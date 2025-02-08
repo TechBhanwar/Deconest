@@ -9,24 +9,19 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/cartSlice';
 
 
-const images = [
-  "/images/product5.png",
-  "/images/product6.png",
-  "/images/product3.png",
-  "/images/product2.png"
-];
+
 
 const Shop = () => {
 
 
   const { id } = useParams(); // URL se product ID le raha hai
   const product = productItems.find((product) => product.id === parseInt(id));
+  const [currentImage, setCurrentImage] = useState(product ? product.image : "");
 
   const [showReviewBox, setShowReviewBox] = useState(false);
   const [activeTab, setActiveTab] = useState("Description");
   const [isChecked, setIsChecked] = useState(false);
   const [quantity, setQuantity] = useState(1);
-  const [currentImage, setCurrentImage] = useState(0);
 
   const [categoryProducts, setCategoryProducts] = useState([]);
 
@@ -49,13 +44,7 @@ const Shop = () => {
 
 
 
-  const nextImage = () => {
-    setCurrentImage((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-  };
-
-  const prevImage = () => {
-    setCurrentImage((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-  };
+  
 
   const dispatch = useDispatch();
   const [showPopup, setShowPopup] = useState(false);
@@ -96,9 +85,32 @@ const Shop = () => {
       <Footer />
     </div>;
   }
+  const sameCategoryProducts = productItems
+  .filter((item) => item.category === product.category && item.id !== product.id)
+  .map((item) => item.image);
 
+// Randomly 3-4 images select karne ka function
+const getRandomImages = (images, count) => {
+  let shuffled = [...images].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+};
 
+const randomImages = getRandomImages(sameCategoryProducts, 3); // 3 random images
 
+// State to track selected image
+
+// Image change karne ka function
+const prevImage = () => {
+  const currentIndex = randomImages.indexOf(currentImage);
+  const newIndex = (currentIndex - 1 + randomImages.length) % randomImages.length;
+  setCurrentImage(randomImages[newIndex]);
+};
+
+const nextImage = () => {
+  const currentIndex = randomImages.indexOf(currentImage);
+  const newIndex = (currentIndex + 1) % randomImages.length;
+  setCurrentImage(randomImages[newIndex]);
+};
 
 
 
@@ -120,44 +132,45 @@ const Shop = () => {
         </div>
 
 
-        <div className='flex lg:flex-row space-x-0 mb-10 space-y-3 lg:space-y-0 lg:space-x-20 flex-col'>
+        <div className='flex lg:flex-row space-x-0 mb-10 space-y-3 lg:space-y-0 lg:space-x-10 flex-col'>
           <div className='flex flex-col space-y-7'>
 
-            <div className='flex lg:flex-row flex-col  lg:space-y-3 space-y-0 space-x-0 lg:space-x-7 '>
+            <div className='flex lg:flex-row flex-col lg:space-y-1  space-x-0 lg:space-x-7 '>
 
 
 
-              <div className='flex flex-row lg:flex-col lg:order-1 order-2 lg:space-y-4 space-y-3 space-x-5 lg:space-x-0 items-center'>
-                {images.map((img, index) => (
-                  <div key={index} className="hover:border border-black pt-1 rounded-md transition-transform duration-300">
-                    <div
-                      className="bg-pink-100 lg:px-6 px-7 flex justify-center hover:scale-75 items-center py-8 lg:py-7 rounded-md transition-transform duration-300"
-                      onClick={() => setCurrentImage(index)} // Set the clicked thumbnail as the main image
-
-                    >
-                      <img src={img} alt="Product" className="w-9" />
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-
-
-              <div className='bg-pink-100 lg:order-2 order-1 relative rounded-lg lg:w-[720px] w-full py-10 h-96 lg:h-[900px] flex justify-center items-center overflow-hidden'>
-                <img src={`/${product.image}`} alt="Product" className='w-auto h-96 lg:h-fit  object-contain' />
-                <span className='bg-red-600 absolute top-3 px-2 py-1 rounded-full text-white text-sm font-medium right-3'>-{product.discount}%</span>
+            <div className='flex flex-row lg:flex-col lg:order-1 order-2 py-4 lg:py-0 lg:space-y-4 space-x-5 lg:space-x-0 items-center'>
+  {randomImages.map((img, index) => (
+    <div key={index} className="hover:border border-black pt-1 rounded-md transition-transform duration-300">
+      <div
+        className="bg-pink-100 lg:px-3 px-7 flex justify-center hover:scale-75 items-center py-8 lg:py-7 rounded-md transition-transform duration-300"
+        onClick={() => setCurrentImage(img)} // Click par image change hogi
+      >
+        <img src={`/${img}`} alt="Product" className="w-20" />
+      </div>
+    </div>
+  ))}
+</div>
 
 
 
-                <button onClick={prevImage} className='absolute left-4  text-3xl  bg-white hover:bg-black hover:text-white duration-300 transition transform  lg:px-3 px-1 py-1 lg:py-3 rounded-full shadow-lg'>
-                  <span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"></path></svg></span>
-                </button>
-                <button onClick={nextImage} className='absolute right-4 text-3xl bg-white hover:bg-black hover:text-white duration-300 transition transform lg:px-3 px-1 py-1 lg:py-3 rounded-full shadow-lg'>
-                  <span>
-                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
-                  </span>
-                </button>
-              </div>
+
+<div className='bg-pink-100 lg:order-2 order-1 relative rounded-lg lg:w-[720px] w-full py-10 h-96 lg:h-[900px] flex justify-center items-center overflow-hidden'>
+  <img src={`/${currentImage}`} alt="Product" className='w-auto h-96 lg:h-fit  object-contain' />
+  <span className='bg-red-600 absolute top-3 px-2 py-1 rounded-full text-white text-sm font-medium right-3'>-{product.discount}%</span>
+
+  {/* Previous Button */}
+  <button onClick={prevImage} className='absolute left-4 text-3xl bg-white hover:bg-black hover:text-white duration-300 transition transform lg:px-3 px-1 py-1 lg:py-3 rounded-full shadow-lg'>
+    <span><svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"></path></svg></span>
+  </button>
+
+  {/* Next Button */}
+  <button onClick={nextImage} className='absolute right-4 text-3xl bg-white hover:bg-black hover:text-white duration-300 transition transform lg:px-3 px-1 py-1 lg:py-3 rounded-full shadow-lg'>
+    <span>
+      <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
+    </span>
+  </button>
+</div>
             </div>
           </div>
 
@@ -350,11 +363,11 @@ const Shop = () => {
                   <p className='text-black lg:text-lg text-sm'>Guaranteed Checkout</p>
                 </div>
                 <div className='flex flex-row space-x-4 lg:space-x-8 justify-center items-center px-5'>
-                  <img src="/images/visa.png" alt="" className='lg:w-16 w-14' />
-                  <img src="/images/pngegg.png" alt="" className='lg:w-16 w-14' />
-                  <img src="/images/american-express.png" alt="" className='lg:w-16 w-14' />
-                  <img src="/images/stripe.png" alt="" className='lg:w-16 w-14' />
-                  <img src="/images/shopify.png" alt="" className='lg:w-16 w-14' />
+                  <img src="/images/visa.webp" alt="" className='lg:w-16 w-14' />
+                  <img src="/images/pngegg.webp" alt="" className='lg:w-16 w-14' />
+                  <img src="/images/american-express.webp" alt="" className='lg:w-16 w-14' />
+                  <img src="/images/stripe.webp" alt="" className='lg:w-16 w-14' />
+                  <img src="/images/shopify.webp" alt="" className='lg:w-16 w-14' />
                 </div>
 
               </div>
@@ -504,8 +517,21 @@ const Shop = () => {
                 <p className='text-gray-400 text-xs'>Review</p>
                 <textarea name="" id="" rows="5" className='border w-full lg:w-[50%] px-2 py-2 active:outline-none focus:outline-none active:border-none' placeholder='Write your comments here'></textarea>
 
-                <label htmlFor="" className='text-gray-400'>Upload your image</label>
-                <input type="file" name="media" className="lg:w-56 w-full h-24 lg:h-44 border appearance-none" multiple accept="image/gif,image/jpeg,image/jpg,image/png,image/webp" aria-label="" />
+                <label for="uploadFile1"
+      class="bg-white text-gray-500 font-semibold text-base rounded max-w-lg px-2 h-48 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300 border-dashed mx-auto font-[sans-serif]">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-11 mb-2 fill-gray-500" viewBox="0 0 32 32">
+        <path
+          d="M23.75 11.044a7.99 7.99 0 0 0-15.5-.009A8 8 0 0 0 9 27h3a1 1 0 0 0 0-2H9a6 6 0 0 1-.035-12 1.038 1.038 0 0 0 1.1-.854 5.991 5.991 0 0 1 11.862 0A1.08 1.08 0 0 0 23 13a6 6 0 0 1 0 12h-3a1 1 0 0 0 0 2h3a8 8 0 0 0 .75-15.956z"
+          data-original="#000000" />
+        <path
+          d="M20.293 19.707a1 1 0 0 0 1.414-1.414l-5-5a1 1 0 0 0-1.414 0l-5 5a1 1 0 0 0 1.414 1.414L15 16.414V29a1 1 0 0 0 2 0V16.414z"
+          data-original="#000000" />
+      </svg>
+      Upload file
+
+      <input type="file" id='uploadFile1' class="hidden" />
+      <p class="text-xs font-medium text-gray-400 mt-2">PNG, JPG SVG, WEBP, and GIF are Allowed.</p>
+    </label>
 
                 <label htmlFor="" className='text-gray-400 text-sm lg:text-base '>Name displayed Publicly</label>
                 <input type="text" className='border outline-none w-full lg:w-[50%] px-3 py-2 flex justify-start items-start placeholder:text-gray-400 text-sm lg:text-base' placeholder='Enter your name (public)' />
@@ -513,7 +539,7 @@ const Shop = () => {
                 <p className='text-gray-400  text-sm lg:text-base flex text-center'>Email</p>
                 <input type="text" className='border outline-none w-full lg:w-[50%] px-3 py-2 flex justify-start items-start placeholder:text-gray-400 text-sm lg:text-base' placeholder='Enter your email (private)' />
 
-                <div className=' w-full lg:w-[50%]  lg:py-4 text-gray-400  text-sm lg:text-lg  lg:h-14 flex justify-center items-center'>
+                <div className=' w-full lg:w-[50%]  lg:py-4 text-gray-400  text-sm lg:text-sm  lg:h-14 flex justify-center items-center'>
                   How we use your data: We’ll only contact you about the review you left, and only if necessary. By submitting your review, you agree to Judge.me’s terms, privacy, and content policies.
                 </div>
 

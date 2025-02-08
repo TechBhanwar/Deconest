@@ -7,7 +7,7 @@ const Newarrival = () => {
   const slides = [
     {
       id: 1,
-      img: "/images/newarrival1.png",
+      img: "/images/newarrival1.webp",
       title: "Hanging Light",
       description: "Get Up To 60% Off",
       
@@ -17,21 +17,21 @@ const Newarrival = () => {
       id: 2,
       title: "Side Table",
       description: "Get Up To 60% Off",
-      img: "/images/newarrival2.png",
+      img: "/images/newarrival2.webp",
       buttonText: "Shop Now",
     },
     {
       id: 3,
       title: "Modern Chair",
       description: "Get Up To 50% Off",
-      img: "/images/newarrival3.png",
+      img: "/images/newarrival3.webp",
       buttonText: "Shop Now",
     },
     {
       id: 4,
       title: "Chain Lamp",
       description: "Get Up To 50% Off",
-      img: "/images/newarrival4.png",
+      img: "/images/newarrival4.webp",
       buttonText: "Shop Now",
     },
   ];
@@ -40,11 +40,11 @@ const Newarrival = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 1500,
     slidesToShow: 2,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 3000,
     arrows: true,
 
     responsive: [             

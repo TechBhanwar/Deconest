@@ -10,11 +10,11 @@ import { useNavigate } from "react-router-dom";
 
 
 const categories = [
-  { name: "All", image: "/images/Prodcut_cataegory1.jpg" },
-  { name: "Home Decor", image: "/images/Prodcut_cataegory5.jpg" },
-  { name: "Table", image: "/images/Prodcut_cataegory3.jpg" },
-  { name: "Furniture", image: "/images/Prodcut_cataegory4.jpg" },
-  { name: "Lighting", image: "/images/Prodcut_cataegory2.jpg" },
+  { name: "All", image: "/images/Prodcut_cataegory1.webp" },
+  { name: "Home Decor", image: "/images/Prodcut_cataegory5.webp" },
+  { name: "Table", image: "/images/Prodcut_cataegory3.webp" },
+  { name: "Furniture", image: "/images/Prodcut_cataegory4.webp" },
+  { name: "Lighting", image: "/images/Prodcut_cataegory2.webp" },
 ];
 
 const Product = (product) => {
@@ -309,7 +309,7 @@ const navigate = useNavigate();
                 </svg>
               ))}
             </div>
-<h5 className="text-lg font-bold line-clamp-2 overflow-hidden">
+<h5 className="text-lg font-semibold line-clamp-2 overflow-hidden">
   {item.title}
 </h5>
             <span className='text-[14px] font-semibold '>{item.realPrice}₹/-</span>
@@ -460,7 +460,7 @@ const navigate = useNavigate();
             </div>
             {isModalOpen && selectedProduct && (
               <div className="modal fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center">
-                <div className="bg-white rounded-lg w-[53%] relative p-6">
+                <div className="bg-white rounded-lg w-[53%] relative p-6 h-auto">
                   <div className="flex">
                     <div className="w-1/2 flex justify-center items-center">
                       <img src={selectedProduct.image} alt={selectedProduct.name} className="w-72" />
@@ -475,9 +475,9 @@ const navigate = useNavigate();
                       <hr />
                       <p className="text-[15px] text-[#71797E]">{selectedProduct.description}</p>
 
-                      <div className=' flex space-x-2'> <h1 className='font-semibold'>material:- </h1><span className=''>{selectedProduct.material}</span></div>
-                      <div className='flex space-x-1 items-center'>
-                        <span className="text-black text-sm font-semibold">Colors: </span>
+                      <div className=' flex space-x-1'> <h1 className='font-semibold w-[5.5rem]'>material:- </h1><span className=''>{selectedProduct.material}</span></div>
+                      <div className='flex  items-center'>
+                        <span className="text-black text-sm font-semibold  w-[5.5rem]">Colors: </span>
                         <div className="flex space-x-2">
                           {selectedProduct.colors.map((color, index) => (
                             <div
@@ -488,6 +488,9 @@ const navigate = useNavigate();
                           ))}
                         </div>
                       </div>
+                      <div className=' flex space-x-1'> <h1 className='font-semibold  w-[5.5rem]'>Brand:-</h1><span className=''>{selectedProduct.brand}</span></div>
+                      <div className=' flex space-x-1'> <h1 className='font-semibold  w-[5.5rem]'>Warnty:-</h1><span className=''>{selectedProduct.warranty}</span></div>
+
                     </div>
 
                   </div>

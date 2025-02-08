@@ -59,7 +59,7 @@ const Login = () => {
               </div>
 
               <button className="flex items-center justify-center gap-2 border border-gray-300 font-semibold  py-4 px-5 rounded-3xl w-full  hover:bg-[#f2f4f3] transition duration-300">
-                <img src="/images/google.png" alt="" className="w-5 h-5" />
+                <img src="/images/google.webp" alt="" className="w-5 h-5" />
                 <span>Continue with Google</span>
               </button>
               <span className='px-2'>Don't have an account?
@@ -69,7 +69,7 @@ const Login = () => {
             </div>
             </form>
             <div className='w-full  lg:w-[55%] order-1 lg:order-2 h-full relative'>
-              <img src="/images/login.jpg" alt="" className='w-full h-full' />
+              <img src="/images/login.webp" alt="" className='w-full h-full' />
               <div className='absolute bg-black opacity-20 left-0 h-full top-0 w-full'></div>
             </div>
           </div>
