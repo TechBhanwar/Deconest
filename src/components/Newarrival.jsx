@@ -40,11 +40,11 @@ const Newarrival = () => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 1500,
     slidesToShow: 2,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 3000,
     arrows: true,
 
     responsive: [             

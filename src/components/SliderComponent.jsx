@@ -29,7 +29,7 @@ const SliderComponent = () => {
                    <button className='px-3 py-1  lg:px-5 lg:py-2 border border-black lg:border-white rounded-3xl   hover:bg-black hover:text-white duration-300 hover:border-black' >Shop Now</button>
                     </div>
                 </div>
-                <div className="relative h-[500px] lg:h-full">
+                <div className="relative h-[500px]  lg:h-full">
                     <img src="/images/slider2.jpg" alt="slide 2" className='h-[250px] lg:h-full w-full' />
                     <div className="absolute h-1/2 lg:top-0 left-0 right-0 bottom-11 flex flex-col space-y-3 items-center justify-center  bg-transparent lg:bg-black  lg:bg-opacity-20 lg:h-[900px] text-black lg:text-white">
                     <h1 className='text-xl font-bold text-black lg:hidden'>Elevate your space</h1>
