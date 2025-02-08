@@ -202,7 +202,7 @@ function Navbar() {
           <div className="flex lg:flex-row py-3 lg:py-1 px-1 lg:px-0 items-center justify-between">
 
             <div className="navbar-logo flex justify-center lg:px-0  order-2  lg:order-2">
-              <Link to="/"   >  <img className="w-32 lg:w-40" src="/images/logo.png" alt="logo" />
+              <Link to="/"   >  <img className="w-32 lg:w-40" src="/images/logo.webp" alt="logo" />
               </Link>
             </div>
 
@@ -238,11 +238,11 @@ function Navbar() {
                 >
                   <div className="container">
                     <div className="grid grid-cols-4">
-                      <img src="/images/shop1.jpg" alt="" className="w-[322px] h-[380px]" />
-                      <img src="/images/shop2.jpg" alt="" className="w-[322px] h-[380px]" />
+                      <img src="/images/shop1.webp" alt="" className="w-[322px] h-[380px]" />
+                      <img src="/images/shop2.webp" alt="" className="w-[322px] h-[380px]" />
 
-                      <img src="/images/shop1.jpg" alt="" className="w-[322px] h-[380px]" />
-                      <img src="/images/shop2.jpg" alt="" className="w-[322px] h-[380px]" />
+                      <img src="/images/shop1.webp" alt="" className="w-[322px] h-[380px]" />
+                      <img src="/images/shop2.webp" alt="" className="w-[322px] h-[380px]" />
                     </div>
                   </div>
                 </div>
@@ -274,8 +274,8 @@ function Navbar() {
                 >                  <div className="container">
                     <div className="grid grid-cols-2">
                       <div className="grid grid-cols-2">
-                        <img src="/images/shop1.jpg" alt="" className="w-[322px] h-[380px]" />
-                        <img src="/images/shop2.jpg" alt="" className="w-[322px] h-[380px]" />
+                        <img src="/images/shop1.webp" alt="" className="w-[322px] h-[380px]" />
+                        <img src="/images/shop2.webp" alt="" className="w-[322px] h-[380px]" />
                       </div>
                       <div className="grid grid-cols-3 gap-8">
                         <div>
@@ -495,7 +495,7 @@ function Navbar() {
 
                 </div>
                 <div className="px-3 py-3">
-                  <img className="w-44" src="./images/logo.png" alt="logo" />
+                  <img className="w-44" src="./images/logo.webp" alt="logo" />
                 </div>
                 <ul className="flex flex-col space-y-5 mt-4 px-3 text-[13px]">
                   <li className="px-4 py-4 bg-[#f0f0f0] cursor-pointer flex justify-between items-center rounded-lg border-b border-gray-300">

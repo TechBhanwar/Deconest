@@ -5,7 +5,7 @@ import {  removeFromCart, clearCart } from '../redux/cartSlice';
 import Footer from '../components/Footer';
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Footernav from '../components/Footernav';
 
 
@@ -298,7 +298,7 @@ const Productcart = () => {
 
                   I agree with the <h1 className="text-black underline font-medium ">Trems And Conditions</h1>
                 </span>
-                <button type="button" className="bg-[#212529] text-white  text-sm font-medium flex items-center justify-center rounded-full px-2 py-3">CHECK OUT</button>
+              <button type="button" className="bg-[#212529] text-white  text-sm font-medium flex items-center justify-center rounded-full px-2 py-3"><Link to="/checkin">CHECK OUT</Link> </button> 
 
               </div>
             </div>

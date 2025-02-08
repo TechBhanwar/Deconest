@@ -12,6 +12,7 @@ import Productcart from './pages/Productcart';
 import Product from './pages/Product';
 import Blog from './pages/Blog';
 import Blogopen from './pages/Blogopen';
+import CheckoutPage from './pages/CheckoutPage';
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<Blogopen />} />
           <Route path="/shop/:id" element={<Shop />} />
+          <Route path="/checkin" element={<CheckoutPage />} />
         </Routes>
       </BrowserRouter>
     </Provider>

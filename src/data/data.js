@@ -97,31 +97,31 @@ export { products, furniture, decor, kitchenDining };
 export const homeDecorNews = [
   {
     id: 1,
-    image: "/images/news1.jpg",
+    image: "/images/news1.webp",
     date: "January 14, 2024",
     title: "Exclusive Sofa Collection Launched for Modern Homes",
   },
   {
     id: 2,
-    image: "/images/news2.jpg",
+    image: "/images/news2.webp",
     date: "February 14, 2024",
     title: "Luxury Lamps to Brighten Up Your Living Space",
   },
   {
     id: 3,
-    image: "/images/news3.jpg",
+    image: "/images/news3.webp",
     date: "March 14, 2024",
     title: "Vintage Decor: Add a Touch of Elegance to Your Home",
   },
   {
     id: 4,
-    image: "/images/news4.jpg",
+    image: "/images/news4.webp",
     date: "April 14, 2024",
     title: "Stylish Kitchen Designs for a Modern Lifestyle",
   },
   {
     id: 5,
-    image: "/images/news5.jpg",
+    image: "/images/news5.webp",
     date: "May 14, 2024",
     title: "Comfortable and Elegant Bedroom Sets Now Available",
   },
@@ -134,7 +134,7 @@ export const productItems = [
 
   {
     "id": 1,
-    "image": "images/productItems1.png",
+    "image": "images/productItems1.webp",
     "title": "Sophisticated White and Gold Lamp for Luxury Interiors",
     "description": "A sophisticated white and gold lamp designed to elevate luxury interiors. Crafted with premium materials, it adds elegance and warmth to any space.",
     "cutPrice": 3500,
@@ -161,7 +161,7 @@ export const productItems = [
   },
   {
     "id": 2,
-    "image": "images/productItems2.png",
+    "image": "images/productItems2.webp",
     "title": "Elegant Vase with Golden Ornaments",
     "description": "A beautifully crafted vase adorned with intricate golden ornaments, perfect for adding a touch of luxury to any space.",
     "cutPrice": 5200,
@@ -188,7 +188,7 @@ export const productItems = [
   },
   {
     "id": 3,
-    "image": "images/productItems3.png",
+    "image": "images/productItems3.webp",
     "title": "3D Casa Padrino Luxury Rattan Armchair with Cushions",
     "description": "A premium rattan armchair featuring a luxurious design with comfortable cushions, perfect for elegant interiors.",
     "cutPrice": 13500,
@@ -215,7 +215,7 @@ export const productItems = [
   },
   {
     "id": 4,
-    "image": "images/productItems4.png",
+    "image": "images/productItems4.webp",
     "title": "Cherry Blossoms Vase",
     "description": "A beautifully designed vase featuring delicate cherry blossom patterns, perfect for enhancing any home decor with elegance.",
     "cutPrice": 4500,
@@ -242,7 +242,7 @@ export const productItems = [
   },
   {
     "id": 5,
-    "image": "images/productItems5.png",
+    "image": "images/productItems5.webp",
     "title": "Frato Armchair Gstaad with Pillow",
     "description": "A premium Frato armchair featuring a sophisticated design, luxurious upholstery, and a matching pillow for ultimate comfort.",
     "cutPrice": 18000,
@@ -269,7 +269,7 @@ export const productItems = [
   },
   {
     "id": 6,
-    "image": "images/productItems6.png",
+    "image": "images/productItems6.webp",
     "title": "3D Black Woven Rattan Round",
     "description": "A stylish black woven rattan round table, perfect for adding a bold and contemporary touch to your modern interiors. Durable and functional.",
     "cutPrice": 10500,
@@ -297,7 +297,7 @@ export const productItems = [
 
   {
     "id": 7,
-    "image": "images/productItems7.png",
+    "image": "images/productItems7.webp",
     "title": "Modern Scandinavian Lounge Chair With Wooden Frame",
     "description": "A sleek, modern Scandinavian lounge chair featuring a comfortable seat and a sturdy wooden frame. Perfect for adding a minimalist touch to your living space.",
     "cutPrice": 12000,
@@ -325,7 +325,7 @@ export const productItems = [
 
   {
     "id": 8,
-    "image": "images/productItems8.png",
+    "image": "images/productItems8.webp",
     "title": "Woven Rattan Hanging Egg Chair",
     "description": "A cozy and stylish woven rattan hanging egg chair, perfect for relaxing in your garden or balcony. Its unique design adds a touch of elegance to any outdoor space.",
     "cutPrice": 15000,
@@ -353,7 +353,7 @@ export const productItems = [
 
   {
     "id": 9,
-    "image": "images/productItems9.png",
+    "image": "images/productItems9.webp",
     "title": "Wooden A-Frame Shelf With Plants",
     "description": "A unique A-frame wooden shelf featuring beautiful plants, perfect for bringing a natural touch to your home decor. Ideal for adding elegance to any corner.",
     "cutPrice": 8000,
@@ -380,7 +380,7 @@ export const productItems = [
   },
   {
     "id": 10,
-    "image": "images/productItems10.png",
+    "image": "images/productItems10.webp",
     "title": "Green Velvet Single Sofa Chair",
     "description": "A luxurious green velvet single sofa chair that combines comfort and style, perfect for adding a pop of color and elegance to any room.",
     "cutPrice": 12000,
@@ -407,7 +407,7 @@ export const productItems = [
   },
   {
     "id": 11,
-    "image": "images/productItems11.png",
+    "image": "images/productItems11.webp",
     "title": "Contemporary Nightstand With Sleek Wood Texture Featuring Storage Drawers",
     "description": "A modern contemporary nightstand with a sleek wood texture and practical storage drawers, perfect for adding functionality and style to your bedroom.",
     "cutPrice": 8000,
@@ -434,7 +434,7 @@ export const productItems = [
   },
   {
     "id": 12,
-    "image": "images/productItems12.png",
+    "image": "images/productItems12.webp",
     "title": "Sun Beach Chair",
     "description": "A comfortable and stylish sun beach chair, perfect for relaxing by the water or lounging in the sun. Easy to carry and fold for convenience.",
     "cutPrice": 4500,
@@ -462,7 +462,7 @@ export const productItems = [
 
   {
     "id": 13,
-    "image": "images/productItems13.png",
+    "image": "images/productItems13.webp",
     "title": "Kai Glass Table",
     "description": "A sleek and modern glass table with a minimalist design, perfect for contemporary living rooms or offices. The clear glass top and sturdy base offer a sophisticated look.",
     "cutPrice": 15000,
@@ -490,7 +490,7 @@ export const productItems = [
 
   {
     "id": 14,
-    "image": "images/productItems14.png",
+    "image": "images/productItems14.webp",
     "title": "Luxury White And Gold Table Lamp",
     "description": "A luxurious white and gold table lamp designed to add elegance and warmth to any room. Perfect for bedrooms, living rooms, or offices, with a sophisticated and timeless design.",
     "cutPrice": 3500,
@@ -517,7 +517,7 @@ export const productItems = [
   },
   {
     "id": 15,
-    "image": "images/productItems15.png",
+    "image": "images/productItems15.webp",
     "title": "Floral Design Table Lamp",
     "description": "A beautifully designed floral table lamp that combines nature-inspired patterns with soft lighting, perfect for creating a cozy and elegant atmosphere in any room.",
     "cutPrice": 2500,
@@ -545,7 +545,7 @@ export const productItems = [
 
   {
     "id": 16,
-    "image": "images/productItems16.png",
+    "image": "images/productItems16.webp",
     "title": "Contemporary Holiday Lamp With Sculptural Base",
     "description": "A stylish holiday lamp with a unique sculptural base, perfect for creating a festive and modern ambiance. Ideal for living rooms, dining areas, or as a decorative piece for holiday celebrations.",
     "cutPrice": 4000,
@@ -572,7 +572,7 @@ export const productItems = [
   },
   {
     "id": 17,
-    "image": "images/productItems17.png",
+    "image": "images/productItems17.webp",
     "title": "High Leg Room Lighting",
     "description": "A sleek and modern high-leg room lighting fixture designed to brighten up your space with its innovative design. Ideal for living rooms, bedrooms, or offices.",
     "cutPrice": 5500,
@@ -599,7 +599,7 @@ export const productItems = [
   },
   {
     "id": 18,
-    "image": "images/productItems18.png",
+    "image": "images/productItems18.webp",
     "title": "Gloster Dansk Lounge Chair",
     "description": "A luxurious lounge chair with a minimalist Scandinavian design, featuring a sturdy wooden frame and plush cushions for maximum comfort and style.",
     "cutPrice": 25000,
@@ -627,7 +627,7 @@ export const productItems = [
 
   {
     "id": 19,
-    "image": "images/productItems19.png",
+    "image": "images/productItems19.webp",
     "title": "3D Dining Table With Plants Isolated",
     "description": "A beautifully crafted 3D dining table featuring a contemporary design with integrated plant decor. This modern dining table is perfect for adding a touch of nature and elegance to your dining room.",
     "cutPrice": 18000,
@@ -655,7 +655,7 @@ export const productItems = [
 
   {
     "id": 20,
-    "image": "images/productItems20.png",
+    "image": "images/productItems20.webp",
     "title": "Hygge Themed High Leg Room Lighting",
     "description": "A cozy and stylish high-leg room lighting fixture inspired by the Hygge design philosophy. Perfect for creating a warm, inviting atmosphere in any room with soft, ambient lighting.",
     "cutPrice": 6000,
@@ -683,7 +683,7 @@ export const productItems = [
 ,
   {
     "id": 21,
-    "image": "images/productItems21.png",
+    "image": "images/productItems21.webp",
     "title": "3D Luxury Living Room Furniture Sofa Single Seat",
     "description": "A luxurious single-seat sofa designed for ultimate comfort and style, featuring premium upholstery and a sleek, modern design. Perfect for adding elegance to your living room or lounge space.",
     "cutPrice": 22000,
@@ -710,7 +710,7 @@ export const productItems = [
   },
   {
     "id": 22,
-    "image": "images/productItems22.png",
+    "image": "images/productItems22.webp",
     "title": "Rocking Chair, Comfortable Rocker",
     "description": "A comfortable and stylish rocking chair designed for relaxation. Its ergonomic structure and soft cushions make it ideal for long hours of sitting and unwinding.",
     "cutPrice": 8000,
@@ -737,7 +737,7 @@ export const productItems = [
   },
   {
     "id": 23,
-    "image": "images/productItems23.png",
+    "image": "images/productItems23.webp",
     "title": "Elegant Nightstand Lamp With Handmade Ceramic Flower Design",
     "description": "A beautifully designed nightstand lamp featuring a handmade ceramic base with intricate flower detailing. Perfect for creating a warm and inviting atmosphere in your bedroom or living space.",
     "cutPrice": 4000,
@@ -764,7 +764,7 @@ export const productItems = [
   },
   {
     "id": 24,
-    "image": "images/productItems24.png",
+    "image": "images/productItems24.webp",
     "title": "Blue Sofa With Wooden Legs",
     "description": "A stylish blue sofa with wooden legs, offering both comfort and a modern aesthetic. Perfect for living rooms, this sofa combines a vibrant color with sturdy construction for long-lasting use.",
     "cutPrice": 15000,
@@ -791,7 +791,7 @@ export const productItems = [
   },
   {
     "id": 25,
-    "image": "images/productItems25.png",
+    "image": "images/productItems25.webp",
     "title": "Ornate Table Lamp With Regal White And Gold Design",
     "description": "An ornate table lamp featuring a regal white and gold design, perfect for adding a touch of sophistication to any room. Its elegant base and luxurious finish make it a statement piece for your home decor.",
     "cutPrice": 5500,
@@ -818,7 +818,7 @@ export const productItems = [
   },
   {
     "id": 26,
-    "image": "images/productItems26.png",
+    "image": "images/productItems26.webp",
     "title": "Luxury Classic Table Lamp With White Glass Shade And Gold Base",
     "description": "A luxury classic table lamp featuring a white glass shade and an elegant gold base. This lamp is designed to add a touch of sophistication and warmth to your living space, perfect for creating an ambient atmosphere.",
     "cutPrice": 6000,
@@ -845,7 +845,7 @@ export const productItems = [
   },
   {
     "id": 27,
-    "image": "images/productItems27.png",
+    "image": "images/productItems27.webp",
     "title": "Yellow Gerbera In Modern Vase On Wooden Shelf",
     "description": "A vibrant yellow gerbera flower placed in a modern vase, sitting elegantly on a wooden shelf. This arrangement adds a pop of color and freshness to any room, perfect for enhancing your home decor.",
     "cutPrice": 3000,
@@ -872,7 +872,7 @@ export const productItems = [
   },
   {
     "id": 28,
-    "image": "images/productItems28.png",
+    "image": "images/productItems28.webp",
     "title": "White Shaded Chandelier With Heart Design",
     "description": "An elegant white shaded chandelier featuring a beautiful heart design. This chandelier adds a romantic and soft touch to your space, perfect for dining rooms or bedrooms seeking a delicate lighting fixture.",
     "cutPrice": 12000,
@@ -899,7 +899,7 @@ export const productItems = [
   },
   {
     "id": 29,
-    "image": "images/productItems29.png",
+    "image": "images/productItems29.webp",
     "title": "3D White Glass Italian Chandelier Ceiling Lights",
     "description": "A luxurious 3D white glass chandelier designed in Italian style. This ceiling light features intricate glass work and a sophisticated design, perfect for enhancing any modern or classic interior.",
     "cutPrice": 15000,
@@ -943,7 +943,7 @@ export const productItems = [
 export const blogs = [
   {
     id: 1,
-    image: '/images/blog1.jpg',
+    image: '/images/blog1.webp',
     date: '2025-01-30',
     title: 'Exploring the Future of Furniture Design',
     description: 'Furniture design is evolving rapidly with the integration of smart technology, sustainable materials, and modern aesthetics. In this blog, we explore how furniture trends are shifting towards minimalism, multifunctionality, and eco-friendly solutions to suit contemporary living spaces.',
@@ -954,7 +954,7 @@ export const blogs = [
   },
   {
     id: 2,
-    image: '/images/blog2.jpg',
+    image: '/images/blog2.webp',
     date: '2025-01-29',
     title: 'Top Trends in Dining & Kitchen Styles',
     description: 'From rustic farmhouse designs to sleek modern aesthetics, dining and kitchen trends in 2025 emphasize comfort and functionality. This blog highlights the top trends in materials, colors, and layouts shaping the heart of the home.',
@@ -965,7 +965,7 @@ export const blogs = [
   },
   {
     id: 3,
-    image: '/images/blog3.jpg',
+    image: '/images/blog3.webp',
     date: '2025-01-28',
     title: 'Kitchen Designs You Must Try in 2025',
     description: 'A well-designed kitchen enhances cooking efficiency and adds beauty to your home. Discover the latest kitchen design ideas, including smart appliances, open shelving, and luxurious countertops that will redefine your cooking space.',
@@ -976,7 +976,7 @@ export const blogs = [
   },
   {
     id: 4,
-    image: '/images/blog4.jpg',
+    image: '/images/blog4.webp',
     date: '2025-01-27',
     title: 'Living the Life Style You Deserve',
     description: 'Creating a home that reflects your personality and lifestyle is essential for comfort and well-being. Learn how to curate a stylish and functional living space that meets your needs and enhances your daily routine.',
@@ -987,7 +987,7 @@ export const blogs = [
   },
   {
     id: 5,
-    image: '/images/blog5.jpg',
+    image: '/images/blog5.webp',
     date: '2025-01-26',
     title: 'Choosing the Right Sofa for Your Home',
     description: 'A sofa is the centerpiece of any living room. This guide will help you select the perfect sofa based on size, material, color, and design to match your interior style and comfort needs.',
@@ -998,7 +998,7 @@ export const blogs = [
   },
   {
     id: 6,
-    image: '/images/blog6.jpg',
+    image: '/images/blog6.webp',
     date: '2025-01-25',
     title: 'The Evolution of Modern Furniture Design',
     description: 'Modern furniture design blends aesthetics with functionality. Learn about the key design principles that define contemporary furniture trends and how to incorporate them into your space.',
@@ -1009,7 +1009,7 @@ export const blogs = [
   },
   {
     id: 7,
-    image: '/images/blog7.jpg',
+    image: '/images/blog7.webp',
     date: '2025-01-24',
     title: 'The Rise of Sustainable Furniture',
     description: 'Sustainability is shaping the furniture industry. Discover how eco-friendly materials and innovative production methods are creating stylish and responsible furniture choices.',
@@ -1020,7 +1020,7 @@ export const blogs = [
   },
   {
     id: 8,
-    image: '/images/blog8.jpg',
+    image: '/images/blog8.webp',
     date: '2025-01-23',
     title: 'How Home Decor Influences Your Mood',
     description: 'Your home environment impacts your mental well-being. Explore how colors, lighting, and furniture arrangements can create a peaceful and inspiring living space.',
@@ -1031,7 +1031,7 @@ export const blogs = [
   },
   {
     id: 9,
-    image: '/images/blog9.jpg',
+    image: '/images/blog9.webp',
     date: '2025-01-22',
     title: '10 Home Decor Trends You Can’t Miss in 2025',
     description: 'Stay ahead of the trends with our guide to the top home decor ideas for 2025, including sustainable design, smart home innovations, and cozy aesthetics.',
@@ -1042,7 +1042,7 @@ export const blogs = [
   },
   {
     id: 10,
-    image: '/images/blog10.jpg',
+    image: '/images/blog10.webp',
     date: '2025-01-21',
     title: 'Breaking News in the Furniture Industry',
     description: 'The furniture industry is constantly evolving. Read about the latest innovations, market trends, and new materials shaping the future of furniture.',
@@ -1053,7 +1053,7 @@ export const blogs = [
   },
   {
     id: 11,
-    image: '/images/blog11.jpg',
+    image: '/images/blog11.webp',
     date: '2025-01-20',
     title: 'Living the Life Style You Deserve',
     description: 'Discover how to design your home and lifestyle to reflect elegance, comfort, and personality. Learn tips to make every space uniquely yours.',
@@ -1064,7 +1064,7 @@ export const blogs = [
   },
   {
     id: 12,
-    image: '/images/blog12.jpg',
+    image: '/images/blog12.webp',
     date: '2025-01-19',
     title: 'The Future of Sustainable Home Decor',
     description: 'Sustainability meets style in home decor. Explore the latest eco-friendly design choices and how to make your home more sustainable without sacrificing aesthetics.',
@@ -1075,7 +1075,7 @@ export const blogs = [
   },
   {
     id: 13,
-    image: '/images/blog13.jpg',
+    image: '/images/blog13.webp',
     date: '2025-01-18',
     title: 'Why News on Furniture Innovations Matters',
     description: 'Keeping up with the latest in furniture innovation can transform how we live. Learn about groundbreaking technologies and materials that are redefining interiors.',
@@ -1086,7 +1086,7 @@ export const blogs = [
   },
   {
     id: 14,
-    image: '/images/blog14.jpg',
+    image: '/images/blog14.webp',
     date: '2025-01-17',
     title: 'Smart Furniture: The Future of Home Design',
     description: 'Smart furniture is changing the way we interact with our spaces. Discover the latest tech-integrated furniture trends that are enhancing home functionality.',
@@ -1097,7 +1097,7 @@ export const blogs = [
   },
   {
     id: 15,
-    image: '/images/blog15.jpg',
+    image: '/images/blog15.webp',
     date: '2025-01-16',
     title: 'How to Combine Style and Function in Furniture',
     description: 'Blending style with function is key in modern furniture. This guide explores versatile furniture pieces that maximize space and enhance aesthetics.',

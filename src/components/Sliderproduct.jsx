@@ -53,7 +53,7 @@ const Sliderproduct = () => {
   // const products = [
   //   {
   //     id: 1,
-  //     image: '/images/product1.png',
+  //     image: '/images/product1.webp',
   //     name: 'Egg Dining Table',
 
   //     cutprice:'$80.00',
@@ -65,7 +65,7 @@ const Sliderproduct = () => {
   //   // Add more product objects here
   //   {
   //     id: 2,
-  //     image: '/images/product2.png',
+  //     image: '/images/product2.webp',
   //     name: 'Blue Flower Vase',
 
   //     cutprice:'$90.00',
@@ -75,7 +75,7 @@ const Sliderproduct = () => {
   //   },
   //   {
   //     id: 3,
-  //     image: '/images/product3.png',
+  //     image: '/images/product3.webp',
   //     name: ' Modern desk Lamp',
 
   //     cutprice:'$180.00',
@@ -86,7 +86,7 @@ const Sliderproduct = () => {
   //   },
   //   {
   //     id: 4,
-  //     image: '/images/product4 .png',
+  //     image: '/images/product4 .webp',
   //     name: 'Classy side Table',
 
   //     cutprice:'$130.00',
@@ -97,7 +97,7 @@ const Sliderproduct = () => {
   //   },
   //   {
   //     id: 5,
-  //     image: '/images/product5.png',
+  //     image: '/images/product5.webp',
   //     name: 'Pink Flower Vase',
 
   //     cutprice:'$140.00',
@@ -109,7 +109,7 @@ const Sliderproduct = () => {
   //   },
   //   {
   //     id: 6,
-  //     image: '/images/product6.png',
+  //     image: '/images/product6.webp',
   //     name: 'Floral Print Vase',
 
   //     cutprice:'$140.00',
