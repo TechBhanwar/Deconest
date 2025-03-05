@@ -17,10 +17,10 @@ const SliderComponent = () => {
     return (
         <div>
         <div className="slider-container overflow-hidden ">
-            <Slider {...settings} className="w-full h-[470px] lg:h-[100vh]">
+            <Slider {...settings} className="w-full h-[470px] lg:h-[100vh] ipad-pro:h-[600px]">
                 <div className="relative h-[500px] lg:h-full ">
-                    <img src="/images/slider1.webp" alt="slide 1" className='h-[250px] lg:h-full w-full' />
-                    <div className="absolute  h-1/2 lg:h-[100vh] lg:top-0  left-0 right-0 bottom-11 flex flex-col space-y-4 justify-center items-center bg-transparent lg:bg-black lg:bg-opacity-20 text-black lg:text-white">
+                    <img src="/images/slider1.webp" alt="slide 1" loading="lazy" className='h-[250px] lg:h-full w-full' />
+                    <div className="absolute  h-1/2 ipad-pro:h-[600px] lg:h-[100vh] lg:top-0  left-0 right-0 bottom-11 flex flex-col space-y-4 justify-center items-center bg-transparent lg:bg-black lg:bg-opacity-20 text-black lg:text-white">
                   <h1 className='text-xl font-bold text-black lg:hidden'>Seeting statement</h1>
                   <p className='text-sm lg:text-[20px] '>Create the Perfect Home with Our Interior Designs</p>
                    <h2 className=' font-bold text-sm lg:text-4xl'>
@@ -30,8 +30,8 @@ const SliderComponent = () => {
                     </div>
                 </div>
                 <div className="relative h-[500px] lg:h-full">
-                    <img src="/images/slider2.webp" alt="slide 2" className='h-[250px] lg:h-full w-full' />
-                    <div className="absolute h-1/2 lg:top-0 left-0 right-0 bottom-11 flex flex-col space-y-4 items-center justify-center  bg-transparent lg:bg-black  lg:bg-opacity-20 lg:h-[100vh] text-black lg:text-white">
+                    <img src="/images/slider2.webp" alt="slide 2" loading="lazy" className='h-[250px] lg:h-full w-full' />
+                    <div className="absolute h-1/2 ipad-pro:h-[600px] lg:top-0 left-0 right-0 bottom-11 flex flex-col space-y-4 items-center justify-center  bg-transparent lg:bg-black  lg:bg-opacity-20 lg:h-[100vh] text-black lg:text-white">
                     <h1 className='text-xl font-bold text-black lg:hidden'>Elevate your space</h1>
                   <p className='text-sm lg:text-[20px] '>Create the Perfect Home with Our Interior Designs</p>
                    <h2 className=' font-bold text-sm lg:text-4xl'>
@@ -42,8 +42,8 @@ const SliderComponent = () => {
                     </div>
                 </div>
                 <div className="relative h-[500px] lg:h-full">
-                    <img src="/images/slider3.webp" alt="slide 3" className='h-[250px] lg:h-full w-full' />
-                    <div className="absolute h-1/2 lg:top-0   left-0 right-0 bottom-11 flex flex-col space-y-4 items-center justify-center bg-transparent lg:bg-black lg:bg-opacity-20 lg:h-[100vh] text-black lg:text-white">
+                    <img src="/images/slider3.webp" alt="slide 3" loading="lazy" className='h-[250px] lg:h-full w-full' />
+                    <div className="absolute h-1/2 ipad-pro:h-[600px] lg:top-0   left-0 right-0 bottom-11 flex flex-col space-y-4 items-center justify-center bg-transparent lg:bg-black lg:bg-opacity-20 lg:h-[100vh] text-black lg:text-white">
                     <h1 className='text-xl font-bold text-black lg:hidden'>Elevate your space</h1>
                   <p className='text-sm lg:text-[20px] '>Create the Perfect Home with Our Interior Designs</p>
                    <h2 className=' font-bold text-sm lg:text-4xl'>

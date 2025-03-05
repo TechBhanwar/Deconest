@@ -13,15 +13,25 @@ import Product from './pages/Product';
 import Blog from './pages/Blog';
 import Blogopen from './pages/Blogopen';
 import CheckoutPage from './pages/CheckoutPage';
+import Aboutus from './components/Aboutus';
+import ScrollToTop from './components/ScrollToTop';
+import Lodingscreen from './pages/Lodingscreen';
+import UserProfile from './auth/UserProfile';
+
 
 const App = () => {
+
+
+
   return (
     <Provider store={store}>
       <BrowserRouter>
+      <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/userprofile" element={<UserProfile />} />
           <Route path="/sing_up" element={<Singup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/wishlist" element={<Wishlist />} />
@@ -31,6 +41,9 @@ const App = () => {
           <Route path="/blog/:id" element={<Blogopen />} />
           <Route path="/shop/:id" element={<Shop />} />
           <Route path="/checkin" element={<CheckoutPage />} />
+          <Route path="/aboutus" element={<Aboutus />} />
+          <Route path="/loding" element={<Lodingscreen />} />
+
         </Routes>
       </BrowserRouter>
     </Provider>

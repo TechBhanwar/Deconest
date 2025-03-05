@@ -24,7 +24,7 @@ const Footernav = () => {
                         <rect width="176" height="176" x="288" y="288" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" rx="20" ry="20"></rect>
                     </svg>
                 </span>
-                <h1 className='text-[12px]'>SHOP</h1>
+                <h1 className='text-[12px]'>Products</h1>
             </div>
             </Link>
             <Link to="/login" >

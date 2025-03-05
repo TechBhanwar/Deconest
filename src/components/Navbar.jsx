@@ -4,11 +4,44 @@ import menuItems from "../data/data";
 import { products, furniture, decor, kitchenDining } from '../data/data';
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
+import { auth } from "../firebase/firebase";
+import { useNavigate } from "react-router-dom";
+import { logOut } from "../firebase/auth";
 
 
 function Navbar() {
 
-  // State for currency dropdown
+  const [user, setUser] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+      setUser(currentUser); // Update user state
+    });
+
+    return () => unsubscribe(); // Cleanup function
+  }, []);
+
+ 
+  const handleClick = () => {
+    console.log(user)
+    if (!user) {
+      navigate("/login"); // If not logged in, go to login page
+    } else {
+      setIsOpen(!isOpen); 
+    }
+  };
+
+  const handleLogout = async () => {
+    await logOut(); // ✅ Logout Firebase se
+    navigate("/login"); // ✅ Logout ke baad login page pr bhejo
+  };
+
+  const handleProfileClick = () => {
+    navigate("/userprofile");
+  };
+
   const [isCurrencyOpen, setIsCurrencyOpen] = useState(false);
   const [selectedCurrency, setSelectedCurrency] = useState({
     code: "USD",
@@ -16,7 +49,9 @@ function Navbar() {
     flag: "https://flagcdn.com/us.svg",
   });
 
-  // Currency options
+
+
+  
   const currencies = [
     { code: "USD", name: "Dollar", flag: "https://flagcdn.com/us.svg" },
     { code: "EUR", name: "Euro", flag: "https://flagcdn.com/eu.svg" },
@@ -25,14 +60,12 @@ function Navbar() {
     { code: "JPY", name: "Japanese Yen", flag: "https://flagcdn.com/jp.svg" },
   ];
 
-  // State for language dropdown
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState({
     code: "EN",
     name: "English",
   });
 
-  // Language options
   const languages = [
     { code: "EN", name: "English" },
     { code: "HI", name: "Hindi" },
@@ -43,18 +76,17 @@ function Navbar() {
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  // Toggle sidebar visibility
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isClosing, setIsClosing] = useState(false); // Manage closing animation
+  const [isClosing, setIsClosing] = useState(false); 
 
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
     if (!isSearchOpen) {
-      setIsClosing(false); // Reset closing animation when opened
+      setIsClosing(false); 
     }
   };
 
@@ -67,29 +99,30 @@ function Navbar() {
 
   const cartItems = useSelector((state) => state.cart.items);
 
-  // Get the count of items in the cart
   const cartItemCount = cartItems.length;
 
 
   const [isSticky, setIsSticky] = useState(false);
 
-  // Effect to track scroll position
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
-        setIsSticky(true);  // Make navbar sticky after 50px scroll
+        setIsSticky(true);  
       } else {
-        setIsSticky(false);  // Remove sticky if scrolled back to top
+        setIsSticky(false); 
       }
     };
 
-    window.addEventListener('scroll', handleScroll);  // Attach scroll event
+    window.addEventListener('scroll', handleScroll); 
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);  // Cleanup on unmount
+      window.removeEventListener('scroll', handleScroll);  
     };
   }, []);
 
+
+
+  // const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <div className="">
@@ -197,7 +230,7 @@ function Navbar() {
 
         </div>
       </div>
-      <nav className={`transition-all duration-300 ease-in-out bg-white  ${isSticky ? 'fixed top-0 w-full shadow-md z-50' : ''}`}>
+      <nav className={` transition-all duration-500 ease-in-out bg-white  ${isSticky ? 'fixed top-0 w-full shadow-md z-50' : ''}`}>
         <div className="container">
           <div className="flex lg:flex-row py-3 lg:py-1 px-1 lg:px-0 items-center justify-between">
 
@@ -206,16 +239,16 @@ function Navbar() {
               </Link>
             </div>
 
-            {/* Menu Items */}
+          
 
-            <ul className="hidden lg:flex lg:flex-row flex-col lg:space-x-10 space-y-4 lg:space-y-0 text-base font-normal justify-start lg:justify-center items-start lg:items-center text-black  order-1 lg:order-2">
+            <ul className="hidden lg:flex lg:flex-row flex-col lg:space-x-8 space-y-4 lg:space-y-0 text-base font-normal justify-start lg:justify-center items-start lg:items-center text-black  order-1 lg:order-2">
 
 
               <li className="flex items-center cursor-pointer group py-6">
                 {/* Home text and SVG icon */}
                 <Link to="/"   >
-                  <div className="relative after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-full group-hover:after:left-0 group-hover:after:translate-x-0 flex items-center peer">
-                    Home
+                <div className="relative before:content-[''] before:absolute before:w-full before:h-[1px] before:bg-black before:bottom-0 before:left-[-4px] flex items-center peer">
+                Home
                     <svg
                       stroke="currentColor"
                       fill="currentColor"
@@ -409,7 +442,7 @@ function Navbar() {
                     </svg>
                   </div></Link>
               </li>
-              <li className="group relative flex items-center cursor-pointer">
+              <Link to="/loding"   >      <li className="group relative flex items-center cursor-pointer">
                 <div className=" after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-full group-hover:after:left-0 group-hover:after:translate-x-0 relative flex items-center peer ">
                   Featured
                   <svg stroke="currentColor" fill="black" stroke-width="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
@@ -417,11 +450,10 @@ function Navbar() {
                   </svg>
                 </div>
               </li>
+              </Link>
             </ul>
 
-            {/* Mobile menu icon */}
             <div className="relative  lg:hidden flex justify-center">
-              {/* Navbar menu icon */}
               <div
                 className="navbar-menu-icon lg:hidden flex flex-row justify-center items-center space-x-2 cursor-pointer"
 
@@ -478,7 +510,6 @@ function Navbar() {
                 )}
               </div>
 
-              {/* Sidebar */}
               <div
                 className={`fixed top-0 left-0 h-screen w-72 z-50 bg-white text-black transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
                   } transition-transform duration-300 ease-in-out`}
@@ -487,7 +518,7 @@ function Navbar() {
 
 
                   <button
-                    className="text-black bg-[#e7e7e7] text-2xl border border-black w-6 h-6 flex justify-center items-center"
+                    className="text-black  text-2xl border border-[#e7e7e7] w-6 h-6 flex justify-center items-center"
                     onClick={toggleSidebar}
                   >
                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z"></path></svg>
@@ -562,7 +593,7 @@ function Navbar() {
                     </svg>
                   </li>
                   </Link>
-                  <li className="px-4 py-4 cursor-pointer flex justify-between items-center rounded-lg border-b border-gray-300 hover:bg-[#f0f0f0]">
+                      <li className="px-4 py-4 cursor-pointer flex justify-between items-center rounded-lg border-b border-gray-300 hover:bg-[#f0f0f0]">
                     Contact
                     <svg
                       className="ml-2"
@@ -587,7 +618,7 @@ function Navbar() {
 
 
             {/* Icons */}
-            <div className="flex relative cursor-pointer justify-center items-center gap-5 order-3 lg:order-3">
+            <div className="flex relative cursor-pointer justify-center items-center gap-4 order-3 lg:order-3">
               {/* Search Icon */}
               <div className="relative hidden lg:block">
                 {/* Search Icon */}
@@ -654,8 +685,8 @@ function Navbar() {
                 )}
               </div>
 
-              {/* User Icon */}
-              <Link to="/login"   >      <svg stroke="currentColor" fill="black" stroke-width="0" className="lg:inline-block hidden " viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
+           
+              <Link to="/login" className='hidden'   >      <svg stroke="currentColor" fill="black" stroke-width="0" className="lg:inline-block hidden " viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
                 <g id="User">
                   <path d="M17.438,21.937H6.562a2.5,2.5,0,0,1-2.5-2.5V18.61c0-3.969,3.561-7.2,7.938-7.2s7.938,3.229,7.938,7.2v.827A2.5,2.5,0,0,1,17.438,21.937ZM12,12.412c-3.826,0-6.938,2.78-6.938,6.2v.827a1.5,1.5,0,0,0,1.5,1.5H17.438a1.5,1.5,0,0,0,1.5-1.5V18.61C18.938,15.192,15.826,12.412,12,12.412Z"></path>
                   <path d="M12,9.911a3.924,3.924,0,1,1,3.923-3.924A3.927,3.927,0,0,1,12,9.911Zm0-6.847a2.924,2.924,0,1,0,2.923,2.923A2.926,2.926,0,0,0,12,3.064Z"></path>
@@ -665,26 +696,98 @@ function Navbar() {
 
 
 
-              <Link to="/wishlist"   >      <svg stroke="currentColor" fill="black" stroke-width="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
+              <Link to="/wishlist" className='relative'  >
+              <svg stroke="currentColor" fill="black" stroke-width="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
                 <g id="Heart">
                   <path d="M12,20.043a.977.977,0,0,1-.7-.288L4.63,13.08A5.343,5.343,0,0,1,6.053,4.513,5.266,5.266,0,0,1,12,5.371a5.272,5.272,0,0,1,5.947-.858A5.343,5.343,0,0,1,19.37,13.08l-6.676,6.675A.977.977,0,0,1,12,20.043ZM8.355,4.963A4.015,4.015,0,0,0,6.511,5.4,4.4,4.4,0,0,0,4.122,8.643a4.345,4.345,0,0,0,1.215,3.73l6.675,6.675,6.651-6.675a4.345,4.345,0,0,0,1.215-3.73A4.4,4.4,0,0,0,17.489,5.4a4.338,4.338,0,0,0-4.968.852h0a.744.744,0,0,1-1.042,0A4.474,4.474,0,0,0,8.355,4.963Z"></path>
                 </g>
               </svg>
-              </Link>
-              <div class="absolute top-0 right-10 lg:top-0 lg:right-10 transform translate-x-1/3 -translate-y-1/3 bg-black text-white  font-bold w-[18px] h-[18px] text-[10px] rounded-full flex items-center justify-center">
+              <div class="absolute top-0 right-[-5px] lg:top-0 lg:-right-1 transform translate-x-1/3 -translate-y-1/3 bg-black text-white  font-bold w-[18px] h-[18px] text-[10px] rounded-full flex items-center justify-center">
                 0
               </div>
-              <Link to="/productcart"   >
+              </Link>
+             
+              <Link to="/productcart" className='relative'   >
                 <svg stroke="black" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"> <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M80 176a16 16 0 0 0-16 16v216c0 30.24 25.76 56 56 56h272c30.24 0 56-24.51 56-54.75V192a16 16 0 0 0-16-16zm80 0v-32a96 96 0 0 1 96-96h0a96 96 0 0 1 96 96v32"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M160 224v16a96 96 0 0 0 96 96h0a96 96 0 0 0 96-96v-16"></path>
                 </svg>
-              </Link>
-              <div class="absolute top-0 lg:top-0 -right-1 transform translate-x-1/3 -translate-y-1/3 bg-black text-white text-xs font-bold w-[18px] h-[18px] text-[10px] rounded-full flex items-center justify-center">
+                <div class="absolute top-0 lg:top-0 -right-1 transform translate-x-1/3 -translate-y-1/3 bg-black text-white text-xs font-bold w-[18px] h-[18px] text-[10px] rounded-full flex items-center justify-center">
                 {cartItemCount}
               </div>
+              </Link>
+          
+<div className='w-8 h-8 p-1 rounded-full border hidden lg:block'    onClick={handleClick}  >
+<img src="\images\user.png" alt="" />
+</div>
+{user && isOpen && (
+        <div className="absolute right-0 top-8 mt-2 w-48 bg-white border rounded-lg shadow-lg z-10">
+          <ul className="py-2 text-sm text-gray-700">
+            <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={handleProfileClick} >
+              Profile
+            </li>
+            <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+              Order History
+            </li>
+            <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={handleLogout} >
+              Logout
+            </li>
+          </ul>
+        </div>
+      )}
+
             </div>
           </div>
         </div>
       </nav>
+
+      <div className="group w-12 h-12 rounded-full p-[10px] bg-white bottom-16 lg:bottom-7 right-5 shadow-lg fixed z-50 animate-bounceSmooth flex items-center justify-center cursor-pointer">
+  <img src="/images/chat.png" alt="Chat" />
+
+  <span className="absolute w-40 flex items-center justify-center gap-2 text-center right-11 top-1/2 transform -translate-y-1/2 translate-x-4 bg-black text-white text-sm px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:-translate-x-2 transition-all duration-300 before:absolute before:content-[''] before:w-3 before:h-3 before:bg-black before:top-[12px] before:right-[-6px] before:rotate-45">
+    How Can I help you?
+  </span>
+</div>
+
+{/* <div
+      onClick={() => setIsExpanded(!isExpanded)}
+      className={`bg-white bottom-16 lg:bottom-7 rounded-full right-5 shadow-xl fixed z-50
+        w-12 ${isExpanded ? "h-96 " : "h-12 "} 
+        p-2 overflow-hidden transition-all duration-500 ease-in-out
+        hover:w-96 hover:rounded-xl flex items-center gap-2 cursor-pointer`}
+    >
+
+
+  <div className='flex w-full flex-row justify-between'>
+
+  
+  <div className="flex flex-row items-center space-x-2 w-full ">
+    <img src="/images/chat.png" alt="Chat" className="w-12  object-contain" />
+
+    
+    <span className="text-sm font-medium whitespace-nowrap ">
+      How can we help you today?
+    </span>
+
+   
+  </div>
+  <div> 
+    <span className=" rounded-full bg-[#f5f5f5] p-2 flex justify-center items-center mt-1 text-[#737373] ">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
+        strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+        <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 18.75 7.5-7.5 7.5 7.5"></path>
+        <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 7.5-7.5 7.5 7.5"></path>
+      </svg>
+    </span>
+    </div>
+</div>
+</div> */}
+
+
+
+
+{/* <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 18.75 7.5-7.5 7.5 7.5"></path><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 7.5-7.5 7.5 7.5"></path></svg></span>
+<span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5"></path></svg></span>
+<span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"></path></svg></span> */}
+
     </div>
   );
 }

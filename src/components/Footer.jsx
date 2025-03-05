@@ -66,7 +66,7 @@ const Footer = () => {
                     </div>
 
                     <div className='flex flex-col lg:flex-row lg:justify-between py-3  justify-center items-center '>
-                        <p className='text-white mb-3 lg:mb-6  text-xs font-medium'>Copyright © 2024. All Right Reserved</p>
+                        <p className='text-white mb-3 lg:mb-6  text-xs font-medium'>Copyright © 2025. All Right Reserved</p>
                         <div className='flex flex-row gap-5 mb-5'>
                                 <img src="/images/pinterest.webp" alt="" className='w-7 h-7' />
                                 <img src="/images/telegram.webp" alt="" className='w-7 h-7' />

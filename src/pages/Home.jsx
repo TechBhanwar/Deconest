@@ -12,6 +12,7 @@ import Footer from '../components/Footer'
 import Testimonials from '../components/Testimonials'
 import News from '../components/News'
 import Footernav from '../components/Footernav'
+import CookieConsent from '../components/CookieConsent'
 
 
 const Home = () => {
@@ -20,7 +21,7 @@ const Home = () => {
       <Navbar />
      <SliderComponent  />
      <Category />
-
+<CookieConsent />
      <Sliderproduct />
      <Newarrival />
    <Testimonials />

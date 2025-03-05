@@ -5,6 +5,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'ipad-pro': { 'min': '1024px', 'max': '1366px' }, // iPad Pro ke liye breakpoint
+      },
+      height: {
+        'ipad-pro': '600px', // Custom height iPad Pro ke liye
+      },
       container: {
         center: true,  // Centers the container
         padding: '1rem',  // Adds padding to the container
@@ -40,6 +46,14 @@ module.exports = {
           '0%': { top: '25%', opacity: '1' },     
           '100%': { top: '-60px', opacity: '0' }, 
         },
+        bounceSmooth: {
+          '0%, 100%': { transform: 'translateY(0)', animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)' },
+          '50%': { transform: 'translateY(-10px)', animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)' },
+        },
+        slideUp: {
+          "0%": { opacity: 0, transform: "translateY(10px)" },
+          "100%": { opacity: 1, transform: "translateY(0)" },
+        },
       },
       animation: {
         shake: "shake 0.8s ease-in-out",
@@ -47,7 +61,9 @@ module.exports = {
         slideInFromTop: 'slideInFromTop 0.5s ease-out',
         slideOut: 'slideOut 0.8s ease-out forwards',
         slideInFromTopDesktop: 'slideInFromTopDesktop 0.5s ease-out',
-        slideOutDesktop: 'slideOutDesktop 0.5s ease-out'
+        slideOutDesktop: 'slideOutDesktop 0.5s ease-out',
+        bounceSmooth: 'bounceSmooth 1.2s infinite',
+      slideup: 'slideUp 0.3s ease-in-out forwards',
       },
     },
   },
