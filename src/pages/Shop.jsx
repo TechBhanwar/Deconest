@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footernav from '../components/Footernav';
@@ -14,7 +13,7 @@ import { addToCart } from '../redux/cartSlice';
 const Shop = () => {
 
 
-  const { id } = useParams(); 
+  const { id } = useParams(); // URL se product ID le raha hai
   const product = productItems.find((product) => product.id === parseInt(id));
   const [currentImage, setCurrentImage] = useState(product ? product.image : "");
 
@@ -139,22 +138,18 @@ const nextImage = () => {
 
 
 
-
-              <div className='flex flex-row lg:flex-col lg:order-1 order-2 lg:space-y-4 space-y-3 space-x-5 lg:space-x-0 items-center'>
-                {images.map((img, index) => (
-                  <div key={index} className="hover:border border-black pt-1 rounded-md transition-transform duration-300">
-                    <div
-                      className="bg-pink-100 lg:px-6 px-7 flex justify-center hover:scale-75 items-center py-8 lg:py-7 rounded-md transition-transform duration-300"
-                      onClick={() => setCurrentImage(index)} 
-
-                    >
-                      <img src={img} alt="Product" className="w-9" />
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-           
+            <div className='flex flex-row lg:flex-col lg:order-1 order-2 py-4 lg:py-0 lg:space-y-4 space-x-5 lg:space-x-0 items-center'>
+  {randomImages.map((img, index) => (
+    <div key={index} className="hover:border border-black pt-1 rounded-md transition-transform duration-300">
+      <div
+        className="bg-pink-100 lg:px-3 px-7 flex justify-center hover:scale-75 items-center py-8 lg:py-7 rounded-md transition-transform duration-300"
+        onClick={() => setCurrentImage(img)} // Click par image change hogi
+      >
+        <img src={`/${img}`} alt="Product" className="w-20" />
+      </div>
+    </div>
+  ))}
+</div>
 
 
 

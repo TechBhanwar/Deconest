@@ -5,6 +5,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+
+      screens: {
+        'ipad-pro': { 'min': '1024px', 'max': '1366px' }, // iPad Pro ke liye breakpoint
+      },
+      height: {
+        'ipad-pro': '600px', // Custom height iPad Pro ke liye
+      },
+    
       container: {
         center: true,  // Centers the container
         padding: '1rem',  // Adds padding to the container

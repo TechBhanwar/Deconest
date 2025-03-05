@@ -13,6 +13,7 @@ import Product from './pages/Product';
 import Blog from './pages/Blog';
 import Blogopen from './pages/Blogopen';
 import CheckoutPage from './pages/CheckoutPage';
+import Payment from './pages/Payment';
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/blog/:id" element={<Blogopen />} />
           <Route path="/shop/:id" element={<Shop />} />
           <Route path="/checkin" element={<CheckoutPage />} />
+          <Route path="/payment" element={<Payment />} />
         </Routes>
       </BrowserRouter>
     </Provider>

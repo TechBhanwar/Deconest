@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 
 
 function Navbar() {
-
+  
   // State for currency dropdown
   const [isCurrencyOpen, setIsCurrencyOpen] = useState(false);
   const [selectedCurrency, setSelectedCurrency] = useState({
