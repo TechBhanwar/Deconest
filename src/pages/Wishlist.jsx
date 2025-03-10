@@ -2,11 +2,11 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import Footernav from '../components/Footernav'
 import Footer from '../components/Footer'
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 
 const Wishlist = () => {
-  const wishlist = useSelector((state) => state.wishlist.wishlist);
+  // const wishlist = useSelector((state) => state.wishlist.wishlist);
 
 
 
@@ -14,7 +14,7 @@ const Wishlist = () => {
     <div>
       <Navbar />
       
-          <div className='container'>
+          {/* <div className='container'>
 
             <div className='flex flex-col space-y-8 py-8'>
 
@@ -55,6 +55,69 @@ const Wishlist = () => {
 
             </div>
 
+          </div> */}
+
+
+          <div className="container py-9">
+            <div className='w-full lg:w-2/3 flex flex-col gap-5'>
+            <div className='w-full border rounded-md flex flex-col lg:flex-row gap-5  p-4 shadow-sm'>
+              <div className='w-[62%] lg:w-[19%] '>
+                <div className='bg-pink-100 h-full flex justify-center rounded-lg items-center'>
+                  <img src="\images\productItems1.webp" alt="" className='w-[72%] ' />
+                  </div>  
+              </div>
+              <div className='w-3/4 flex flex-col gap-1'>
+              <h2 className="text-black lg:text-xl text-lg font-medium break-words">
+              Elegant Vase with Golden Ornaments
+                  </h2>
+                  <p class="text-gray-500 text-xs lg:text-base ">A beautifully crafted vase adorned with intricate golden ornaments, perfect for adding a touch of luxury to any space.</p>
+                  <h4 className="text-gray-500"><span className='text-black font-semibold'>Price :</span> 1499/-</h4>
+                 
+                  <h4 className="text-gray-500"><span className='text-black font-semibold'>Color :</span> M</h4>
+                  <p className="text-black flex gap-3"><span className='text-black font-semibold'>Stocks :</span> <span  className='flex items-center gap-2 text-green-500'>
+                              <span>
+                              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                              </span>
+                             <span> In Stock</span>
+                            </span></p>
+                            <div className='flex gap-2'>
+                            <button className='px-3 py-2 border rounded-xl shadow-sm font-semibold hover:bg-black hover:text-white duration-300 ease-in-out '>Add to cart</button>
+                            <button className='px-3  py-2 border rounded-xl shadow-sm font-semibold hover:bg-black hover:text-white duration-300 ease-in-out flex items-center gap-1 '><span>Remove</span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1rem" width="1rem" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM9 11H11V17H9V11ZM13 11H15V17H13V11ZM9 4V6H15V4H9Z"></path></svg>
+                            </button>
+                            </div>
+
+              </div>
+            </div>
+            <div className='w-full border rounded-md flex flex-col lg:flex-row gap-5  p-4 shadow-sm' >
+              <div className='w-[62%] lg:w-[19%] '>
+                <div className='bg-pink-100 h-full flex justify-center rounded-lg items-center'>
+                  <img src="\images\productItems1.webp" alt="" className='w-[72%] ' />
+                  </div>  
+              </div>
+              <div className='w-3/4 flex flex-col gap-1'>
+              <h2 className="text-black lg:text-xl text-lg font-medium break-words">
+              Elegant Vase with Golden Ornaments
+                  </h2>
+                  <p class="text-gray-500 text-xs lg:text-base ">A beautifully crafted vase adorned with intricate golden ornaments, perfect for adding a touch of luxury to any space.</p>
+                  <h4 className="text-gray-500"><span className='text-black font-semibold'>Price :</span> 1499/-</h4>
+                 
+                  <h4 className="text-gray-500"><span className='text-black font-semibold'>Color :</span> M</h4>
+                  <p className="text-black flex gap-3"><span className='text-black font-semibold'>Stocks :</span> <span  className='flex items-center gap-2 text-green-500'>
+                              <span>
+                              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                              </span>
+                             <span> In Stock</span>
+                            </span></p>
+                            <div className='flex gap-2'>
+                            <button className='px-3 py-2 border rounded-xl shadow-sm font-semibold hover:bg-black hover:text-white duration-300 ease-in-out '>Add to cart</button>
+                            <button className='px-3  py-2 border rounded-xl shadow-sm font-semibold hover:bg-black hover:text-white duration-300 ease-in-out flex items-center gap-1 '><span>Remove</span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1rem" width="1rem" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM9 11H11V17H9V11ZM13 11H15V17H13V11ZM9 4V6H15V4H9Z"></path></svg>
+                            </button>
+                            </div>
+
+              </div>
+            </div>
+         
+            </div>
           </div>
 
       <Footernav />

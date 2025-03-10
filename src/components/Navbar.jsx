@@ -25,17 +25,20 @@ function Navbar() {
 
  
   const handleClick = () => {
-    console.log(user)
+    console.log("User State:", user);
+    
     if (!user) {
-      navigate("/login"); // If not logged in, go to login page
+      console.log("Navigating to /login");
+      setTimeout(() => navigate("/login"), 0); // ✅ Ensure navigation
     } else {
-      setIsOpen(!isOpen); 
+      setIsOpen(!isOpen);
     }
   };
+  
 
   const handleLogout = async () => {
-    await logOut(); // ✅ Logout Firebase se
-    navigate("/login"); // ✅ Logout ke baad login page pr bhejo
+    await logOut(); 
+    navigate("/login"); 
   };
 
   const handleProfileClick = () => {
@@ -686,7 +689,7 @@ function Navbar() {
               </div>
 
            
-              <Link to="/login" className='hidden'   >      <svg stroke="currentColor" fill="black" stroke-width="0" className="lg:inline-block hidden " viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
+              <Link   onClick={handleClick}  className=''   >      <svg stroke="currentColor" fill="black" stroke-width="0" className="lg:inline-block hidden " viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
                 <g id="User">
                   <path d="M17.438,21.937H6.562a2.5,2.5,0,0,1-2.5-2.5V18.61c0-3.969,3.561-7.2,7.938-7.2s7.938,3.229,7.938,7.2v.827A2.5,2.5,0,0,1,17.438,21.937ZM12,12.412c-3.826,0-6.938,2.78-6.938,6.2v.827a1.5,1.5,0,0,0,1.5,1.5H17.438a1.5,1.5,0,0,0,1.5-1.5V18.61C18.938,15.192,15.826,12.412,12,12.412Z"></path>
                   <path d="M12,9.911a3.924,3.924,0,1,1,3.923-3.924A3.927,3.927,0,0,1,12,9.911Zm0-6.847a2.924,2.924,0,1,0,2.923,2.923A2.926,2.926,0,0,0,12,3.064Z"></path>
@@ -715,9 +718,7 @@ function Navbar() {
               </div>
               </Link>
           
-<div className='w-8 h-8 p-1 rounded-full border hidden lg:block'    onClick={handleClick}  >
-<img src="\images\user.png" alt="" />
-</div>
+
 {user && isOpen && (
         <div className="absolute right-0 top-8 mt-2 w-48 bg-white border rounded-lg shadow-lg z-10">
           <ul className="py-2 text-sm text-gray-700">

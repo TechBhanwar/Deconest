@@ -13,6 +13,7 @@ import Testimonials from '../components/Testimonials'
 import News from '../components/News'
 import Footernav from '../components/Footernav'
 import CookieConsent from '../components/CookieConsent'
+import Experince from '../components/Experince'
 
 
 const Home = () => {
@@ -24,6 +25,7 @@ const Home = () => {
 <CookieConsent />
      <Sliderproduct />
      <Newarrival />
+     <Experince />
    <Testimonials />
    <News />
    <Footer />

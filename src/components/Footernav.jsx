@@ -1,7 +1,35 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
+import { auth } from "../firebase/firebase";
+import { useNavigate } from "react-router-dom";
 
 const Footernav = () => {
+    const [user, setUser] = useState(null);
+    const navigate = useNavigate();
+    
+    useEffect(() => {
+      const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+        console.log("Auth State Changed:", currentUser);
+        setUser(currentUser); 
+      });
+    
+      return () => unsubscribe();
+    }, []);
+    
+    const handleClick = () => {
+        console.log("User State:", user);
+      
+        if (!user) {
+          console.log("Navigating to /login");
+          setTimeout(() => navigate("/login"), 0);
+        } else {
+          console.log("Navigating to /userprofile");
+          setTimeout(() => navigate("/userprofile"), 0); // Small delay to ensure navigation
+        }
+      };
+
+
+
   return (
     <div className="Footernav fixed bottom-0 left-0 right-0 bg-white lg:hidden shadow-sm">
         <div className='px-2 py-2 grid grid-cols-4'>
@@ -27,7 +55,7 @@ const Footernav = () => {
                 <h1 className='text-[12px]'>Products</h1>
             </div>
             </Link>
-            <Link to="/login" >
+            <Link onClick={handleClick} >
             <div className='flex flex-col justify-center items-center'>
                 <span>
                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="20px" width="20px" xmlns="http://www.w3.org/2000/svg"><g id="User"><g><path d="M17.438,21.937H6.562a2.5,2.5,0,0,1-2.5-2.5V18.61c0-3.969,3.561-7.2,7.938-7.2s7.938,3.229,7.938,7.2v.827A2.5,2.5,0,0,1,17.438,21.937ZM12,12.412c-3.826,0-6.938,2.78-6.938,6.2v.827a1.5,1.5,0,0,0,1.5,1.5H17.438a1.5,1.5,0,0,0,1.5-1.5V18.61C18.938,15.192,15.826,12.412,12,12.412Z"></path><path d="M12,9.911a3.924,3.924,0,1,1,3.923-3.924A3.927,3.927,0,0,1,12,9.911Zm0-6.847a2.924,2.924,0,1,0,2.923,2.923A2.926,2.926,0,0,0,12,3.064Z"></path></g></g></svg>

@@ -101,13 +101,13 @@ const Productcart = () => {
               <div className="flex flex-row space-x-4 ">
 
 
-              <div class="lg:w-1/3 bg-pink-100 lg:h-48 h-36  flex justify-center items-center  rounded-md ">
+              <div class="lg:w-1/3 bg-pink-100  flex justify-center items-center  rounded-md ">
                <img src={item.image} alt={item.title} className="w-28" />
               </div>
 
                 <div className="flex flex-col space-y-3 w-2/3 py-2 lg:py-2">
                  <div className="flex flex-col ">
-                 <h2 className="text-black lg:text-xl text-lg font-medium break-words">
+                 <h2 className="text-black lg:text-xl text-lg font-medium break-words line-clamp-2">
                  {item.title}
                   </h2>
                   <div className="flex flex-col space-y-1 ">
@@ -129,12 +129,25 @@ const Productcart = () => {
                  
 
                     <h4 className="text-gray-500">Size: M</h4>
-                    <p className="text-gray-500">In Stock</p>
+                    <p className="text-black flex gap-3"><span className='text-black font-semibold'>Stocks :</span> <span  className='flex items-center gap-2 text-green-500'>
+                              <span>
+                              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                              </span>
+                             <span> In Stock</span>
+                            </span></p>
                   </div>
                  </div>
 
 
-                 <div class="flex flex-row space-x-5 items-center py-4 text-sm"><div class=" flex flex-row "><button> Edit  </button><span class="px-1 py-1"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="m14.06 9.02.92.92L5.92 19H5v-.92l9.06-9.06M17.66 3c-.25 0-.51.1-.7.29l-1.83 1.83 3.75 3.75 1.83-1.83a.996.996 0 0 0 0-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29zm-3.6 3.19L3 17.25V21h3.75L17.81 9.94l-3.75-3.75z"></path></svg></span></div><div class=" flex flex-row  items-center "><button onClick={() => handleRemoveFromCart(item)} > Remove  </button><span><svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 15 15" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z" fill="currentColor"></path></svg></span></div></div>
+                 <div class="flex flex-row space-x-5 items-center  text-sm">
+                 <button  className='px-4  py-2 border rounded-xl shadow-sm font-semibold hover:bg-black hover:text-white duration-300 ease-in-out flex items-center gap-1 '><span>Edit</span>
+                 <span class="px-1 py-1"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="m14.06 9.02.92.92L5.92 19H5v-.92l9.06-9.06M17.66 3c-.25 0-.51.1-.7.29l-1.83 1.83 3.75 3.75 1.83-1.83a.996.996 0 0 0 0-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29zm-3.6 3.19L3 17.25V21h3.75L17.81 9.94l-3.75-3.75z"></path></svg></span>
+                 </button>
+                  <div class=" flex flex-row  items-center ">
+                  <button onClick={() => handleRemoveFromCart(item)} className='px-3  py-2 border rounded-xl shadow-sm font-semibold hover:bg-black hover:text-white duration-300 ease-in-out flex items-center gap-1 '><span>Remove</span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1rem" width="1rem" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM9 11H11V17H9V11ZM13 11H15V17H13V11ZM9 4V6H15V4H9Z"></path></svg>
+                  </button>
+                   </div>
+                    </div>
                 </div>
               </div>
 
@@ -142,8 +155,8 @@ const Productcart = () => {
 
 
                 <div className="flex flex-col items-center lg:space-y-4 space-y-3">
-                  <h2 className="text-black lg:text-xl text-lg font-medium">Price</h2>
-                  <h3 className="text-black lg:text-lg  font-semibold">{item.realPrice} ₹/</h3>
+                  <h2 className="text-black lg:text-xl text-lg font-semibold">Price</h2>
+                  <h3 className="text-black lg:text-lg font-medium ">{item.realPrice} ₹/</h3>
                 </div>
 
                 <div className="flex flex-col items-center lg:space-y-4  space-y-2">
@@ -167,8 +180,8 @@ const Productcart = () => {
                 </div>
 
                 <div className=" lg:space-y-4 space-y-3 flex flex-col text-center ">
-                  <h2 className="text-black lg:text-xl text-lg font-medium">Total</h2>
-                  <h3 className="text-black lg:text-lg text-base  font-semibold">
+                  <h2 className="text-black lg:text-xl text-lg font-semibold ">Total</h2>
+                  <h3 className="text-black lg:text-lg text-base  font-medium">
                   {item.realPrice * quantity}₹/
 
                   </h3>
@@ -238,7 +251,7 @@ const Productcart = () => {
               </h2>
 
               <div className="relative w-full text-left">
-      {/* Select Button */}
+    
       <button
         className="px-4 py-2 w-full rounded-md text-black flex items-center justify-between bg-white"
         onClick={() => setIsStateOpen(!isStateOpen)}
@@ -296,9 +309,9 @@ const Productcart = () => {
                 <span className=" flex  flex-row space-x-2 text-gray-500 ">
                   <input type="checkbox" className="mr-2" />
 
-                  I agree with the <h1 className="text-black underline font-medium ">Trems And Conditions</h1>
+                  I agree with the <h1 className="text-black underline font-medium ">Terms And Conditions</h1>
                 </span>
-              <button type="button" className="bg-[#212529] text-white  text-sm font-medium flex items-center justify-center rounded-full px-2 py-3"><Link to="/checkin">CHECK OUT</Link> </button> 
+                <Link to="/checkin"> <button type="button" className="bg-black w-full text-white  text-sm font-medium flex items-center justify-center rounded-full px-2 py-3">CHECK OUT </button> </Link>
 
               </div>
             </div>
