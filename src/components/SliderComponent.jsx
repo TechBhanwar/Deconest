@@ -5,15 +5,16 @@ const SliderComponent = () => {
     const [showPopup, setShowPopup] = useState(true); // Popup state
 
     const settings = {
-        dots: true,             
-        infinite: true,         
-        speed: 1500,              
-        slidesToShow: 1,         
-        slidesToScroll: 1,       
-        autoplay: false,         
-        autoplaySpeed: 4000,      
-        cssEase: 'ease-out',      
-        pauseOnHover: false,     
+      dots: true,             
+infinite: true,         
+speed: 2500,         
+slidesToShow: 1,         
+slidesToScroll: 1,       
+autoplay: true,         
+autoplaySpeed: 6000,
+cssEase: 'ease-in-out',
+pauseOnHover: false,    
+ 
     };
 
     return (
