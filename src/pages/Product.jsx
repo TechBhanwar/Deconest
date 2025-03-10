@@ -147,6 +147,9 @@ const navigate = useNavigate();
   };
 
 
+  const [isOpen, setIsOpen] = useState(false);
+  
+
 
 
 
@@ -324,6 +327,167 @@ const navigate = useNavigate();
           </div>
           <div className='w-full lg:w-3/4 px-1 lg:px-5'>
             <div className='flex  justify-between items-center'>
+            <span className="lg:hidden cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
+        <svg
+          stroke="currentColor"
+          fill="currentColor"
+          strokeWidth="0"
+          viewBox="0 0 24 24"
+          height="2.25rem"
+          width="2.25rem"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M4 11h12v2H4zm0-5h16v2H4zm0 12h7.235v-2H4z"></path>
+        </svg>
+      </span>
+
+
+      <div
+  className={`fixed top-20 left-0 h-full py-5 px-3 z-50 w-96 bg-white transition-transform duration-500 ${
+    isOpen ? "translate-x-0" : "-translate-x-full"
+  } overflow-y-auto max-h-screen`}
+>
+        <button
+          className="absolute top-2 right-4 text-black text-2xl"
+          onClick={() => setIsOpen(false)}
+        >
+          &times;
+        </button>
+        <div className='w-full p-2  flex-col space-y-6  lg:flex mb-36'>
+            <h4 className='text-lg font-semibold '>Collections</h4>
+            <ul className='flex flex-col space-y-3 text-[14px] text-[#8a8a8a] cursor-pointer '>
+  {categories.map((category) => {
+    const productCount = category.name === "All"
+      ? productItems.length 
+      : productItems.filter(product => product.category === category.name).length;
+
+    return (
+      <li 
+        key={category.name} 
+        className={`flex justify-between px-4 py-2 rounded-md ${selectedCategory === category.name ? "bg-gray-200 text-black font-semibold" : ""}`}
+        onClick={() => handleCategoryChange(category.name)}
+      >
+        {category.name} <span>{productCount}</span>
+      </li>
+    );
+  })}
+</ul>
+
+            <div className='flex space-x-2 text-[14px] items-center'>
+              <h1 className='text-lg font-semibold'>Out of stock</h1>
+              <label className="p-1 px-2 bg-[#f3f3f3] rounded-3xl flex justify-between items-center space-x-3 cursor-pointer">
+                {/* Show */}
+                <span
+                  className={`px-2 py-1 rounded-2xl ${active === 'Show' ? 'bg-white' : ''
+                    }`}
+                  onClick={() => handleToggle('Show')}
+                >
+                  Show
+                </span>
+
+                {/* Hide */}
+                <span
+                  className={`px-2 py-1 rounded-2xl ${active === 'Hide' ? 'bg-white' : ''
+                    }`}
+                  onClick={() => handleToggle('Hide')}
+                >
+                  Hide
+                </span>
+              </label>
+            </div>
+           
+      <h4 className="text-lg font-semibold">Price Range</h4>
+      
+            <h4 className='text-lg font-semibold '>Colors</h4>
+            <div>
+              <div className='flex flex-row space-x-2 mb-2 '>
+                <div className='flex flex-row justify-between px-2 py-1 space-x-2 text-[12px] text-[#8a8a8a] items-center border rounded-3xl hover:border-black cursor-pointer'>
+                  <div className='bg-gray-800 rounded-full p-3'></div>
+                  <span>Gray (3)</span>
+                </div>
+                <div className='flex flex-row justify-between px-2 py-1 space-x-2 text-[12px] text-[#8a8a8a] items-center border rounded-3xl hover:border-black cursor-pointer'>
+                  <div className='bg-pink-900 rounded-full p-3'></div>
+                  <span>Pink (5)</span>
+                </div>
+                <div className='flex flex-row justify-between px-2 py-1 space-x-2 text-[12px] text-[#8a8a8a] items-center border rounded-3xl hover:border-black cursor-pointer'>
+                  <div className='bg-red-800 rounded-full p-3'></div>
+                  <span>red  (3)</span>
+                </div>
+
+
+              </div>
+              <div className='flex flex-row space-x-2 mb-2 '>
+                <div className='flex flex-row justify-between px-2 py-1 space-x-2 text-[12px] text-[#8a8a8a] items-center border rounded-3xl hover:border-black cursor-pointer'>
+                  <div className='bg-green-700 rounded-full p-3'></div>
+                  <span>Green  (3)</span>
+                </div>
+                <div className='flex flex-row justify-between px-2 py-1 space-x-2 text-[12px] text-[#8a8a8a] items-center border rounded-3xl hover:border-black cursor-pointer'>
+                  <div className='bg-black rounded-full p-3'></div>
+                  <span>Black (5)</span>
+                </div>
+                <div className='flex flex-row justify-between px-2 py-1 space-x-2 text-[12px] text-[#8a8a8a] items-center border rounded-3xl hover:border-black cursor-pointer'>
+                  <div className='bg-white border rounded-full p-3'></div>
+                  <span>white (3)</span>
+                </div>
+
+
+              </div>
+              <div className='flex flex-row space-x-2 mb-2 '>
+
+                <div className='flex flex-row justify-between px-2 py-1 space-x-2 text-[12px] text-[#8a8a8a] items-center border rounded-3xl hover:border-black cursor-pointer'>
+                  <div className='bg-yellow-400 rounded-full p-3'></div>
+                  <span>Yellow (5)</span>
+                </div>
+                <div className='flex flex-row justify-between px-2 py-1 space-x-2 text-[12px] text-[#8a8a8a] items-center border rounded-3xl hover:border-black cursor-pointer'>
+                  <div className='bg-blue-700 border rounded-full p-3'></div>
+                  <span>Blue (3)</span>
+                </div>
+
+
+              </div>
+            </div>
+            <h4 className='text-lg font-semibold '>Size</h4>
+            <div className='flex space-x-2 text-[14px]'>
+              <div className='px-3 py-1 border hover:bg-black hover:text-white duration-300 cursor-pointer rounded-md'>S(1)</div>
+              <div className='px-3 py-1 border  hover:bg-black hover:text-white duration-300 cursor-pointer rounded-md'>M(3)</div>
+              <div className='px-3 py-1 border  hover:bg-black hover:text-white duration-300 cursor-pointer rounded-md'>L(5)</div>
+            </div>
+            <h4 className='text-lg font-semibold '>Feature Product</h4>
+<div className='flex flex-col space-y-4'>
+  {[...currentProducts] 
+    .sort(() => Math.random() - 0.5) 
+    .slice(0, 5) 
+    .map((item) => (
+      <div key={item.id} className="max-w-lg bg-white rounded-lg overflow-hidden"> 
+        <div className="flex">
+          <div className="w-1/3 bg-[#f0f0f0] flex justify-center items-center">
+            <img src={item.image} alt={item.name} className="w-[60%] object-cover" />
+          </div>
+          <div className="w-2/3 p-4">
+            <div className="flex str justify-start mb-1 gap-1 items-center">
+              {[...Array(5)].map((_, i) => (
+                <svg key={i} stroke="currentColor" fill="gray" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M496 203.3H312.36L256 32l-56.36 171.3H16l150.21 105.4-58.5 171.3L256 373.84 404.29 480l-58.61-171.3z"></path>
+                </svg>
+              ))}
+            </div>
+<h5 className="text-lg font-semibold line-clamp-2 overflow-hidden">
+  {item.title}
+</h5>
+            <span className='text-[14px] font-semibold '>{item.realPrice}₹/-</span>
+          </div>
+        </div>
+      </div>
+  ))}
+</div>
+
+
+
+          </div>
+      
+      </div>
+
+
               <div className="sort-options">
                 <select
                   id="sort"
@@ -339,14 +503,13 @@ const navigate = useNavigate();
                   <option value="new-to-old">New to Old</option>
                 </select>
               </div>
-
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 py-3">
               {currentProducts.map((item) => (
                 <div key={item.id}     >
                   <div className='flex flex-col space-y-3 justify-center items-center lg:justify-center lg:items-center mb-3'>
                     <div  className='w-full bg-[#f6f6f6] h-[13em] lg:h-[26rem] rounded-2xl overflow-hidden flex justify-center items-center relative group duration-300 cursor-pointer' >
-                      <img src={item.image} alt="" className='w-28 lg:w-56' onClick={() => navigate(`/shop/${item.id}`)}  />
+                      <img src={item.image} alt="" loading="lazy" className='w-28 lg:w-56' onClick={() => navigate(`/shop/${item.id}`)}  />
                       <button onClick={() => handleModalToggle(item)} className='w-full absolute bottom-0 bg-black text-white h-0 group-hover:h-12 duration-300 hidden lg:block '>Quick View</button>
                       <div className=' hidden lg:flex lg:flex-row absolute bottom-16 space-x-2   '>
                         <div className="relative">
@@ -435,7 +598,7 @@ const navigate = useNavigate();
                       <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M463 192H315.9L271.2 58.6C269 52.1 262.9 48 256 48s-13 4.1-15.2 10.6L196.1 192H48c-8.8 0-16 7.2-16 16 0 .9.1 1.9.3 2.7.2 3.5 1.8 7.4 6.7 11.3l120.9 85.2-46.4 134.9c-2.3 6.5 0 13.8 5.5 18 2.9 2.1 5.6 3.9 9 3.9 3.3 0 7.2-1.7 10-3.6l118-84.1 118 84.1c2.8 2 6.7 3.6 10 3.6 3.4 0 6.1-1.7 8.9-3.9 5.6-4.2 7.8-11.4 5.5-18L352 307.2l119.9-86 2.9-2.5c2.6-2.8 5.2-6.6 5.2-10.7 0-8.8-8.2-16-17-16z"></path></svg>
                       <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M463 192H315.9L271.2 58.6C269 52.1 262.9 48 256 48s-13 4.1-15.2 10.6L196.1 192H48c-8.8 0-16 7.2-16 16 0 .9.1 1.9.3 2.7.2 3.5 1.8 7.4 6.7 11.3l120.9 85.2-46.4 134.9c-2.3 6.5 0 13.8 5.5 18 2.9 2.1 5.6 3.9 9 3.9 3.3 0 7.2-1.7 10-3.6l118-84.1 118 84.1c2.8 2 6.7 3.6 10 3.6 3.4 0 6.1-1.7 8.9-3.9 5.6-4.2 7.8-11.4 5.5-18L352 307.2l119.9-86 2.9-2.5c2.6-2.8 5.2-6.6 5.2-10.7 0-8.8-8.2-16-17-16z"></path></svg>
                     </span>
-                    <h1 className='text-[15px] lg:text-[18px] font-semibold text-center'>{item.title}</h1>
+                    <h1 className='text-[15px] lg:text-[18px] font-semibold line-clamp-2 text-center'>{item.title}</h1>
                     <h1 className="text-sm font-semibold"><span className='line-through pr-2 text-red-700'>{item.cutPrice}₹/-</span> {item.realPrice}₹/- <span className='text-red-700'></span></h1>
 
 

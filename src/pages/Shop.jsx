@@ -21,6 +21,7 @@ const Shop = () => {
   const [activeTab, setActiveTab] = useState("Description");
   const [isChecked, setIsChecked] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const [isOpen, setIsOpen] = useState(false);
 
   const [categoryProducts, setCategoryProducts] = useState([]);
 
@@ -96,9 +97,7 @@ const getRandomImages = (images, count) => {
 
 const randomImages = getRandomImages(sameCategoryProducts, 3); // 3 random images
 
-// State to track selected image
 
-// Image change karne ka function
 const prevImage = () => {
   const currentIndex = randomImages.indexOf(currentImage);
   const newIndex = (currentIndex - 1 + randomImages.length) % randomImages.length;
@@ -131,7 +130,7 @@ const nextImage = () => {
         </div>
 
 
-        <div className='flex lg:flex-row space-x-0 mb-10 space-y-3 lg:space-y-0 lg:space-x-10 flex-col'>
+        <div className='flex lg:flex-col lg:space-y-4 xl:space-y-0 xl:flex-row space-x-0 mb-10 space-y-3  lg:space-x-10 flex-col'>
           <div className='flex flex-col space-y-7'>
 
             <div className='flex lg:flex-row flex-col lg:space-y-1  space-x-0 lg:space-x-7 '>
@@ -155,15 +154,39 @@ const nextImage = () => {
 
 
 <div className='bg-pink-100 lg:order-2 order-1 relative rounded-lg lg:w-[720px] w-full py-10 h-96 lg:h-[900px] flex justify-center items-center overflow-hidden'>
-  <img src={`/${currentImage}`} alt="Product" className='w-auto h-96 lg:h-fit  object-contain' />
+  <img src={`/${currentImage}`} alt="Product" className='w-auto h-96 lg:h-fit  object-contain' onClick={() => setIsOpen(true)} />
+ 
+  {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          onClick={() => setIsOpen(false)}
+        >
+        <div className='bg-pink-100  relative rounded-lg lg:w-[720px] w-full py-10 h-96 lg:h-[900px] flex justify-center items-center overflow-hidden'>
+  <img src={`/${currentImage}`} alt="Product" className='w-auto h-96 lg:h-fit  object-contain' onClick={() => setIsOpen(true)} />
+ 
   <span className='bg-red-600 absolute top-3 px-2 py-1 rounded-full text-white text-sm font-medium right-3'>-{product.discount}%</span>
 
-  {/* Previous Button */}
   <button onClick={prevImage} className='absolute left-4 text-3xl bg-white hover:bg-black hover:text-white duration-300 transition transform lg:px-3 px-1 py-1 lg:py-3 rounded-full shadow-lg'>
     <span><svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"></path></svg></span>
   </button>
 
-  {/* Next Button */}
+  <button onClick={nextImage} className='absolute right-4 text-3xl bg-white hover:bg-black hover:text-white duration-300 transition transform lg:px-3 px-1 py-1 lg:py-3 rounded-full shadow-lg'>
+    <span>
+      <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
+    </span>
+  </button>
+</div>
+
+
+        </div>
+      )}
+
+  <span className='bg-red-600 absolute top-3 px-2 py-1 rounded-full text-white text-sm font-medium right-3'>-{product.discount}%</span>
+
+  <button onClick={prevImage} className='absolute left-4 text-3xl bg-white hover:bg-black hover:text-white duration-300 transition transform lg:px-3 px-1 py-1 lg:py-3 rounded-full shadow-lg'>
+    <span><svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"></path></svg></span>
+  </button>
+
   <button onClick={nextImage} className='absolute right-4 text-3xl bg-white hover:bg-black hover:text-white duration-300 transition transform lg:px-3 px-1 py-1 lg:py-3 rounded-full shadow-lg'>
     <span>
       <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
@@ -213,10 +236,8 @@ const nextImage = () => {
                 {product.description}
               </p>
 
-              <h3 className='text-black text-sm lg:text-lg'>
-                Color: {product.colors?.join(", ")}
-              </h3>
-              <div className='flex flex-row space-x-2'>
+              <h3 className='text-black text-sm lg:text-lg flex space-x-2'>
+               <span>Colors:</span>   <div className='flex flex-row space-x-2'>
                 {product.colors?.map((color, index) => (
                   <div
                     key={index}
@@ -230,10 +251,12 @@ const nextImage = () => {
                   </div>
                 ))}
               </div>
+              </h3>
+           
 
 
 
-              <div className='flex flex-row space-x-3 lg:space-x-3 py-3'>
+              <div className='flex flex-row space-x-3 lg:space-x-3 py-3 justify-between'>
                 <div className="flex justify-between items-center lg:space-x-4 space-x-2 border lg:w-28 lg:h-14 h-10   w-20 py-0 lg:py-2 px-5 lg:px-3 rounded-full">
                   <button
                     onClick={decrement}
@@ -286,7 +309,7 @@ const nextImage = () => {
                 </button>
               </div>
 
-              <div className='flex flex-row space-x-2 py-2'>
+              <div className='flex flex-row justify-between  py-2'>
 
                 <div className='hidden lg:flex flex-row'>
                   <button className='bg-pink-100 w-9 h-9 flex items-center justify-center rounded-full hover:bg-black hover:text-white transition-all duration-300'>

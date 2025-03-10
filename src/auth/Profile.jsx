@@ -1,23 +1,22 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar'
 import Footernav from '../components/Footernav'
-import { Link } from "react-router-dom";
 
 const Profile = () => {
 
-  const [selected, setSelected] = useState('order');  // Default selected menu
+  const [selected, setSelected] = useState('order');  
 
   const handleMenuClick = (menu) => {
-    setSelected(menu);  // Update the selected menu
+    setSelected(menu); 
   };
 
   const [selectedPayment, setSelectedPayment] = useState(null);
 
   const handlePaymentMethodChange = (method) => {
     if (selectedPayment === method) {
-      setSelectedPayment(null);  // Toggle off the method if it's already selected
+      setSelectedPayment(null); 
     } else {
-      setSelectedPayment(method);  // Set the selected method
+      setSelectedPayment(method);
     }
   };
 
@@ -90,7 +89,7 @@ const Profile = () => {
 
 
   // address
-  const [address, setAddress] = useState({
+  const [address, ] = useState({
     street: '',
     city: '',
     state: '',
@@ -108,7 +107,7 @@ const Profile = () => {
     <div>
       <Navbar />
 
-   <div className="container flex">
+   <div className="container flex mb-8">
     <div className='w-1/4'>
     <div className='bg-[#f2f4f3]'>
    <div className='flex flex-col space-y-2 justify-center items-center py-5' >
