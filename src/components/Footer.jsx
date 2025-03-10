@@ -1,4 +1,11 @@
 import React from 'react'
+import { Link } from "react-router-dom";
+
+
+
+
+
+
 
 const Footer = () => {
     return (
@@ -12,7 +19,7 @@ const Footer = () => {
                         </div>
                         <div>
                             <div className='bg-transparent border flex justify-between border-white rounded-full lg:px-4 px-3 py-2  lg:py-3'>
-                                <input type="email" placeholder='Email Address...' className='border-none outline-none text-white placeholder:text-white bg-transparent' />
+                                <input type="email" placeholder='Email Address...' className='border-none w-full outline-none text-white placeholder:text-white bg-transparent' />
                                 <button className='outline-none border  rounded-full bg-white  lg:px-3 px-2 py-1 lg:py-2 font-medium text-black lg:text-lg  text-sm hover:bg-transparent hover:text-white transition transform duration-300'>Subscribe</button>
 
                             </div>
@@ -25,39 +32,34 @@ const Footer = () => {
                             <img src="/images/logowhite1.webp" alt="" className='lg:w-full w-72' />
                             <h2 className='text-white text-sm font-medium  '>Royal Botanic Gardens, Kew, Richmond, London <br />
                             TW9 3AB, United Kingdom</h2>
-                            <div className='flex flex-row gap-5'>
-                                <img src="/images/pinterest.webp" alt="" className='w-7 h-7' />
-                                <img src="/images/telegram.webp" alt="" className='w-7 h-7' />
-                                <img src="/images/instagram.webp" alt="" className='w-7 h-7' />
-                                <img src="/images/facebook.webp" alt="" className='w-7 h-7' />
-                            </div>
+                           
                            
                         </div>
                         <div className='flex flex-col  items-start lg:items-center lg:justify-center'>
-                            <h1 className='text-white text-base font-semibold mb-3 lg:mb-6'>About Us</h1>
+                            <h1 className='text-white text-base font-semibold mb-3 lg:-ml-6 lg:mb-6'><Link to="/about">About-Us</Link></h1>
                             <ul className='text-white text-[13px] font-medium space-y-3'>
                                 <li>Our Shops</li>
-                                <li>Contact</li>
-                                <li>Artists</li>
-                                <li>Local Giving</li>
-                                <li>Press</li>
+                                <li><Link to="/contact">Contact</Link></li>
+                                <li>Store Locator</li>
+                                <li>News and Blogs</li>
+
                             </ul>
                         </div>
                         <div className='flex flex-col  items-start lg:items-center lg:justify-center'>
                             <h1 className='text-white mr-9 text-base font-semibold mb-3 lg:mb-6'>Help</h1>
                             <ul className='text-white text-[13px] font-medium space-y-3'>
-                                <li>Faqs</li>
-                                <li>Pricing Plans</li>
+                                <li><Link to="/faqs">FAQs</Link></li>
+                               
                                 <li>Track</li>
                                 <li>Your Order</li>
-                                <li>My Account</li>
+                                <li><Link to="/profile">My Account</Link></li>
                             </ul>
                         </div>
                         <div className='flex flex-col  items-start lg:items-center lg:justify-center'>
                             <h1 className='text-white text-base font-semibold mb-3 lg:mb-6'>Customer Services</h1>
                             <ul className='text-white text-[13px] font-medium space-y-3'>
-                                <li>FAQs</li>
-                                <li>Store Locator</li>
+                                <li><Link to="/termcondition">Terms and Conditions</Link></li>
+                               
                                 <li>Returns</li>
                                 <li>Shipping Information</li>
                                 <li>Wholesale</li>

@@ -445,9 +445,9 @@ function Navbar() {
                     </svg>
                   </div></Link>
               </li>
-              <Link to="/loding"   >      <li className="group relative flex items-center cursor-pointer">
+              <Link to="/contact"   >      <li className="group relative flex items-center cursor-pointer">
                 <div className=" after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-full group-hover:after:left-0 group-hover:after:translate-x-0 relative flex items-center peer ">
-                  Featured
+                  Contact-Us
                   <svg stroke="currentColor" fill="black" stroke-width="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 15.0006L7.75732 10.758L9.17154 9.34375L12 12.1722L14.8284 9.34375L16.2426 10.758L12 15.0006Z"></path>
                   </svg>
@@ -596,6 +596,9 @@ function Navbar() {
                     </svg>
                   </li>
                   </Link>
+
+
+                  <Link to="/contact">
                       <li className="px-4 py-4 cursor-pointer flex justify-between items-center rounded-lg border-b border-gray-300 hover:bg-[#f0f0f0]">
                     Contact
                     <svg
@@ -611,6 +614,8 @@ function Navbar() {
                       <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path>
                     </svg>
                   </li>
+                  </Link>
+
 
                 </ul>
               </div>
@@ -740,13 +745,19 @@ function Navbar() {
         </div>
       </nav>
 
-      <div className="group w-12 h-12 rounded-full p-[10px] bg-white bottom-16 lg:bottom-7 right-5 shadow-lg fixed z-50 animate-bounceSmooth flex items-center justify-center cursor-pointer">
+      <a
+  href="https://wa.me/8440982031" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  className="group w-12 h-12 rounded-full p-[10px] bg-white bottom-16 lg:bottom-7 right-5 shadow-lg fixed z-50 animate-bounceSmooth flex items-center justify-center cursor-pointer"
+>
   <img src="/images/chat.png" alt="Chat" />
 
   <span className="absolute w-40 flex items-center justify-center gap-2 text-center right-11 top-1/2 transform -translate-y-1/2 translate-x-4 bg-black text-white text-sm px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 group-hover:-translate-x-2 transition-all duration-300 before:absolute before:content-[''] before:w-3 before:h-3 before:bg-black before:top-[12px] before:right-[-6px] before:rotate-45">
     How Can I help you?
   </span>
-</div>
+</a>
+
 
 {/* <div
       onClick={() => setIsExpanded(!isExpanded)}

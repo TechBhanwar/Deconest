@@ -12,12 +12,25 @@ import Productcart from './pages/Productcart';
 import Product from './pages/Product';
 import Blog from './pages/Blog';
 import Blogopen from './pages/Blogopen';
+
+import CheckoutPage from './pages/CheckoutPage';
+import Payment from './pages/Payment';
+
+import ScrollToTop from './components/ScrollToTop';
+import Lodingscreen from './pages/Lodingscreen';
+import UserProfile from './auth/UserProfile';
+import Termscondition from './pages/Termscondition';
+import Faqs from './pages/Faqs';
+import Contact from './pages/Contact';
+import About from './pages/About';
+
 // import CheckoutPage from './pages/CheckoutPage';
 import Aboutus from './components/Aboutus';
 import ScrollToTop from './components/ScrollToTop';
 import Lodingscreen from './pages/Lodingscreen';
 import UserProfile from './auth/UserProfile';
 import Checkout from './pages/Checkout';
+
 
 
 const App = () => {
@@ -41,10 +54,20 @@ const App = () => {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<Blogopen />} />
           <Route path="/shop/:id" element={<Shop />} />
+
+          <Route path="/checkin" element={<CheckoutPage />} />
+          <Route path="/payment" element={<Payment />} />
+          
+
           <Route path="/checkin" element={<Checkout />} />
           <Route path="/aboutus" element={<Aboutus />} />
-          <Route path="/loding" element={<Lodingscreen />} />
 
+          <Route path="/loding" element={<Lodingscreen />} />
+          <Route path="/termcondition" element={<Termscondition />} />
+         <Route path="/faqs" element={<Faqs />} />
+         <Route path="/contact" element={<Contact />} />
+         <Route path="/about" element={<About />} />
+        
         </Routes>
       </BrowserRouter>
     </Provider>
