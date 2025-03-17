@@ -477,6 +477,7 @@ const navigate = useNavigate();
 <h5 className="text-lg font-semibold line-clamp-2 overflow-hidden">
   {item.title}
 </h5>
+
             <span className='text-[14px] font-semibold '>{item.realPrice}₹/-</span>
           </div>
         </div>

@@ -1,5 +1,8 @@
 import React from "react";
 import Slider from "react-slick";
+import { Link } from 'react-router-dom'
+
+
 
 
 const Newarrival = () => {
@@ -80,7 +83,8 @@ const Newarrival = () => {
 
         <Slider {...settings}>
           {slides.map((slide) => (
-            <div className="flex lg:flex-row lg:justify-between gap-10 lg:h-full ">
+           <Link to="/product" >
+            <div className="flex lg:flex-row lg:justify-between gap-10 lg:h-full cursor-pointer ">
             <div
               
               className="flex flex-row  group justify-between rounded-lg overflow-hidden bg-[#f5f5f5] w-full lg:w-[98%] lg:h-[450px] h-[300px]"
@@ -100,13 +104,14 @@ const Newarrival = () => {
                 <p className="lg:text-2xl  text-gray-400 font-medium">
                   {slide.description}
                 </p>
-                <button className="lg:px-5 lg:py-3 px-4 py-2  bg-transparent border-black border font-medium hover:bg-black hover:text-white transition duration-300 rounded-full">
+                <Link to="/product" >  <button className="lg:px-5 lg:py-3 px-4 py-2  bg-transparent border-black border font-medium hover:bg-black hover:text-white transition duration-300 rounded-full">
                   {slide.buttonText}
-                </button>
+                </button></Link>
               </div>
 
             </div>
             </div>
+            </Link> 
           ))}
         </Slider>
       </div>

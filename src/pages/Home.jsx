@@ -14,11 +14,13 @@ import News from '../components/News'
 import Footernav from '../components/Footernav'
 import CookieConsent from '../components/CookieConsent'
 import Experince from '../components/Experince'
+// import OnloadPopup from '../components/OnloadPopup'
 
 
 const Home = () => {
   return (
     <div>
+      {/* <OnloadPopup /> */}
       <Navbar />
      <SliderComponent  />
      <Category />
