@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter , Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import Home from './pages/Home';
@@ -31,7 +31,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter >
       <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
