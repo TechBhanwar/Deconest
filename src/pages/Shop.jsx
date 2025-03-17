@@ -117,6 +117,30 @@ const Shop = () => {
   const tabs = ["Description", "Review", "Shipping", "Return"];
 
 
+  const currentDate = new Date();
+
+  const [startDay, endDay] = product.deliveryTime.split('-').map((day) => parseInt(day));
+
+  const startDate = new Date(currentDate);
+  startDate.setDate(currentDate.getDate() + startDay);
+
+  const endDate = new Date(currentDate);
+  endDate.setDate(currentDate.getDate() + endDay);
+
+  const formatDate = (date) => {
+    return date.toLocaleDateString('en-US', {
+      weekday: 'long',
+      month: 'short',
+      day: 'numeric',
+    });
+  };
+
+
+
+
+
+
+
   return (
     <div>
       <Navbar />
@@ -203,7 +227,7 @@ const Shop = () => {
             <div className='flex flex-col space-y-3 py-1  border-b items-start justify-start ' >
               <h1 className='text-black lg:text-3xl text-xl font-semibold'>{product.title}</h1>
 
-              <span className='text-gray-400 space-x-1  flex flex-row '>
+              <span className='text-yellow-500 space-x-1  flex flex-row '>
                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.595 6.252L8 1 6.405 6.252H1l4.373 3.4L3.75 15 8 11.695 12.25 15l-1.623-5.348L15 6.252H9.595z"></path></svg>
                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.595 6.252L8 1 6.405 6.252H1l4.373 3.4L3.75 15 8 11.695 12.25 15l-1.623-5.348L15 6.252H9.595z"></path></svg>
                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.595 6.252L8 1 6.405 6.252H1l4.373 3.4L3.75 15 8 11.695 12.25 15l-1.623-5.348L15 6.252H9.595z"></path></svg>
@@ -362,9 +386,9 @@ const Shop = () => {
                 <div className='flex flex-col px-1'>
                   <p className='text-gray-400 lg:text-base text-xs'>Order in the next 14 hours 18 minutes to get it between</p>
                   <span className='flex flex-row'>
-                    <h1 className=' text-black text-xs lg:text-base underline'>Tuesday, Feb 4</h1>
+                    <h1 className=' text-black text-xs lg:text-base underline'>{formatDate(startDate)}</h1>
                     <p className='text-gray-400 lg:text-base text-xs px-1 '>and</p>
-                    <h1 className='text-black text-xs lg:text-base underline'> Saturday, Feb 8</h1>
+                    <h1 className='text-black text-xs lg:text-base underline'>    {formatDate(endDate)}</h1>
                   </span>
                 </div>
               </div>
