@@ -5,7 +5,7 @@ import {  removeFromCart, clearCart } from '../redux/cartSlice';
 import Footer from '../components/Footer';
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import Footernav from '../components/Footernav';
 import { updateQuantity} from "../redux/cartSlice";
 
