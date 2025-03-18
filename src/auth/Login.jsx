@@ -144,7 +144,7 @@ const Login = () => {
             </div>
             </form>
             <div className='w-full  lg:w-[55%] order-1 lg:order-2 h-full relative'>
-              <img src="/images/login.webp" alt="" className='w-full h-full' />
+              <img src="images/login.webp" alt="" className='w-full h-full' />
               <div className='absolute bg-black opacity-20 left-0 h-full top-0 w-full'></div>
             </div>
           </div>

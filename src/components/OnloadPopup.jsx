@@ -26,7 +26,7 @@ const OnloadPopup = () => {
                       <div className="fixed top-0 left-0 w-full px-8   lg:px-0  h-[100vh] bg-black bg-opacity-30 flex items-center justify-center z-[99999999]">
                           <div className="bg-white relative -top-4  shadow-lg lg:w-[57rem] lg:h-[34rem] h-[20rem] bg-cover bg-center grid grid-cols-2 "   >
                             
-                            <div className='bg-cover bg-center' style={{ backgroundImage: "url('/images/onloadpopup.jpg')" }}></div>
+                            <div className='bg-cover bg-center' style={{ backgroundImage: "url('images/onloadpopup.jpg')" }}></div>
                             <div>
                             <div className=' px-4  flex-col    items-center justify-center flex  h-full'>
                             <h1 className="text-3xl font-bold text-black mt-4">Welcome ! <span className='text-4xl'>Deconest </span></h1>

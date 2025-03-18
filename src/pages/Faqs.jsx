@@ -58,7 +58,7 @@ const Faqs = () => {
       <Navbar />
       <div className="grid grid-cols-1 pt-5 space-y-3 lg:space-x-10 mb-5 lg:grid-cols-2">
         <div>
-          <img src="/images/faq.jpg" alt="FAQ" />
+          <img src="images/faq.jpg" alt="FAQ" />
         </div>
         <div className="flex flex-col justify-center px-5 items-center">
           <div className="text-start space-y-5">

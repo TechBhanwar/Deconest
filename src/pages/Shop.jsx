@@ -170,7 +170,7 @@ const Shop = () => {
                       className="bg-pink-100 lg:px-3 px-7 flex justify-center hover:scale-75 items-center py-8 lg:py-7 rounded-md transition-transform duration-300"
                       onClick={() => setCurrentImage(img)} // Click par image change hogi
                     >
-                      <img src={`/${img}`} alt="Product" className="w-20" />
+                      <img src={`${img}`} alt="Product" className="w-20" />
                     </div>
                   </div>
                 ))}
@@ -180,7 +180,7 @@ const Shop = () => {
 
 
               <div className='bg-pink-100 lg:order-2 order-1 relative rounded-lg lg:w-[720px] w-full py-10 h-96 lg:h-[900px] flex justify-center items-center overflow-hidden'>
-                <img src={`/${currentImage}`} alt="Product" className='w-auto h-96 lg:h-fit  object-contain' onClick={() => setIsOpen(true)} />
+                <img src={`${currentImage}`} alt="Product" className='w-auto h-96 lg:h-fit  object-contain' onClick={() => setIsOpen(true)} />
 
                 {isOpen && (
                   <div
@@ -411,11 +411,11 @@ const Shop = () => {
                   <p className='text-black lg:text-lg text-sm'>Guaranteed Checkout</p>
                 </div>
                 <div className='flex flex-row space-x-4 lg:space-x-8 justify-center items-center px-5'>
-                  <img src="/images/visa.webp" alt="" className='lg:w-16 w-14' />
-                  <img src="/images/pngegg.webp" alt="" className='lg:w-16 w-14' />
-                  <img src="/images/american-express.webp" alt="" className='lg:w-16 w-14' />
-                  <img src="/images/stripe.webp" alt="" className='lg:w-16 w-14' />
-                  <img src="/images/shopify.webp" alt="" className='lg:w-16 w-14' />
+                  <img src="images/visa.webp" alt="" className='lg:w-16 w-14' />
+                  <img src="images/pngegg.webp" alt="" className='lg:w-16 w-14' />
+                  <img src="images/american-express.webp" alt="" className='lg:w-16 w-14' />
+                  <img src="images/stripe.webp" alt="" className='lg:w-16 w-14' />
+                  <img src="images/shopify.webp" alt="" className='lg:w-16 w-14' />
                 </div>
 
               </div>
@@ -439,7 +439,7 @@ const Shop = () => {
               <div className='flex flex-row  lg:justify-start space-x-5 justify-between  '>
                 {categoryProducts.slice(0, 3).map((item) => (
                   <div key={item.id} className='flex bg-pink-50 justify-center lg:w-40 w-[900px] lg:h-44 space-x-3 items-center'>
-                    <img src={`/${item.image}`} alt={item.title} className='lg:w-28 w-full' />
+                    <img src={`${item.image}`} alt={item.title} className='lg:w-28 w-full' />
                   </div>
                 ))}
 

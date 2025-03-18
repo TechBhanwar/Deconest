@@ -29,7 +29,7 @@ const Wishlist = () => {
 {wishlist.map((item) => (
               <div className='flex w-full  space-y-2 flex-col'>
                 <div className='bg-pink-50  items-center w-full justify-center flex h-96 relative'>
-                  <img src=" /images/product1.webp" alt="" className='w-60'  />
+                  <img src=" images/product1.webp" alt="" className='w-60'  />
 
                   <button className='absolute border-none outline-none bg-white px-4 py-4 shadow-md right-1 top-1 rounded-full '>
                     <span>

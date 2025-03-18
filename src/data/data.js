@@ -97,31 +97,31 @@ export { products, furniture, decor, kitchenDining };
 export const homeDecorNews = [
   {
     id: 1,
-    image: "/images/news1.webp",
+    image: "images/news1.webp",
     date: "January 14, 2024",
     title: "Exclusive Sofa Collection Launched for Modern Homes",
   },
   {
     id: 2,
-    image: "/images/news2.webp",
+    image: "images/news2.webp",
     date: "February 14, 2024",
     title: "Luxury Lamps to Brighten Up Your Living Space",
   },
   {
     id: 3,
-    image: "/images/news3.webp",
+    image: "images/news3.webp",
     date: "March 14, 2024",
     title: "Vintage Decor: Add a Touch of Elegance to Your Home",
   },
   {
     id: 4,
-    image: "/images/news4.webp",
+    image: "images/news4.webp",
     date: "April 14, 2024",
     title: "Stylish Kitchen Designs for a Modern Lifestyle",
   },
   {
     id: 5,
-    image: "/images/news5.webp",
+    image: "images/news5.webp",
     date: "May 14, 2024",
     title: "Comfortable and Elegant Bedroom Sets Now Available",
   },
@@ -943,7 +943,7 @@ export const productItems = [
 export const blogs = [
   {
     id: 1,
-    image: '/images/blog1.webp',
+    image: 'images/blog1.webp',
     date: '2025-01-30',
     title: 'Exploring the Future of Furniture Design',
     description: 'Furniture design is evolving rapidly with the integration of smart technology, sustainable materials, and modern aesthetics. In this blog, we explore how furniture trends are shifting towards minimalism, multifunctionality, and eco-friendly solutions to suit contemporary living spaces.',
@@ -954,7 +954,7 @@ export const blogs = [
   },
   {
     id: 2,
-    image: '/images/blog2.webp',
+    image: 'images/blog2.webp',
     date: '2025-01-29',
     title: 'Top Trends in Dining & Kitchen Styles',
     description: 'From rustic farmhouse designs to sleek modern aesthetics, dining and kitchen trends in 2025 emphasize comfort and functionality. This blog highlights the top trends in materials, colors, and layouts shaping the heart of the home.',
@@ -965,7 +965,7 @@ export const blogs = [
   },
   {
     id: 3,
-    image: '/images/blog3.webp',
+    image: 'images/blog3.webp',
     date: '2025-01-28',
     title: 'Kitchen Designs You Must Try in 2025',
     description: 'A well-designed kitchen enhances cooking efficiency and adds beauty to your home. Discover the latest kitchen design ideas, including smart appliances, open shelving, and luxurious countertops that will redefine your cooking space.',
@@ -976,7 +976,7 @@ export const blogs = [
   },
   {
     id: 4,
-    image: '/images/blog4.webp',
+    image: 'images/blog4.webp',
     date: '2025-01-27',
     title: 'Living the Life Style You Deserve',
     description: 'Creating a home that reflects your personality and lifestyle is essential for comfort and well-being. Learn how to curate a stylish and functional living space that meets your needs and enhances your daily routine.',
@@ -987,7 +987,7 @@ export const blogs = [
   },
   {
     id: 5,
-    image: '/images/blog5.webp',
+    image: 'images/blog5.webp',
     date: '2025-01-26',
     title: 'Choosing the Right Sofa for Your Home',
     description: 'A sofa is the centerpiece of any living room. This guide will help you select the perfect sofa based on size, material, color, and design to match your interior style and comfort needs.',
@@ -998,7 +998,7 @@ export const blogs = [
   },
   {
     id: 6,
-    image: '/images/blog6.webp',
+    image: 'images/blog6.webp',
     date: '2025-01-25',
     title: 'The Evolution of Modern Furniture Design',
     description: 'Modern furniture design blends aesthetics with functionality. Learn about the key design principles that define contemporary furniture trends and how to incorporate them into your space.',
@@ -1009,7 +1009,7 @@ export const blogs = [
   },
   {
     id: 7,
-    image: '/images/blog7.webp',
+    image: 'images/blog7.webp',
     date: '2025-01-24',
     title: 'The Rise of Sustainable Furniture',
     description: 'Sustainability is shaping the furniture industry. Discover how eco-friendly materials and innovative production methods are creating stylish and responsible furniture choices.',
@@ -1020,7 +1020,7 @@ export const blogs = [
   },
   {
     id: 8,
-    image: '/images/blog8.webp',
+    image: 'images/blog8.webp',
     date: '2025-01-23',
     title: 'How Home Decor Influences Your Mood',
     description: 'Your home environment impacts your mental well-being. Explore how colors, lighting, and furniture arrangements can create a peaceful and inspiring living space.',
@@ -1031,7 +1031,7 @@ export const blogs = [
   },
   {
     id: 9,
-    image: '/images/blog9.webp',
+    image: 'images/blog9.webp',
     date: '2025-01-22',
     title: '10 Home Decor Trends You Can’t Miss in 2025',
     description: 'Stay ahead of the trends with our guide to the top home decor ideas for 2025, including sustainable design, smart home innovations, and cozy aesthetics.',
@@ -1042,7 +1042,7 @@ export const blogs = [
   },
   {
     id: 10,
-    image: '/images/blog10.webp',
+    image: 'images/blog10.webp',
     date: '2025-01-21',
     title: 'Breaking News in the Furniture Industry',
     description: 'The furniture industry is constantly evolving. Read about the latest innovations, market trends, and new materials shaping the future of furniture.',
@@ -1053,7 +1053,7 @@ export const blogs = [
   },
   {
     id: 11,
-    image: '/images/blog11.webp',
+    image: 'images/blog11.webp',
     date: '2025-01-20',
     title: 'Living the Life Style You Deserve',
     description: 'Discover how to design your home and lifestyle to reflect elegance, comfort, and personality. Learn tips to make every space uniquely yours.',
@@ -1064,7 +1064,7 @@ export const blogs = [
   },
   {
     id: 12,
-    image: '/images/blog12.webp',
+    image: 'images/blog12.webp',
     date: '2025-01-19',
     title: 'The Future of Sustainable Home Decor',
     description: 'Sustainability meets style in home decor. Explore the latest eco-friendly design choices and how to make your home more sustainable without sacrificing aesthetics.',
@@ -1075,7 +1075,7 @@ export const blogs = [
   },
   {
     id: 13,
-    image: '/images/blog13.webp',
+    image: 'images/blog13.webp',
     date: '2025-01-18',
     title: 'Why News on Furniture Innovations Matters',
     description: 'Keeping up with the latest in furniture innovation can transform how we live. Learn about groundbreaking technologies and materials that are redefining interiors.',
@@ -1086,7 +1086,7 @@ export const blogs = [
   },
   {
     id: 14,
-    image: '/images/blog14.webp',
+    image: 'images/blog14.webp',
     date: '2025-01-17',
     title: 'Smart Furniture: The Future of Home Design',
     description: 'Smart furniture is changing the way we interact with our spaces. Discover the latest tech-integrated furniture trends that are enhancing home functionality.',
@@ -1097,7 +1097,7 @@ export const blogs = [
   },
   {
     id: 15,
-    image: '/images/blog15.webp',
+    image: 'images/blog15.webp',
     date: '2025-01-16',
     title: 'How to Combine Style and Function in Furniture',
     description: 'Blending style with function is key in modern furniture. This guide explores versatile furniture pieces that maximize space and enhance aesthetics.',

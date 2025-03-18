@@ -10,7 +10,7 @@ const Newarrival = () => {
   const slides = [
     {
       id: 1,
-      img: "/images/newarrival1.webp",
+      img: "images/newarrival1.webp",
       title: "Hanging Light",
       description: "Get Up To 60% Off",
       
@@ -20,21 +20,21 @@ const Newarrival = () => {
       id: 2,
       title: "Side Table",
       description: "Get Up To 60% Off",
-      img: "/images/newarrival2.webp",
+      img: "images/newarrival2.webp",
       buttonText: "Shop Now",
     },
     {
       id: 3,
       title: "Modern Chair",
       description: "Get Up To 50% Off",
-      img: "/images/newarrival3.webp",
+      img: "images/newarrival3.webp",
       buttonText: "Shop Now",
     },
     {
       id: 4,
       title: "Chain Lamp",
       description: "Get Up To 50% Off",
-      img: "/images/newarrival4.webp",
+      img: "images/newarrival4.webp",
       buttonText: "Shop Now",
     },
   ];

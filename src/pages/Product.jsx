@@ -10,11 +10,11 @@ import { useNavigate } from "react-router-dom";
 
 
 const categories = [
-  { name: "All", image: "/images/Prodcut_cataegory1.webp" },
-  { name: "Home Decor", image: "/images/Prodcut_cataegory5.webp" },
-  { name: "Table", image: "/images/Prodcut_cataegory3.webp" },
-  { name: "Furniture", image: "/images/Prodcut_cataegory4.webp" },
-  { name: "Lighting", image: "/images/Prodcut_cataegory2.webp" },
+  { name: "All", image: "images/Prodcut_cataegory1.webp" },
+  { name: "Home Decor", image: "images/Prodcut_cataegory5.webp" },
+  { name: "Table", image: "images/Prodcut_cataegory3.webp" },
+  { name: "Furniture", image: "images/Prodcut_cataegory4.webp" },
+  { name: "Lighting", image: "images/Prodcut_cataegory2.webp" },
 ];
 
 const Product = (product) => {

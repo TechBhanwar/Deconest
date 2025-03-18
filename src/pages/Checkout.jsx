@@ -121,8 +121,8 @@ const [formData, setFormData] = useState({
   </div>
 )}
   {isorderLoading && (
-        <div className="flex justify-center items-center top-0 left-0 w-full h-full fixed bg-white opacity-60 cursor-wait">
-          <img src="/images/Deconest-loader.gif" alt="Loading..." className="w-20 h-20" />
+        <div className="flex justify-center items-center top-0 left-0 w-full z-50 h-full fixed bg-white opacity-60 cursor-wait">
+          <img src="images/Deconest-loader.gif" alt="Loading..." className="w-20 h-20" />
         </div>
       )}
            
@@ -406,7 +406,7 @@ const [formData, setFormData] = useState({
 
                     </div>
                 </div>
-                <div className='w-full lg:w-1/3 relative'>
+                <div className='w-full lg:w-1/3 relative '>
                     <div className="flex flex-col gap-5 ">
                         <h1 className='text-4xl uppercase'>
                             Your order
@@ -500,7 +500,7 @@ const [formData, setFormData] = useState({
                     </div>
                     {isLoading && (
         <div className="flex justify-center items-center top-0 left-0 w-full h-1/2 absolute bg-white opacity-60 cursor-wait">
-          <img src="/images/Deconest-loader.gif" alt="Loading..." className="w-20 h-20" />
+          <img src="images/Deconest-loader.gif" alt="Loading..." className="w-20 h-20" />
         </div>
       )}
 

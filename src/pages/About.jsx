@@ -16,7 +16,7 @@ const About = () => {
      </h1>
 
      <div className='lg:h-[32rem] w-full lg:w-[58rem] rounded-xl  overflow-hidden' >
-      <img src="/images/about.jpg" alt="" className='w-full h-full' />
+      <img src="images/about.jpg" alt="" className='w-full h-full' />
      </div>
 
 
@@ -37,7 +37,7 @@ const About = () => {
   
     <div className=' grid grid-cols-1  lg:grid-cols-2  '>
         <div className='overflow-hidden rounded-tl-full lg:order-1 order-2 rounded-bl-full w-full  lg:h-[30rem]   ' >
-          <img src="/images/about1.jpg" alt="" className='h-full w-full' />
+          <img src="images/about1.jpg" alt="" className='h-full w-full' />
         </div>
         <div className='flex lg:px-5 justify-center lg:order-2 lg:mb-0 mb-4 order-1 space-y-4 flex-col'>
           <h1 className='text-start flex text-3xl lg:text-4xl font-bold justify-start'>From Humble Beginnings</h1>
@@ -69,13 +69,13 @@ const About = () => {
         
         </div>
         <div className='overflow-hidden rounded-tr-full lg:order-2 order-1 rounded-br-full w-full   lg:h-[30rem] ' >
-          <img src="/images/about2.webp" alt="" className='h-full w-full' />
+          <img src="images/about2.webp" alt="" className='h-full w-full' />
         </div>
     </div>
 
     <div className='grid grid-cols-1 lg:grid-cols-2  '>
         <div className='overflow-hidden rounded-tl-full lg:order-1 order-2 rounded-bl-full w-full  lg:h-[30rem]   ' >
-          <img src="/images/about3.jpg" alt="" className='h-full w-full' />
+          <img src="images/about3.jpg" alt="" className='h-full w-full' />
         </div>
         <div className='flex lg:px-5 justify-center lg:order-2 lg:mb-0 mb-4 order-1 space-y-4 flex-col'>
           <h1 className='text-start flex text-3xl lg:text-4xl font-bold justify-start'>Innovation and Growth</h1>
@@ -107,7 +107,7 @@ const About = () => {
         
         </div>
         <div className='overflow-hidden lg:order-2 order-1 rounded-tr-full rounded-br-full w-full  mb-6 lg:h-[30rem] ' >
-          <img src="/images/about7.webp" alt="" className='h-full w-full' />
+          <img src="images/about7.webp" alt="" className='h-full w-full' />
         </div>
     </div>
 
@@ -123,7 +123,7 @@ const About = () => {
      <div className='grid grid-cols-1 gap-5 lg:grid-cols-3'>
      <div className='flex space-y-4 flex-col'>
         <div className='rounded-lg  w-full h-full   overflow-hidden  shadow-[rgba(60,64,67,0.3)_0px_1px_2px_0px,rgba(60,64,67,0.15)_0px_2px_6px_2px] '> 
-          <img src="/images/aboutwomen.webp" alt="" className='w-full h-full' />
+          <img src="images/aboutwomen.webp" alt="" className='w-full h-full' />
         </div>
         <div className='text-center' >
           <h1 className='lg:text-2xl  text-xl font-semibold text-slate-800'>CEO OF DECONEST</h1>
@@ -132,7 +132,7 @@ const About = () => {
        </div>
      <div className='flex space-y-4 flex-col'>
         <div className='rounded-lg  w-full h-full  overflow-hidden shadow-[rgba(60,64,67,0.3)_0px_1px_2px_0px,rgba(60,64,67,0.15)_0px_2px_6px_2px] '> 
-          <img src="/images/aboutmen.jpg" alt="" className='w-full h-full' />
+          <img src="images/aboutmen.jpg" alt="" className='w-full h-full' />
         </div>
         <div className='text-center' >
           <h1 className='lg:text-2xl  text-xl font-semibold text-slate-800'>CO-FOUNDER OF DECONEST</h1>
@@ -141,7 +141,7 @@ const About = () => {
        </div>
      <div className='flex space-y-4 flex-col'>
         <div className='rounded-lg  w-full h-full  overflow-hidden shadow-[rgba(60,64,67,0.3)_0px_1px_2px_0px,rgba(60,64,67,0.15)_0px_2px_6px_2px] '> 
-          <img src="/images/aboutmen2 .jpg" alt="" className='w-full h-full' />
+          <img src="images/aboutmen2 .jpg" alt="" className='w-full h-full' />
         </div>
         <div className='text-center' >
           <h1 className='lg:text-2xl  text-xl font-semibold text-slate-800'>FOUNDER OF DECONEST</h1>
@@ -160,7 +160,7 @@ const About = () => {
 
     <div className='flex flex-col py-4 border space-y-3 rounded-md shadow-[rgba(60,64,67,0.3)_0px_1px_2px_0px,rgba(60,64,67,0.15)_0px_2px_6px_2px] justify-center items-center'>
           <div className='lg:w-52 w-44 h-44 lg:h-52 shadow-[rgba(60,64,67,0.3)_0px_1px_2px_0px,rgba(60,64,67,0.15)_0px_2px_6px_2px]  rounded-full '>
-           <img src="\images\about10.webp" alt="" className='w-full h-full' />
+           <img src="images\about10.webp" alt="" className='w-full h-full' />
           </div>
           <div className='flex flex-col text-center space-y-3'>
             <h1 className='lg:text-3xl text-2xl font-bold text-slate-800'>Sustainability</h1>
@@ -169,7 +169,7 @@ const About = () => {
     </div>
     <div className='flex flex-col py-4 border space-y-3 rounded-md shadow-[rgba(60,64,67,0.3)_0px_1px_2px_0px,rgba(60,64,67,0.15)_0px_2px_6px_2px] justify-center items-center'>
           <div className='lg:w-52 w-44 h-44 lg:h-52 shadow-[rgba(60,64,67,0.3)_0px_1px_2px_0px,rgba(60,64,67,0.15)_0px_2px_6px_2px]  rounded-full '>
-           <img src="\images\about13.webp" alt="" className='w-full h-full' />
+           <img src="images\about13.webp" alt="" className='w-full h-full' />
           </div>
           <div className='flex flex-col text-center space-y-3'>
             <h1 className='lg:text-3xl text-2xl font-bold text-slate-800'>Craftmanship</h1>
@@ -178,7 +178,7 @@ const About = () => {
     </div>
     <div className='flex flex-col py-4 border space-y-3 rounded-md shadow-[rgba(60,64,67,0.3)_0px_1px_2px_0px,rgba(60,64,67,0.15)_0px_2px_6px_2px] justify-center items-center'>
           <div className='lg:w-52 w-44 items-center justify-center flex h-44 lg:h-52 shadow-[rgba(60,64,67,0.3)_0px_1px_2px_0px,rgba(60,64,67,0.15)_0px_2px_6px_2px] overflow-hidden  rounded-full '>
-           <img src="\images\about14.png" alt="" className='lg:w-36 w-28 h-28 lg:h-36' />
+           <img src="images\about14.png" alt="" className='lg:w-36 w-28 h-28 lg:h-36' />
           </div>
           <div className='flex flex-col text-center space-y-3'>
             <h1 className='lg:text-3xl text-2xl font-bold text-slate-800'>Customer Commitment</h1>

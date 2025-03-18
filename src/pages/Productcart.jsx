@@ -363,7 +363,7 @@ const Productcart = () => {
                 <span className="flex flex-row space-x-2 text-gray-500">
         <input 
           type="checkbox" 
-          className="mr-2 cursor-pointer" 
+          className=" cursor-pointer" 
           checked={isChecked}
           onChange={() => setIsChecked(!isChecked)} 
         />
@@ -383,7 +383,7 @@ const Productcart = () => {
       </button>
       {isLoading && (
         <div className="flex justify-center items-center top-0 left-0 w-full h-full fixed bg-white opacity-60 cursor-wait">
-          <img src="/images/Deconest-loader.gif" alt="Loading..." className="w-20 h-20" />
+          <img src="images/Deconest-loader.gif" alt="Loading..." className="w-20 h-20" />
         </div>
       )}
               </div>

@@ -15,11 +15,11 @@ const Experince = () => {
                     <div className='w-full lg:w-[60%] flex flex-col lg:flex-row gap-7  lg:gap-3 relative '>
                         <div className='w-full lg:w-[60%] '>
                             <div className='h-[40rem]'>
-                                <img src="/images/Experince.jpg" alt="" className='w-full h-full' />
+                                <img src="images/Experince.jpg" alt="" className='w-full h-full' />
                             </div>
                         </div>
                         <div className='w-full lg:w-[40%] hidden lg:block '>
-                            <div><img src="/images/Experince1.jpg" alt="" className='w-full h-full' /></div>
+                            <div><img src="images/Experince1.jpg" alt="" className='w-full h-full' /></div>
                         </div>
                         <div
                             className="w-full lg:w-[93%] h-32 bg-white rounded-md lg:absolute left-[30rem] bottom-24 flex justify-between items-center mb-5 px-2  lg:px-8 py-4"

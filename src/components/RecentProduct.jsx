@@ -52,7 +52,7 @@ const RecentProduct = () => {
         <div key={item.id} className='px-3' >
         <div className='flex flex-col space-y-3 justify-center items-center lg:justify-center lg:items-center mb-3'>
           <div  className='w-full bg-[#f6f6f6] h-[13em] lg:h-[26rem] rounded-2xl overflow-hidden flex justify-center items-center relative group duration-300 cursor-pointer'  onClick={() => navigate(`/shop/${item.id}`)}  >
-            <img src={`/${item.image}`} alt="" loading="lazy" className='w-28 lg:w-56'  />
+            <img src={`${item.image}`} alt="" loading="lazy" className='w-28 lg:w-56'  />
             <button className='w-full absolute bottom-0 bg-black text-white h-0 group-hover:h-12 duration-300 hidden lg:block '>Quick View</button>
             <div className=' hidden lg:flex lg:flex-row absolute bottom-16 space-x-2   '>
               <div className="relative">
