@@ -16,9 +16,7 @@ import Blogopen from './pages/Blogopen';
 import CheckoutPage from './pages/CheckoutPage';
 import Payment from './pages/Payment';
 
-import ScrollToTop from './components/ScrollToTop';
-import Lodingscreen from './pages/Lodingscreen';
-import UserProfile from './auth/UserProfile';
+// import UserProfile from './auth/UserProfile';
 import Termscondition from './pages/Termscondition';
 import Faqs from './pages/Faqs';
 import Contact from './pages/Contact';
@@ -30,6 +28,9 @@ import ScrollToTop from './components/ScrollToTop';
 import Lodingscreen from './pages/Lodingscreen';
 import UserProfile from './auth/UserProfile';
 import Checkout from './pages/Checkout';
+import Ourshop from './pages/Ourshop';
+import Return from './pages/Return';
+import Track from './pages/Track';
 
 
 
@@ -67,7 +68,9 @@ const App = () => {
          <Route path="/faqs" element={<Faqs />} />
          <Route path="/contact" element={<Contact />} />
          <Route path="/about" element={<About />} />
-        
+         <Route path="/ourshop" element={<Ourshop />} />
+        <Route path="/return" element={<Return />} />
+        <Route path="/track" element={<Track />} />
         </Routes>
       </BrowserRouter>
     </Provider>
