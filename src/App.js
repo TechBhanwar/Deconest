@@ -22,6 +22,9 @@ import Aboutus from './components/Aboutus';
 import ScrollToTop from './components/ScrollToTop';
 import UserProfile from './auth/UserProfile';
 import Checkout from './pages/Checkout';
+import Ourshop from './pages/Ourshop';
+import Return from './pages/Return';
+import Track from './pages/Track';
 
 
 
@@ -51,7 +54,9 @@ const App = () => {
          <Route path="/faqs" element={<Faqs />} />
          <Route path="/contact" element={<Contact />} />
          <Route path="/about" element={<About />} />
-        
+         <Route path="/ourshop" element={<Ourshop />} />
+        <Route path="/return" element={<Return />} />
+        <Route path="/track" element={<Track />} />
         </Routes>
       </Router>
     </Provider>

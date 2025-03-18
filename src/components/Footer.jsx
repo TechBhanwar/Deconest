@@ -29,7 +29,9 @@ const Footer = () => {
                     <div className=' grid space-y-5  border-b border-[#FFFFFF26] cursor-pointer lg:grid-cols-4 py-4'>
                         <div className='flex space-y-5 lg:mb-0 mb-8 flex-col'>
                            
-                            <img src="images/logowhite1.webp" alt="" className='lg:w-full w-72' />
+
+                           <Link to="/"><img src="/images/logowhite1.webp" alt="" className='lg:w-full w-72' /></Link>
+
                             <h2 className='text-white text-sm font-medium  '>Royal Botanic Gardens, Kew, Richmond, London <br />
                             TW9 3AB, United Kingdom</h2>
                            
@@ -38,10 +40,10 @@ const Footer = () => {
                         <div className='flex flex-col  items-start lg:items-center lg:justify-center'>
                             <h1 className='text-white text-base font-semibold mb-3 lg:-ml-6 lg:mb-6'><Link to="/about">About-Us</Link></h1>
                             <ul className='text-white text-[13px] font-medium space-y-3'>
-                                <li>Our Shops</li>
+                                <li><Link to="/ourshop">Our Shop</Link></li>
                                 <li><Link to="/contact">Contact</Link></li>
                                 <li>Store Locator</li>
-                                <li>News and Blogs</li>
+                                <li><Link to="/blog">News and Blog</Link></li>
 
                             </ul>
                         </div>
@@ -50,9 +52,9 @@ const Footer = () => {
                             <ul className='text-white text-[13px] font-medium space-y-3'>
                                 <li><Link to="/faqs">FAQs</Link></li>
                                
-                                <li>Track</li>
+                                <li><Link to="/track">Track</Link></li>
                                 <li>Your Order</li>
-                                <li><Link to="/profile">My Account</Link></li>
+                                <li><Link to="/userprofile">My Account</Link></li>
                             </ul>
                         </div>
                         <div className='flex flex-col  items-start lg:items-center lg:justify-center'>
@@ -60,7 +62,7 @@ const Footer = () => {
                             <ul className='text-white text-[13px] font-medium space-y-3'>
                                 <li><Link to="/termcondition">Terms and Conditions</Link></li>
                                
-                                <li>Returns</li>
+                                <li><Link to="/return">Return</Link></li>
                                 <li>Shipping Information</li>
                                 <li>Wholesale</li>
                             </ul>
