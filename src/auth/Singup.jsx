@@ -126,7 +126,7 @@ const Singup = () => {
               </div>
 
               <button className="flex items-center justify-center gap-2 border border-gray-300 font-semibold  py-4 px-5 rounded-3xl w-full  hover:bg-[#f2f4f3] transition duration-300" onClick={handleGoogleSignIn}>
-                <img src="/images/google.webp" alt="" className="w-5 h-5" />
+                <img src="images/google.webp" alt="" className="w-5 h-5" />
                 <span>Continue with Google</span>
               </button>
               <span className='px-2'>have an account?
@@ -144,7 +144,7 @@ const Singup = () => {
       )}
 
             <div className='lg:w-[55%] lg:order-2 order-1 w-full h-full flex relative'>
-              <img src="/images/signupimg.webp" alt="" className=' w-full h-full' />
+              <img src="images/signupimg.webp" alt="" className=' w-full h-full' />
               <div className='absolute  flex flex-col  text-right h-full space-y-3 px-8 py-4 w-full'>
                 <h1 className='text-4xl text-white  font-semibold'>Make Over Your Room</h1>
                 <h1 className='text-4xl text-white font-semibold'>Gain More Comfort</h1>

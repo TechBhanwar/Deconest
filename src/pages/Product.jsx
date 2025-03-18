@@ -10,11 +10,11 @@ import { useNavigate } from "react-router-dom";
 
 
 const categories = [
-  { name: "All", image: "/images/Prodcut_cataegory1.webp" },
-  { name: "Home Decor", image: "/images/Prodcut_cataegory5.webp" },
-  { name: "Table", image: "/images/Prodcut_cataegory3.webp" },
-  { name: "Furniture", image: "/images/Prodcut_cataegory4.webp" },
-  { name: "Lighting", image: "/images/Prodcut_cataegory2.webp" },
+  { name: "All", image: "images/Prodcut_cataegory1.webp" },
+  { name: "Home Decor", image: "images/Prodcut_cataegory5.webp" },
+  { name: "Table", image: "images/Prodcut_cataegory3.webp" },
+  { name: "Furniture", image: "images/Prodcut_cataegory4.webp" },
+  { name: "Lighting", image: "images/Prodcut_cataegory2.webp" },
 ];
 
 const Product = (product) => {
@@ -477,6 +477,7 @@ const navigate = useNavigate();
 <h5 className="text-lg font-semibold line-clamp-2 overflow-hidden">
   {item.title}
 </h5>
+
             <span className='text-[14px] font-semibold '>{item.realPrice}₹/-</span>
           </div>
         </div>

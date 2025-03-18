@@ -29,7 +29,9 @@ const Footer = () => {
                     <div className=' grid space-y-5  border-b border-[#FFFFFF26] cursor-pointer lg:grid-cols-4 py-4'>
                         <div className='flex space-y-5 lg:mb-0 mb-8 flex-col'>
                            
+
                            <Link to="/"><img src="/images/logowhite1.webp" alt="" className='lg:w-full w-72' /></Link>
+
                             <h2 className='text-white text-sm font-medium  '>Royal Botanic Gardens, Kew, Richmond, London <br />
                             TW9 3AB, United Kingdom</h2>
                            
@@ -70,10 +72,10 @@ const Footer = () => {
                     <div className='flex flex-col lg:flex-row lg:justify-between py-3  justify-center items-center '>
                         <p className='text-white mb-3 lg:mb-6  text-xs font-medium'>Copyright © 2025. All Right Reserved</p>
                         <div className='flex flex-row gap-5 mb-5'>
-                                <img src="/images/pinterest.webp" alt="" className='w-7 h-7' />
-                                <img src="/images/telegram.webp" alt="" className='w-7 h-7' />
-                                <img src="/images/instagram.webp" alt="" className='w-7 h-7' />
-                                <img src="/images/facebook.webp" alt="" className='w-7 h-7' />
+                                <img src="images/pinterest.webp" alt="" className='w-7 h-7' />
+                                <img src="images/telegram.webp" alt="" className='w-7 h-7' />
+                                <img src="images/instagram.webp" alt="" className='w-7 h-7' />
+                                <img src="images/facebook.webp" alt="" className='w-7 h-7' />
                             </div>
                     </div>
 

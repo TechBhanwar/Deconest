@@ -8,48 +8,126 @@ const Checkout = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [selected, setSelected] = useState("local-pickup");
     const [showCoupon, setshowCoupon] = useState(false);
-        const [isStateOpen, setIsStateOpen] = useState(false);
-        const [selectedState, setSelectedState] = useState({
-          name: "Select a State",
-        });
-      
-        const states = [
-          "Andhra Pradesh",
-          "Arunachal Pradesh",
-          "Assam",
-          "Bihar",
-          "Chhattisgarh",
-          "Goa",
-          "Gujarat",
-          "Haryana",
-          "Himachal Pradesh",
-          "Jharkhand",
-          "Karnataka",
-          "Kerala",
-          "Madhya Pradesh",
-          "Maharashtra",
-          "Manipur",
-          "Meghalaya",
-          "Mizoram",
-          "Nagaland",
-          "Odisha",
-          "Punjab",
-          "Rajasthan",
-          "Sikkim",
-          "Tamil Nadu",
-          "Telangana",
-          "Tripura",
-          "Uttar Pradesh",
-          "Uttarakhand",
-          "West Bengal",
-        ];
+    const [isStateOpen, setIsStateOpen] = useState(false);
+    const [selectedState, setSelectedState] = useState({
+        name: "Select a State",
+    });
+
+    const states = [
+        "Andhra Pradesh",
+        "Arunachal Pradesh",
+        "Assam",
+        "Bihar",
+        "Chhattisgarh",
+        "Goa",
+        "Gujarat",
+        "Haryana",
+        "Himachal Pradesh",
+        "Jharkhand",
+        "Karnataka",
+        "Kerala",
+        "Madhya Pradesh",
+        "Maharashtra",
+        "Manipur",
+        "Meghalaya",
+        "Mizoram",
+        "Nagaland",
+        "Odisha",
+        "Punjab",
+        "Rajasthan",
+        "Sikkim",
+        "Tamil Nadu",
+        "Telangana",
+        "Tripura",
+        "Uttar Pradesh",
+        "Uttarakhand",
+        "West Bengal",
+    ];
+
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleSelect = (option) => {
+      setIsLoading(true); // Loader Show
+      setSelected(option); // Selected Option Set
+  
+      setTimeout(() => {
+        setIsLoading(false); // 2 sec baad Loader Hide
+      }, 2000);
+    };
+  
+
+// for form data 
+const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    street: "",
+    town: "",
+    state: "",
+    zip: "",
+    phone: "",
+    email: "",
+  });
+  const [isorderLoading, setIsOrderLoading] = useState(false);
+  const [errors, setErrors] = useState([]);
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const validateForm = () => {
+    setIsOrderLoading(true); 
+  
+    setTimeout(() => {
+      let newErrors = [];
+  
+      Object.keys(formData).forEach((key) => {
+        if (!formData[key]) {
+          newErrors.push(`${key.replace(/([A-Z])/g, " $1")}`);
+        }
+      });
+  
+      setErrors(newErrors);
+      setIsOrderLoading(false);
+  
+      if (newErrors.length === 0) {
+        alert("Form Submitted Successfully!");
+      }
+    }, 2000); // 2 second ke baad validation chalega
+  };
+  
 
 
+  
 
     return (
         <div>
             <Navbar />
-            <div className='container py-20 flex flex-col lg:flex-row gap-5'>
+            <div className="container py-10">
+            {errors.length > 0 && (
+  <div className="w-full bg-[#F9F9F9] px-2 py-4 lg:px-12 flex gap-1 items-start lg:py-6">
+      <span className="text-red-700 text-xl font-semibold">
+                <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 15 15" height="1.5rem" width="1.5rem" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z" fill="currentColor"></path></svg>
+                </span>
+    <ul className="space-y-1">
+      {errors.map((error, index) => {
+        const formattedError = error.replace(/([a-z])([A-Z])/g, "$1 $2");
+        const capitalizedError = formattedError.charAt(0).toUpperCase() + formattedError.slice(1);
+        
+        return (
+          <li key={index} className="font-semibold text-lg text-black">
+            <strong>Billing {capitalizedError}</strong> is a required field.
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+)}
+  {isorderLoading && (
+        <div className="flex justify-center items-center top-0 left-0 w-full z-50 h-full fixed bg-white opacity-60 cursor-wait">
+          <img src="images/Deconest-loader.gif" alt="Loading..." className="w-20 h-20" />
+        </div>
+      )}
+           
+            <div className=' py-10 flex flex-col lg:flex-row gap-5'>
+            
                 <div className='w-full  lg:w-2/3'>
                     <div className="flex flex-col gap-5">
                         <h1 className='text-4xl uppercase'>
@@ -58,11 +136,13 @@ const Checkout = () => {
                         <div className='flex flex-col gap-5'>
                             <div className='grid grid-cols-1 lg:grid-cols-2 gap-3'>
                                 <div className='flex flex-col gap-2'>
-                                    <label htmlFor="Firstname" className='text-[#787878] text-lg font-semibold'>First name * </label>
+                                    <label htmlFor="Firstname"  className='text-[#787878] text-lg font-semibold'>First name * </label>
                                     <input
                                         type="text"
                                         id="Firstname"
+                                        name="firstName"
                                         className="border border-[#D9D9D9] focus:outline-none h-14 px-4"
+                                        onChange={handleChange}
                                     />
                                 </div>
                                 <div className='flex flex-col gap-2'>
@@ -70,7 +150,9 @@ const Checkout = () => {
                                     <input
                                         type="text"
                                         id="Lastname"
+                                         name="lastName"
                                         className="border border-[#D9D9D9] focus:outline-none h-14 px-4"
+                                        onChange={handleChange}
                                     />
                                 </div>
 
@@ -81,6 +163,7 @@ const Checkout = () => {
                                     type="text"
                                     id="companyname"
                                     className="border border-[#D9D9D9] focus:outline-none h-14 px-4"
+                                    onChange={handleChange}
                                 />
                             </div>
                             <div className='flex flex-col gap-2 '>
@@ -89,18 +172,21 @@ const Checkout = () => {
                                     type="text"
                                     id="Country"
                                     className="border border-[#D9D9D9] focus:outline-none h-14 px-4"
+                                    onChange={handleChange}
                                 />
                             </div>
                             <div className='flex flex-col gap-2 '>
                                 <label htmlFor="companyname" className='text-[#787878] text-lg font-semibold'>Street address * </label>
                                 <input
                                     type="text"
+                                    name="street"
                                     id="Street"
                                     className="border mb-3 border-[#D9D9D9] focus:outline-none h-14 px-4 font-semibold text-base text-[#787878] placeholder:text-[#787878]"
                                     placeholder='House number and street name'
                                 />
                                 <input
                                     type="text"
+                                    
                                     id="Street"
                                     className="border border-[#D9D9D9] focus:outline-none h-14 px-4 font-semibold text-base text-[#787878] placeholder:text-[#787878]"
                                     placeholder='Apartment, suite, unit, etc. (optional)'
@@ -110,73 +196,81 @@ const Checkout = () => {
                                 <label htmlFor="companyname" className='text-[#787878] text-lg font-semibold'>Town / City *</label>
                                 <input
                                     type="text"
+                                    name="town"
                                     id="Town"
                                     className="border border-[#D9D9D9] focus:outline-none h-14 px-4"
+                                    onChange={handleChange}
                                 />
                             </div>
                             <div className='flex flex-col gap-2 '>
-                            <label htmlFor="companyname" className='text-[#787878] text-lg font-semibold'>State *</label>
+                                <label htmlFor="companyname" className='text-[#787878] text-lg font-semibold'>State *</label>
 
-                            <div className="relative w-full text-left">
-    
-    <button
-      className="border border-[#D9D9D9] focus:outline-none h-14 px-4 w-full  text-[#787878] font-semibold text-base flex items-center justify-between bg-white"
-      onClick={() => setIsStateOpen(!isStateOpen)}
-    >
-      {selectedState.name}
-      <svg
-        className={`w-4 h-4 transition-transform ${isStateOpen ? "rotate-180" : "rotate-0"}`}
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={2}
-        stroke="currentColor"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-      </svg>
-    </button>
+                                <div className="relative w-full text-left">
 
-    {/* Dropdown List */}
-    {isStateOpen && (
-      <ul className="absolute z-10 mt-2 w-full bg-white border  rounded-md shadow-lg max-h-60 overflow-y-auto">
-        {states.map((state, index) => (
-          <li
-            key={index}
-            className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-            onClick={() => {
-              setSelectedState({ name: state });
-              setIsStateOpen(false);
-            }}
-          >
-            {state}
-          </li>
-        ))}
-      </ul>
-    )}
-  </div>
+                                    <button
+                                        className="border border-[#D9D9D9] focus:outline-none h-14 px-4 w-full  text-[#787878] font-semibold text-base flex items-center justify-between bg-white"
+                                        onClick={() => setIsStateOpen(!isStateOpen)}
+                                    >
+                                        {selectedState.name}
+                                        <svg
+                                            className={`w-4 h-4 transition-transform ${isStateOpen ? "rotate-180" : "rotate-0"}`}
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            strokeWidth={2}
+                                            stroke="currentColor"
+                                        >
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </button>
+
+                                    {/* Dropdown List */}
+                                    {isStateOpen && (
+                                        <ul className="absolute z-10 mt-2 w-full bg-white border  rounded-md shadow-lg max-h-60 overflow-y-auto">
+                                            {states.map((state, index) => (
+                                                <li
+                                                    key={index}
+                                                    className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                                                    onClick={() => {
+                                                        setSelectedState({ name: state });
+                                                        setIsStateOpen(false);
+                                                    }}
+                                                >
+                                                    {state}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </div>
                             </div>
                             <div className='flex flex-col gap-2 '>
                                 <label htmlFor="companyname" className='text-[#787878] text-lg font-semibold'>Postcode / ZIP *</label>
                                 <input
                                     type="text"
+                                    name="zip"
                                     id="companyname"
                                     className="border border-[#D9D9D9] focus:outline-none h-14 px-4"
+                                    onChange={handleChange}
                                 />
                             </div>
                             <div className='flex flex-col gap-2 '>
-                                <label htmlFor="companyname" className='text-[#787878] text-lg font-semibold'>Phone *</label>
+                                <label htmlFor="Phone" className='text-[#787878] text-lg font-semibold'>Phone *</label>
                                 <input
                                     type="text"
+                                    name="phone"
                                     id="Phone"
                                     className="border border-[#D9D9D9] focus:outline-none h-14 px-4"
+                                    onChange={handleChange}
                                 />
                             </div>
                             <div className='flex flex-col gap-2 '>
-                                <label htmlFor="companyname" className='text-[#787878] text-lg font-semibold'>Email address *</label>
+                                <label htmlFor="Email" className='text-[#787878] text-lg font-semibold'>Email address *</label>
                                 <input
-                                    type="text"
+                                    type="email"
+                                     name="email"
                                     id="Email"
                                     className="border border-[#D9D9D9] focus:outline-none h-14 px-4"
+                                    onChange={handleChange}
                                 />
                             </div>
                         </div>
@@ -203,6 +297,7 @@ const Checkout = () => {
                                                 type="text"
                                                 id="Firstname"
                                                 className="border border-[#D9D9D9] focus:outline-none h-14 px-4"
+                                                onChange={handleChange}
                                             />
                                         </div>
                                         <div className='flex flex-col gap-2'>
@@ -211,6 +306,7 @@ const Checkout = () => {
                                                 type="text"
                                                 id="Lastname"
                                                 className="border border-[#D9D9D9] focus:outline-none h-14 px-4"
+                                                onChange={handleChange}
                                             />
                                         </div>
 
@@ -221,6 +317,7 @@ const Checkout = () => {
                                             type="text"
                                             id="companyname"
                                             className="border border-[#D9D9D9] focus:outline-none h-14 px-4"
+                                            onChange={handleChange}
                                         />
                                     </div>
                                     <div className='flex flex-col gap-2 '>
@@ -229,6 +326,7 @@ const Checkout = () => {
                                             type="text"
                                             id="Country"
                                             className="border border-[#D9D9D9] focus:outline-none h-14 px-4"
+                                            onChange={handleChange}
                                         />
                                     </div>
                                     <div className='flex flex-col gap-2 '>
@@ -252,6 +350,7 @@ const Checkout = () => {
                                             type="text"
                                             id="Town"
                                             className="border border-[#D9D9D9] focus:outline-none h-14 px-4"
+                                            onChange={handleChange}
                                         />
                                     </div>
                                     <div className='flex flex-col gap-2 '>
@@ -260,6 +359,7 @@ const Checkout = () => {
                                             type="text"
                                             id="State"
                                             className="border border-[#D9D9D9] focus:outline-none h-14 px-4"
+                                            onChange={handleChange}
                                         />
                                     </div>
                                     <div className='flex flex-col gap-2 '>
@@ -268,6 +368,7 @@ const Checkout = () => {
                                             type="text"
                                             id="companyname"
                                             className="border border-[#D9D9D9] focus:outline-none h-14 px-4"
+                                            onChange={handleChange}
                                         />
                                     </div>
                                     <div className='flex flex-col gap-2 '>
@@ -276,6 +377,7 @@ const Checkout = () => {
                                             type="text"
                                             id="Phone"
                                             className="border border-[#D9D9D9] focus:outline-none h-14 px-4"
+                                            onChange={handleChange}
                                         />
                                     </div>
                                     <div className='flex flex-col gap-2 '>
@@ -284,6 +386,7 @@ const Checkout = () => {
                                             type="text"
                                             id="Email"
                                             className="border border-[#D9D9D9] focus:outline-none h-14 px-4"
+                                            onChange={handleChange}
                                         />
                                     </div>
                                 </div>
@@ -303,7 +406,7 @@ const Checkout = () => {
 
                     </div>
                 </div>
-                <div className='w-full lg:w-1/3'>
+                <div className='w-full lg:w-1/3 relative '>
                     <div className="flex flex-col gap-5 ">
                         <h1 className='text-4xl uppercase'>
                             Your order
@@ -331,34 +434,36 @@ const Checkout = () => {
 
 
                                 <label
-                                    className="flex items-center space-x-2 cursor-pointer  text-lg font-semibold"
-                                    onClick={() => setSelected("flat-rate")}
-                                >
-                                    <span
-                                        className={`w-5 h-5 border-2 border-[#D9D9D9] rounded-full flex items-center justify-center ${selected === "flat-rate" ? "" : "bg-white"
-                                            }`}
-                                    >
-                                        {selected === "flat-rate" && (
-                                            <span className="w-2.5 h-2.5 bg-black rounded-full"></span>
-                                        )}
-                                    </span>
-                                    <span>Flat Rate: <span className="ml-2">₹2599/-</span></span>
-                                </label>
+        className="flex items-center space-x-2 cursor-pointer text-lg font-semibold"
+        onClick={() => handleSelect("flat-rate")}
+      >
+        <span
+          className={`w-5 h-5 border-2 border-[#D9D9D9] rounded-full flex items-center justify-center ${
+            selected === "flat-rate" ? "" : "bg-white"
+          }`}
+        >
+          {selected === "flat-rate" && (
+            <span className="w-2.5 h-2.5 bg-black rounded-full"></span>
+          )}
+        </span>
+        <span>Flat Rate: <span className="ml-2">₹2599/-</span></span>
+      </label>
 
-                                <label
-                                    className="flex items-center space-x-2 cursor-pointer text-lg font-semibold "
-                                    onClick={() => setSelected("local-pickup")}
-                                >
-                                    <span
-                                        className={`w-5 h-5 border-2 border-[#D9D9D9] rounded-full flex items-center justify-center ${selected === "local-pickup" ? "" : "bg-white"
-                                            }`}
-                                    >
-                                        {selected === "local-pickup" && (
-                                            <span className="w-2.5 h-2.5 bg-black rounded-full"></span>
-                                        )}
-                                    </span>
-                                    <span>Local Pickup</span>
-                                </label>
+      <label
+        className="flex items-center space-x-2 cursor-pointer text-lg font-semibold"
+        onClick={() => handleSelect("local-pickup")}
+      >
+        <span
+          className={`w-5 h-5 border-2 border-[#D9D9D9] rounded-full flex items-center justify-center ${
+            selected === "local-pickup" ? "" : "bg-white"
+          }`}
+        >
+          {selected === "local-pickup" && (
+            <span className="w-2.5 h-2.5 bg-black rounded-full"></span>
+          )}
+        </span>
+        <span>Local Pickup</span>
+      </label>
                                 <div className="flex justify-between items-center text-black text-lg font-semibold py-4 ">
                                     <span>
                                         Total</span>
@@ -386,21 +491,27 @@ const Checkout = () => {
                                 </div>
                             </div>
 
-                        <PaymentOptions />
+                            <PaymentOptions />
 
-                        <p className="text-base  font-semibold  text-[#787878] mb-4">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <span className="text-black underline" >privacy policy</span>.</p>
-                        <button className="bg-black text-white text-lg px-4 h-16 w-full mb-9 font-semibold">Place Order</button>
+                            <p className="text-base  font-semibold  text-[#787878] mb-4">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <span className="text-black underline" >privacy policy</span>.</p>
+                            <button onClick={validateForm} className="bg-black text-white text-lg px-4 h-16 w-full mb-9 font-semibold">Place Order</button>
                         </div>
 
                     </div>
+                    {isLoading && (
+        <div className="flex justify-center items-center top-0 left-0 w-full h-1/2 absolute bg-white opacity-60 cursor-wait">
+          <img src="images/Deconest-loader.gif" alt="Loading..." className="w-20 h-20" />
+        </div>
+      )}
+
                 </div>
             </div>
 
 
-
+            </div>
 
             <Footer />
-             <Footernav />
+            <Footernav />
         </div>
     )
 }

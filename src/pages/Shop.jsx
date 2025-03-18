@@ -6,6 +6,8 @@ import { useParams } from "react-router-dom";
 import { productItems } from '../data/data';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/cartSlice';
+import Frutherproduct from '../components/Frutherproduct';
+import RecentProduct from '../components/RecentProduct';
 
 
 
@@ -44,13 +46,13 @@ const Shop = () => {
 
 
 
-  
+
 
   const dispatch = useDispatch();
   const [showPopup, setShowPopup] = useState(false);
 
   const handleAddToCart = (product) => {
-    console.log('Adding product to cart:', product); 
+    console.log('Adding product to cart:', product);
     if (product && product.id) {
       dispatch(addToCart(product));
     } else {
@@ -68,7 +70,7 @@ const Shop = () => {
   }, []);
 
   useEffect(() => {
-    if (!product) return; 
+    if (!product) return;
 
     const relatedProducts = productItems.filter(
       (item) => item.category === product.category && item.id !== product.id
@@ -86,33 +88,57 @@ const Shop = () => {
     </div>;
   }
   const sameCategoryProducts = productItems
-  .filter((item) => item.category === product.category && item.id !== product.id)
-  .map((item) => item.image);
+    .filter((item) => item.category === product.category && item.id !== product.id)
+    .map((item) => item.image);
 
-// Randomly 3-4 images select karne ka function
-const getRandomImages = (images, count) => {
-  let shuffled = [...images].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, count);
-};
+  // Randomly 3-4 images select karne ka function
+  const getRandomImages = (images, count) => {
+    let shuffled = [...images].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+  };
 
-const randomImages = getRandomImages(sameCategoryProducts, 3); // 3 random images
+  const randomImages = getRandomImages(sameCategoryProducts, 3); // 3 random images
 
 
-const prevImage = () => {
-  const currentIndex = randomImages.indexOf(currentImage);
-  const newIndex = (currentIndex - 1 + randomImages.length) % randomImages.length;
-  setCurrentImage(randomImages[newIndex]);
-};
+  const prevImage = () => {
+    const currentIndex = randomImages.indexOf(currentImage);
+    const newIndex = (currentIndex - 1 + randomImages.length) % randomImages.length;
+    setCurrentImage(randomImages[newIndex]);
+  };
 
-const nextImage = () => {
-  const currentIndex = randomImages.indexOf(currentImage);
-  const newIndex = (currentIndex + 1) % randomImages.length;
-  setCurrentImage(randomImages[newIndex]);
-};
+  const nextImage = () => {
+    const currentIndex = randomImages.indexOf(currentImage);
+    const newIndex = (currentIndex + 1) % randomImages.length;
+    setCurrentImage(randomImages[newIndex]);
+  };
 
 
 
   const tabs = ["Description", "Review", "Shipping", "Return"];
+
+
+  const currentDate = new Date();
+
+  const [startDay, endDay] = product.deliveryTime.split('-').map((day) => parseInt(day));
+
+  const startDate = new Date(currentDate);
+  startDate.setDate(currentDate.getDate() + startDay);
+
+  const endDate = new Date(currentDate);
+  endDate.setDate(currentDate.getDate() + endDay);
+
+  const formatDate = (date) => {
+    return date.toLocaleDateString('en-US', {
+      weekday: 'long',
+      month: 'short',
+      day: 'numeric',
+    });
+  };
+
+
+
+
+
 
 
   return (
@@ -137,62 +163,62 @@ const nextImage = () => {
 
 
 
-            <div className='flex flex-row lg:flex-col lg:order-1 order-2 py-4 lg:py-0 lg:space-y-4 space-x-5 lg:space-x-0 items-center'>
-  {randomImages.map((img, index) => (
-    <div key={index} className="hover:border border-black pt-1 rounded-md transition-transform duration-300">
-      <div
-        className="bg-pink-100 lg:px-3 px-7 flex justify-center hover:scale-75 items-center py-8 lg:py-7 rounded-md transition-transform duration-300"
-        onClick={() => setCurrentImage(img)} // Click par image change hogi
-      >
-        <img src={`/${img}`} alt="Product" className="w-20" />
-      </div>
-    </div>
-  ))}
-</div>
+              <div className='flex flex-row lg:flex-col lg:order-1 order-2 py-4 lg:py-0 lg:space-y-4 space-x-5 lg:space-x-0 items-center'>
+                {randomImages.map((img, index) => (
+                  <div key={index} className="hover:border border-black pt-1 rounded-md transition-transform duration-300">
+                    <div
+                      className="bg-pink-100 lg:px-3 px-7 flex justify-center hover:scale-75 items-center py-8 lg:py-7 rounded-md transition-transform duration-300"
+                      onClick={() => setCurrentImage(img)} // Click par image change hogi
+                    >
+                      <img src={`${img}`} alt="Product" className="w-20" />
+                    </div>
+                  </div>
+                ))}
+              </div>
 
 
 
 
-<div className='bg-pink-100 lg:order-2 order-1 relative rounded-lg lg:w-[720px] w-full py-10 h-96 lg:h-[900px] flex justify-center items-center overflow-hidden'>
-  <img src={`/${currentImage}`} alt="Product" className='w-auto h-96 lg:h-fit  object-contain' onClick={() => setIsOpen(true)} />
- 
-  {isOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
-          onClick={() => setIsOpen(false)}
-        >
-        <div className='bg-pink-100  relative rounded-lg lg:w-[720px] w-full py-10 h-96 lg:h-[900px] flex justify-center items-center overflow-hidden'>
-  <img src={`/${currentImage}`} alt="Product" className='w-auto h-96 lg:h-fit  object-contain' onClick={() => setIsOpen(true)} />
- 
-  <span className='bg-red-600 absolute top-3 px-2 py-1 rounded-full text-white text-sm font-medium right-3'>-{product.discount}%</span>
+              <div className='bg-pink-100 lg:order-2 order-1 relative rounded-lg lg:w-[720px] w-full py-10 h-96 lg:h-[900px] flex justify-center items-center overflow-hidden'>
+                <img src={`${currentImage}`} alt="Product" className='w-auto h-96 lg:h-fit  object-contain' onClick={() => setIsOpen(true)} />
 
-  <button onClick={prevImage} className='absolute left-4 text-3xl bg-white hover:bg-black hover:text-white duration-300 transition transform lg:px-3 px-1 py-1 lg:py-3 rounded-full shadow-lg'>
-    <span><svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"></path></svg></span>
-  </button>
+                {isOpen && (
+                  <div
+                    className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <div className='bg-pink-100  relative rounded-lg lg:w-[720px] w-full py-10 h-96 lg:h-[900px] flex justify-center items-center overflow-hidden'>
+                      <img src={`/${currentImage}`} alt="Product" className='w-auto h-96 lg:h-fit  object-contain' onClick={() => setIsOpen(true)} />
 
-  <button onClick={nextImage} className='absolute right-4 text-3xl bg-white hover:bg-black hover:text-white duration-300 transition transform lg:px-3 px-1 py-1 lg:py-3 rounded-full shadow-lg'>
-    <span>
-      <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
-    </span>
-  </button>
-</div>
+                      <span className='bg-red-600 absolute top-3 px-2 py-1 rounded-full text-white text-sm font-medium right-3'>-{product.discount}%</span>
+
+                      <button onClick={prevImage} className='absolute left-4 text-3xl bg-white hover:bg-black hover:text-white duration-300 transition transform lg:px-3 px-1 py-1 lg:py-3 rounded-full shadow-lg'>
+                        <span><svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"></path></svg></span>
+                      </button>
+
+                      <button onClick={nextImage} className='absolute right-4 text-3xl bg-white hover:bg-black hover:text-white duration-300 transition transform lg:px-3 px-1 py-1 lg:py-3 rounded-full shadow-lg'>
+                        <span>
+                          <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
+                        </span>
+                      </button>
+                    </div>
 
 
-        </div>
-      )}
+                  </div>
+                )}
 
-  <span className='bg-red-600 absolute top-3 px-2 py-1 rounded-full text-white text-sm font-medium right-3'>-{product.discount}%</span>
+                <span className='bg-red-600 absolute top-3 px-2 py-1 rounded-full text-white text-sm font-medium right-3'>-{product.discount}%</span>
 
-  <button onClick={prevImage} className='absolute left-4 text-3xl bg-white hover:bg-black hover:text-white duration-300 transition transform lg:px-3 px-1 py-1 lg:py-3 rounded-full shadow-lg'>
-    <span><svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"></path></svg></span>
-  </button>
+                <button onClick={prevImage} className='absolute left-4 text-3xl bg-white hover:bg-black hover:text-white duration-300 transition transform lg:px-3 px-1 py-1 lg:py-3 rounded-full shadow-lg'>
+                  <span><svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"></path></svg></span>
+                </button>
 
-  <button onClick={nextImage} className='absolute right-4 text-3xl bg-white hover:bg-black hover:text-white duration-300 transition transform lg:px-3 px-1 py-1 lg:py-3 rounded-full shadow-lg'>
-    <span>
-      <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
-    </span>
-  </button>
-</div>
+                <button onClick={nextImage} className='absolute right-4 text-3xl bg-white hover:bg-black hover:text-white duration-300 transition transform lg:px-3 px-1 py-1 lg:py-3 rounded-full shadow-lg'>
+                  <span>
+                    <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 17.707 16.414 12l-5.707-5.707-1.414 1.414L13.586 12l-4.293 4.293z"></path></svg>
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -201,7 +227,7 @@ const nextImage = () => {
             <div className='flex flex-col space-y-3 py-1  border-b items-start justify-start ' >
               <h1 className='text-black lg:text-3xl text-xl font-semibold'>{product.title}</h1>
 
-              <span className='text-gray-400 space-x-1  flex flex-row '>
+              <span className='text-yellow-500 space-x-1  flex flex-row '>
                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.595 6.252L8 1 6.405 6.252H1l4.373 3.4L3.75 15 8 11.695 12.25 15l-1.623-5.348L15 6.252H9.595z"></path></svg>
                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.595 6.252L8 1 6.405 6.252H1l4.373 3.4L3.75 15 8 11.695 12.25 15l-1.623-5.348L15 6.252H9.595z"></path></svg>
                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.595 6.252L8 1 6.405 6.252H1l4.373 3.4L3.75 15 8 11.695 12.25 15l-1.623-5.348L15 6.252H9.595z"></path></svg>
@@ -237,22 +263,22 @@ const nextImage = () => {
               </p>
 
               <h3 className='text-black text-sm lg:text-lg flex space-x-2'>
-               <span>Colors:</span>   <div className='flex flex-row space-x-2'>
-                {product.colors?.map((color, index) => (
-                  <div
-                    key={index}
-                    className="relative group cursor-pointer rounded-full px-3 py-3 border"
-                    style={{ backgroundColor: color }}
-                  >
-                    <span className="absolute w-12 py-1 text-center bottom-full transform -translate-x-1/2 mb-2 text-xs text-white bg-black p-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                      {color}
-                      <span className="absolute left-1/2 transform -translate-x-1/2 bottom-[-6px] w-0 h-0 border-l-8 border-r-8 border-t-8 border-t-black border-l-transparent border-r-transparent"></span>
-                    </span>
-                  </div>
-                ))}
-              </div>
+                <span>Colors:</span>   <div className='flex flex-row space-x-2'>
+                  {product.colors?.map((color, index) => (
+                    <div
+                      key={index}
+                      className="relative group cursor-pointer rounded-full px-3 py-3 border"
+                      style={{ backgroundColor: color }}
+                    >
+                      <span className="absolute w-12 py-1 text-center bottom-full transform -translate-x-1/2 mb-2 text-xs text-white bg-black p-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                        {color}
+                        <span className="absolute left-1/2 transform -translate-x-1/2 bottom-[-6px] w-0 h-0 border-l-8 border-r-8 border-t-8 border-t-black border-l-transparent border-r-transparent"></span>
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </h3>
-           
+
 
 
 
@@ -360,9 +386,9 @@ const nextImage = () => {
                 <div className='flex flex-col px-1'>
                   <p className='text-gray-400 lg:text-base text-xs'>Order in the next 14 hours 18 minutes to get it between</p>
                   <span className='flex flex-row'>
-                    <h1 className=' text-black text-xs lg:text-base underline'>Tuesday, Feb 4</h1>
+                    <h1 className=' text-black text-xs lg:text-base underline'>{formatDate(startDate)}</h1>
                     <p className='text-gray-400 lg:text-base text-xs px-1 '>and</p>
-                    <h1 className='text-black text-xs lg:text-base underline'> Saturday, Feb 8</h1>
+                    <h1 className='text-black text-xs lg:text-base underline'>    {formatDate(endDate)}</h1>
                   </span>
                 </div>
               </div>
@@ -385,11 +411,11 @@ const nextImage = () => {
                   <p className='text-black lg:text-lg text-sm'>Guaranteed Checkout</p>
                 </div>
                 <div className='flex flex-row space-x-4 lg:space-x-8 justify-center items-center px-5'>
-                  <img src="/images/visa.webp" alt="" className='lg:w-16 w-14' />
-                  <img src="/images/pngegg.webp" alt="" className='lg:w-16 w-14' />
-                  <img src="/images/american-express.webp" alt="" className='lg:w-16 w-14' />
-                  <img src="/images/stripe.webp" alt="" className='lg:w-16 w-14' />
-                  <img src="/images/shopify.webp" alt="" className='lg:w-16 w-14' />
+                  <img src="images/visa.webp" alt="" className='lg:w-16 w-14' />
+                  <img src="images/pngegg.webp" alt="" className='lg:w-16 w-14' />
+                  <img src="images/american-express.webp" alt="" className='lg:w-16 w-14' />
+                  <img src="images/stripe.webp" alt="" className='lg:w-16 w-14' />
+                  <img src="images/shopify.webp" alt="" className='lg:w-16 w-14' />
                 </div>
 
               </div>
@@ -407,33 +433,33 @@ const nextImage = () => {
           <div className='flex px-3  bg-white absolute top-[-15px] lg:top-[-20px] lg:left-28'>
             <h1 className='text-black text-xl lg:text-3xl font-semibold'>Frequently Bought Together</h1>
           </div>
-<div className='flex flex-col lg:flex-row lg:justify-between'>
-          <div className=' flex-col  space-y-5  '>
+          <div className='flex flex-col lg:flex-row lg:justify-between'>
+            <div className=' flex-col  space-y-5  '>
 
-            <div className='flex flex-row  lg:justify-start space-x-5 justify-between  '>
-              {categoryProducts.slice(0, 3).map((item) => (
-                <div key={item.id} className='flex bg-pink-50 justify-center lg:w-40 w-[900px] lg:h-44 space-x-3 items-center'>
-                  <img src={`/${item.image}`} alt={item.title} className='lg:w-28 w-full' />
-                </div>
-              ))}
+              <div className='flex flex-row  lg:justify-start space-x-5 justify-between  '>
+                {categoryProducts.slice(0, 3).map((item) => (
+                  <div key={item.id} className='flex bg-pink-50 justify-center lg:w-40 w-[900px] lg:h-44 space-x-3 items-center'>
+                    <img src={`${item.image}`} alt={item.title} className='lg:w-28 w-full' />
+                  </div>
+                ))}
+
+              </div>
+              <div className='flex flex-col space-y-2 py-5'>
+                {categoryProducts.slice(0, 3).map((item) => (
+                  <div key={item.id} className='flex flex-row space-x-1'>
+                    <input type="checkbox" />
+                    <span className='lg:text-sm text-xs mt-0 lg:mt-1'>{item.title}</span>
+                    <h1 className='lg:text-base text-sm'>{item.realPrice} ₹/-</h1>
+                  </div>
+                ))}
+
+              </div>
+
+
+
 
             </div>
-            <div className='flex flex-col space-y-2 py-5'>
-              {categoryProducts.slice(0, 3).map((item) => (
-                <div key={item.id} className='flex flex-row space-x-1'>
-                  <input type="checkbox" />
-                  <span className='lg:text-sm text-xs mt-0 lg:mt-1'>{item.title}</span>
-                  <h1 className='lg:text-base text-sm'>{item.realPrice} ₹/-</h1>
-                </div>
-              ))}
-
-            </div>
-
-            
-           
-
-          </div>
-          <div className='flex flex-col lg:w-1/3'>
+            <div className='flex flex-col lg:w-1/3'>
 
               <span className='flex flex-row text-black text-base lg:text-lg'>
                 Total Price:
@@ -451,7 +477,7 @@ const nextImage = () => {
               </button>
             </div>
 
-            </div>
+          </div>
 
         </div>
 
@@ -540,20 +566,20 @@ const nextImage = () => {
                 <textarea name="" id="" rows="5" className='border w-full lg:w-[50%] px-2 py-2 active:outline-none focus:outline-none active:border-none' placeholder='Write your comments here'></textarea>
 
                 <label for="uploadFile1"
-      class="bg-white text-gray-500 font-semibold text-base rounded max-w-lg px-2 h-48 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300 border-dashed mx-auto font-[sans-serif]">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-11 mb-2 fill-gray-500" viewBox="0 0 32 32">
-        <path
-          d="M23.75 11.044a7.99 7.99 0 0 0-15.5-.009A8 8 0 0 0 9 27h3a1 1 0 0 0 0-2H9a6 6 0 0 1-.035-12 1.038 1.038 0 0 0 1.1-.854 5.991 5.991 0 0 1 11.862 0A1.08 1.08 0 0 0 23 13a6 6 0 0 1 0 12h-3a1 1 0 0 0 0 2h3a8 8 0 0 0 .75-15.956z"
-          data-original="#000000" />
-        <path
-          d="M20.293 19.707a1 1 0 0 0 1.414-1.414l-5-5a1 1 0 0 0-1.414 0l-5 5a1 1 0 0 0 1.414 1.414L15 16.414V29a1 1 0 0 0 2 0V16.414z"
-          data-original="#000000" />
-      </svg>
-      Upload file
+                  class="bg-white text-gray-500 font-semibold text-base rounded max-w-lg px-2 h-48 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300 border-dashed mx-auto font-[sans-serif]">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-11 mb-2 fill-gray-500" viewBox="0 0 32 32">
+                    <path
+                      d="M23.75 11.044a7.99 7.99 0 0 0-15.5-.009A8 8 0 0 0 9 27h3a1 1 0 0 0 0-2H9a6 6 0 0 1-.035-12 1.038 1.038 0 0 0 1.1-.854 5.991 5.991 0 0 1 11.862 0A1.08 1.08 0 0 0 23 13a6 6 0 0 1 0 12h-3a1 1 0 0 0 0 2h3a8 8 0 0 0 .75-15.956z"
+                      data-original="#000000" />
+                    <path
+                      d="M20.293 19.707a1 1 0 0 0 1.414-1.414l-5-5a1 1 0 0 0-1.414 0l-5 5a1 1 0 0 0 1.414 1.414L15 16.414V29a1 1 0 0 0 2 0V16.414z"
+                      data-original="#000000" />
+                  </svg>
+                  Upload file
 
-      <input type="file" id='uploadFile1' class="hidden" />
-      <p class="text-xs font-medium text-gray-400 mt-2">PNG, JPG SVG, WEBP, and GIF are Allowed.</p>
-    </label>
+                  <input type="file" id='uploadFile1' class="hidden" />
+                  <p class="text-xs font-medium text-gray-400 mt-2">PNG, JPG SVG, WEBP, and GIF are Allowed.</p>
+                </label>
 
                 <label htmlFor="" className='text-gray-400 text-sm lg:text-base '>Name displayed Publicly</label>
                 <input type="text" className='border outline-none w-full lg:w-[50%] px-3 py-2 flex justify-start items-start placeholder:text-gray-400 text-sm lg:text-base' placeholder='Enter your name (public)' />
@@ -576,13 +602,14 @@ const nextImage = () => {
 
       </div>
 
-
+      <Frutherproduct products={categoryProducts} />
+      <RecentProduct />
 
       <Footernav />
       <Footer />
 
-           
-        
+
+
     </div>
   );
 };
