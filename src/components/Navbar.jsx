@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "./Style.css";
-import menuItems from "../data/data";
+import  { layout, filter, layout2 } from "../data/data";
 import { products, furniture, decor, kitchenDining } from '../data/data';
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
@@ -267,21 +267,6 @@ function Navbar() {
                   </div>
                 </Link>
 
-
-                <div
-                  className={`w-[100%] absolute bg-white py-14 mt-2 left-0 opacity-0 invisible peer-hover:opacity-100 peer-hover:visible group-hover:opacity-100 group-hover:visible z-50 h-auto transition-all duration-300 ease-in-out ${isSticky ? 'top-[73px]' : 'top-[123px]'}`}
-                  style={{ boxShadow: '0 6px 15px #0000001f' }}
-                >
-                  <div className="container">
-                    <div className="grid grid-cols-4">
-                      <img src="images/shop1.webp" alt="" className="w-[322px] h-[380px]" />
-                      <img src="images/shop2.webp" alt="" className="w-[322px] h-[380px]" />
-
-                      <img src="images/shop1.webp" alt="" className="w-[322px] h-[380px]" />
-                      <img src="images/shop2.webp" alt="" className="w-[322px] h-[380px]" />
-                    </div>
-                  </div>
-                </div>
               </li>
 
 
@@ -318,7 +303,7 @@ function Navbar() {
 
                           <ul className="list-none p-0 m-0 space-y-2 ">
                             <h2 className="m-0 border-b pb-2 font-semibold">Layout</h2>
-                            {menuItems.map((item, index) => (
+                            {layout.map((item, index) => (
                               <li
                                 key={index}
                                 className="cursor-pointer text-[#8a8a8a] text-[14px] hover:text-black"
@@ -333,7 +318,7 @@ function Navbar() {
 
                           <ul className="list-none p-0 m-0 space-y-2 ">
                             <h2 className="m-0 border-b pb-2 font-semibold">Filter</h2>
-                            {menuItems.map((item, index) => (
+                            {filter.map((item, index) => (
                               <li
                                 key={index}
                                 className="cursor-pointer text-[#8a8a8a] text-[14px] hover:text-black"
@@ -346,8 +331,8 @@ function Navbar() {
                         <div>
 
                           <ul className="list-none p-0 m-0 space-y-2 ">
-                            <h2 className="m-0 border-b pb-2 font-semibold">Layout</h2>
-                            {menuItems.map((item, index) => (
+                            <h2 className="m-0 border-b pb-2 font-semibold">Categories</h2>
+                            {layout2.map((item, index) => (
                               <li
                                 key={index}
                                 className="cursor-pointer text-[#8a8a8a] text-[14px] hover:text-black"
@@ -529,7 +514,7 @@ function Navbar() {
 
                 </div>
                 <div className="px-3 py-3">
-                  <img className="w-44" src=".images/logo.webp" alt="logo" />
+                  <img className="w-44" src="images/logo.webp" alt="logo" />
                 </div>
                 <ul className="flex flex-col space-y-5 mt-4 px-3 text-[13px]">
                   <li className="px-4 py-4 bg-[#f0f0f0] cursor-pointer flex justify-between items-center rounded-lg border-b border-gray-300">

@@ -8,32 +8,32 @@ const Ourshop = () => {
   return (
     <div>
         <Navbar />
-      <div className='flex   w-full h-[40rem]  bg-cover bg-center  relative' style={{ backgroundImage: "url('/images/ourshop1.jpg')" }}>
+      <div className='flex   w-full h-[40rem]  bg-cover bg-center  relative' style={{ backgroundImage: "url('images/ourshop1.jpg')" }}>
        <div className='container py-12'>
        <div className='flex space-y-5 lg:w-[46rem] w-full h-full  px-4 flex-col'>
         <h1 className='flex gap-3 lg:text-xl text-lg font-semibold text-black '>MARCH-2025 <span>#Deconest</span></h1>
 
         <h1 className='lg:text-4xl text-3xl font-bold text-black'>Furniture Store</h1>
-        <h1 className='lg:text-xl text-lg font-semibold text-gray-700 lg:leading-9  '   >Revive every area in your house for less with furnishings that's on-trend and also economical, also. Find ideal pieces for huge residences, little spaces, houses, workshops. Locate both comfort and also innovative style amongst our choice of furniture. Visit your regional store to browse even more and also purchase. What do you think of the Furniture Store Template?</h1>
+        <h1 className='lg:text-xl text-base font-medium lg:font-semibold text-black lg:leading-9 leading-[1.375rem]  '   >Revive every area in your house for less with furnishings that's on-trend and also economical, also. Find ideal pieces for huge residences, little spaces, houses, workshops. Locate both comfort and also innovative style amongst our choice of furniture. Visit your regional store to browse even more and also purchase. What do you think of the Furniture Store Template?</h1>
        
        
          
     <Link to="/product">
     <button
-    className="bg-transparent border-black transition-all duration-300 border hover:bg-black hover:text-white px-7 h-14 py-3 w-56 lg:w-64 text-black text-lg font-semibold rounded-lg" >
+    className="bg-transparent border-black transition-all duration-300 border hover:bg-black hover:text-white px-7 h-14 lg:py-3 py-2 w-48 lg:w-64 text-black text-lg font-semibold rounded-lg" >
     Shop Now
   </button>
   </Link>
 
-   <div className='flex flex-row space-x-6'>
+   <div className='flex flex-row mt-3 space-x-6'>
 
     <div className='flex flex-col space-y-3 ' >
-      <h1 className='text-xl font-semibold text-black' >Maharashtra, India</h1>
-      <h1 className='text-lg font-medium text-gray-700'>Mumbai, Jhubich</h1>
+      <h1 className=' text-lg lg:text-xl font-semibold text-black' >Maharashtra, India</h1>
+      <h1 className='text-base lg:text-lg font-medium text-black'>Mumbai, Jhubich</h1>
     </div>
     <div className='flex flex-col space-y-3 ' >
-      <h1 className='text-xl font-semibold text-black'>Rajasthan, India</h1>
-      <h1 className='text-lg font-medium text-gray-700'>Jaipur,Gandhinagr</h1>
+      <h1 className='text-lg lg:text-xl font-semibold text-black'>Rajasthan, India</h1>
+      <h1 className='text-base lg:text-lg text-black'>Jaipur,Gandhinagr</h1>
     </div>
    </div>
  
@@ -91,7 +91,7 @@ const Ourshop = () => {
      <div className='grid grid-cols-1 gap-5  lg:grid-cols-2'>
       <div className='flex w-full h-full flex-col'>
       <div className='h-[17rem]'>
-        <img src="/images/ourshop3.webp" alt="" className='h-full w-full' />
+        <img src="images/ourshop3.webp" alt="" className='h-full w-full' />
       </div>
       <div className='bg-red-100 space-y-2 py-3 px-4 flex flex-col'>
         <h1 className='text-xl font-semibold text-black'>Designer Chair</h1>
@@ -101,7 +101,7 @@ const Ourshop = () => {
       </div>
       <div className='flex w-full h-full flex-col'>
       <div className='h-[17rem]'>
-        <img src="/images/ourshop2.jpg" alt="" className='h-full w-full' />
+        <img src="images/ourshop2.jpg" alt="" className='h-full w-full' />
       </div>
       <div className='bg-red-100 space-y-2 py-3 px-4 flex flex-col'>
         <h1 className='text-xl font-semibold text-black'>Bedside Table</h1>
@@ -113,7 +113,7 @@ const Ourshop = () => {
    </div>
    
     <div className='grid grid-cols-1 py-10 gap-5 container lg:grid-cols-2 '>
-      <div className='relative bg-cover bg-center h-[40rem] ' style={{ backgroundImage: "url('/images/ourshop4.jpg')" }} >
+      <div className='relative bg-cover bg-center h-[40rem] ' style={{ backgroundImage: "url('images/ourshop4.jpg')" }} >
       <div className='absolute space-y-5 w-full lg:w-[28rem] py-10 px-10'>
 
     <h1 className='text-xl font-semibold text-white'>DECORATIVE  FURNITURE ELEMENTS</h1>
@@ -131,7 +131,7 @@ const Ourshop = () => {
       
       
       </div>
-      <div className='relative bg-cover bg-center h-[40rem] ' style={{ backgroundImage: "url('/images/ourshop5.jpg')" }} >
+      <div className='relative bg-cover bg-center h-[40rem] ' style={{ backgroundImage: "url('images/ourshop5.jpg')" }} >
       <div className='absolute space-y-5 lg:w-[28rem] w-full py-10 px-10'>
 
     <h1 className='text-xl font-semibold  text-black'>DECORATIVE  INTERIOR COLLECTION</h1>
@@ -143,7 +143,8 @@ const Ourshop = () => {
     className="bg-transparent border-black transition-all duration-300 border hover:bg-black hover:text-white px-7 h-14 py-3 w-56 lg:w-64 text-black text-lg font-semibold rounded-lg" >
     Shop Now
   </button>
-  </Link>
+  </Link> 
+  
 
       </div>
       

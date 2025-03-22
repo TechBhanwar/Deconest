@@ -17,6 +17,7 @@ import Faqs from './pages/Faqs';
 import Contact from './pages/Contact';
 import About from './pages/About';
 
+
 // import CheckoutPage from './pages/CheckoutPage';
 import Aboutus from './components/Aboutus';
 import ScrollToTop from './components/ScrollToTop';
@@ -25,6 +26,8 @@ import Checkout from './pages/Checkout';
 import Ourshop from './pages/Ourshop';
 import Return from './pages/Return';
 import Track from './pages/Track';
+import Order from './pages/Order';
+import Otp from './auth/Otp';
 
 
 
@@ -57,6 +60,8 @@ const App = () => {
          <Route path="/ourshop" element={<Ourshop />} />
         <Route path="/return" element={<Return />} />
         <Route path="/track" element={<Track />} />
+        <Route path="/order" element={<Order />} />
+        <Route path="/otp" element={<Otp />} />
         </Routes>
       </Router>
     </Provider>
