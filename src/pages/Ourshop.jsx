@@ -8,7 +8,7 @@ const Ourshop = () => {
   return (
     <div>
         <Navbar />
-      <div className='flex   w-full h-[40rem]  bg-cover bg-center  relative' style={{ backgroundImage: "url('/images/ourshop1.jpg')" }}>
+      <div className='flex   w-full h-[40rem]  bg-cover bg-center  relative' style={{ backgroundImage: "url('images/ourshop1.jpg')" }}>
        <div className='container py-12'>
        <div className='flex space-y-5 lg:w-[46rem] w-full h-full  px-4 flex-col'>
         <h1 className='flex gap-3 lg:text-xl text-lg font-semibold text-black '>MARCH-2025 <span>#Deconest</span></h1>
@@ -91,7 +91,7 @@ const Ourshop = () => {
      <div className='grid grid-cols-1 gap-5  lg:grid-cols-2'>
       <div className='flex w-full h-full flex-col'>
       <div className='h-[17rem]'>
-        <img src="/images/ourshop3.webp" alt="" className='h-full w-full' />
+        <img src="images/ourshop3.webp" alt="" className='h-full w-full' />
       </div>
       <div className='bg-red-100 space-y-2 py-3 px-4 flex flex-col'>
         <h1 className='text-xl font-semibold text-black'>Designer Chair</h1>
@@ -101,7 +101,7 @@ const Ourshop = () => {
       </div>
       <div className='flex w-full h-full flex-col'>
       <div className='h-[17rem]'>
-        <img src="/images/ourshop2.jpg" alt="" className='h-full w-full' />
+        <img src="images/ourshop2.jpg" alt="" className='h-full w-full' />
       </div>
       <div className='bg-red-100 space-y-2 py-3 px-4 flex flex-col'>
         <h1 className='text-xl font-semibold text-black'>Bedside Table</h1>
@@ -113,7 +113,7 @@ const Ourshop = () => {
    </div>
    
     <div className='grid grid-cols-1 py-10 gap-5 container lg:grid-cols-2 '>
-      <div className='relative bg-cover bg-center h-[40rem] ' style={{ backgroundImage: "url('/images/ourshop4.jpg')" }} >
+      <div className='relative bg-cover bg-center h-[40rem] ' style={{ backgroundImage: "url('images/ourshop4.jpg')" }} >
       <div className='absolute space-y-5 w-full lg:w-[28rem] py-10 px-10'>
 
     <h1 className='text-xl font-semibold text-white'>DECORATIVE  FURNITURE ELEMENTS</h1>
@@ -131,7 +131,7 @@ const Ourshop = () => {
       
       
       </div>
-      <div className='relative bg-cover bg-center h-[40rem] ' style={{ backgroundImage: "url('/images/ourshop5.jpg')" }} >
+      <div className='relative bg-cover bg-center h-[40rem] ' style={{ backgroundImage: "url('images/ourshop5.jpg')" }} >
       <div className='absolute space-y-5 lg:w-[28rem] w-full py-10 px-10'>
 
     <h1 className='text-xl font-semibold  text-black'>DECORATIVE  INTERIOR COLLECTION</h1>

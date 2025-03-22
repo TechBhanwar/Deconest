@@ -44,7 +44,7 @@ const Return = () => {
     </div>
 
               <div className='bg-pink-100 px-3 py-1 rounded-md h-20 w-20 '>
-                <img src="/images/productItems14.webp" alt="" className='w-full h-full' />
+                <img src="images/productItems14.webp" alt="" className='w-full h-full' />
               </div>
 
               <div className='flex space-y-2 flex-col'>
@@ -91,7 +91,7 @@ const Return = () => {
               </div>
 
               <div className='bg-pink-100 px-3 py-1 rounded-md h-20 w-20 '>
-                <img src="/images/productItems14.webp" alt="" className='w-full h-full' />
+                <img src="images/productItems14.webp" alt="" className='w-full h-full' />
               </div>
 
               <div className='flex space-y-2 flex-col'>

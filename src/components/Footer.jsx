@@ -30,7 +30,7 @@ const Footer = () => {
                         <div className='flex space-y-5 lg:mb-0 mb-8 flex-col'>
                            
 
-                           <Link to="/"><img src="/images/logowhite1.webp" alt="" className='lg:w-full w-72' /></Link>
+                           <Link to="/"><img src="images/logowhite1.webp" alt="" className='lg:w-full w-72' /></Link>
 
                             <h2 className='text-white text-sm font-medium  '>Royal Botanic Gardens, Kew, Richmond, London <br />
                             TW9 3AB, United Kingdom</h2>

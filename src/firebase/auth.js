@@ -58,12 +58,10 @@ export const signUp = async (email, password, username) => {
 
 
 
-// 🔹 Email/Username & Password से Login
 export const logIn = async (emailOrUsername, password) => {
   try {
     let email = emailOrUsername;
 
-    // अगर यूज़र ने Username डाला है, तो पहले उसका Email खोजें
     if (!emailOrUsername.includes("@")) {
       email = await getUserEmailByUsername(emailOrUsername);
       if (!email) {

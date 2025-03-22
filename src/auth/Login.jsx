@@ -85,7 +85,7 @@ const Login = () => {
             
               <div className='bg-[#f2f4f3] py-4 px-5 rounded-3xl flex space-x-2 items-center'>
                 <span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg></span>
-                <input type="text" name="" id="" className='bg-transparent text-black focus:border-none focus: outline-none w-full ' placeholder='Username...'
+                <input type="text" name="username" id="" className='bg-transparent text-black focus:border-none focus: outline-none w-full ' placeholder='Username...'
                  value={username} 
                  onChange={(e) => setUsername(e.target.value)} 
                 />
@@ -99,7 +99,7 @@ const Login = () => {
                 <span>
                   <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="432" cy="128" r="64"></circle><path d="M382.9 203.4L256 288 80 170.7V128l176 117.3 101.1-67.4c-9.5-14.3-15.1-31.5-15.1-49.9 0-17.6 5.1-34.1 13.9-48H74.7C51.2 80 32 99.2 32 122.7v266.7c0 23.5 19.2 42.7 42.7 42.7h362.7c23.5 0 42.7-19.2 42.7-42.7V204.1c-13.9 8.8-30.4 13.9-48 13.9-18.2 0-35.1-5.4-49.2-14.6z"></path></svg>
                 </span>
-                <input type="email" name="" id="" className='bg-transparent text-black focus:border-none focus: outline-none w-full' placeholder='Email...'  
+                <input type="email" name="email" id="" className='bg-transparent text-black focus:border-none focus: outline-none w-full' placeholder='Email...'  
         value={email} 
         onChange={(e) => setEmail(e.target.value)}  />
               </div>
@@ -134,7 +134,7 @@ const Login = () => {
               </div>
 
               <button onClick={handleGoogleLogin} className="flex items-center justify-center gap-2 border border-gray-300 font-semibold  py-4 px-5 rounded-3xl w-full  hover:bg-[#f2f4f3] transition duration-300">
-                <img src="/images/google.webp" alt="" className="w-5 h-5" />
+                <img src="images/google.webp" alt="" className="w-5 h-5" />
                 <span>Continue with Google</span>
               </button>
               <span className='px-2'>Don't have an account?

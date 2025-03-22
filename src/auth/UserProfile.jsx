@@ -1012,7 +1012,7 @@ c0.166,0,0.3,0.134,0.3,0.3v4.367c0,0.166-0.134,0.3-0.3,0.3h-0.409C11.626,17.473,
                         <tr className='border-b '>
                           <td className=' w-[12%] py-6'>
                           <div className='flex items-center  cursor-pointer'>
-                            <img src="\images\productItems1.webp" alt="" className='w-20 ' />
+                            <img src="images\productItems1.webp" alt="" className='w-20 ' />
                            </div>
                           </td>
                           <td>
@@ -1041,7 +1041,7 @@ c0.166,0,0.3,0.134,0.3,0.3v4.367c0,0.166-0.134,0.3-0.3,0.3h-0.409C11.626,17.473,
                         <tr className='border-b '>
                           <td className=' w-[8%] py-6'>
                           <div className='flex items-center  cursor-pointer'>
-                            <img src="\images\productItems2.webp" alt="" className='w-20 ' />
+                            <img src="images\productItems2.webp" alt="" className='w-20 ' />
                            </div>
                           </td>
                           <td>
@@ -1070,7 +1070,7 @@ c0.166,0,0.3,0.134,0.3,0.3v4.367c0,0.166-0.134,0.3-0.3,0.3h-0.409C11.626,17.473,
                         <tr className='border-b '>
                           <td className=' w-[8%] py-6'>
                           <div className='flex items-center  cursor-pointer'>
-                            <img src="\images\productItems3.webp" alt="" className='w-20 ' />
+                            <img src="images\productItems3.webp" alt="" className='w-20 ' />
                            </div>
                           </td>
                           <td>
@@ -1254,7 +1254,7 @@ c0.166,0,0.3,0.134,0.3,0.3v4.367c0,0.166-0.134,0.3-0.3,0.3h-0.409C11.626,17.473,
                     <div className='w-full lg:w-1/3' >
                     <div className='flex gap-4'>
                       <div className='w-24 h-24 rounded-md bg-[#f6f6f6]'>
-                        <img src="\images\reviewuser.png" alt="" />
+                        <img src="images\reviewuser.png" alt="" />
                       </div>
                       <div className='flex flex-col gap-2 '>
                         <span className='text-xl font-semibold'>
@@ -1302,7 +1302,7 @@ c0.166,0,0.3,0.134,0.3,0.3v4.367c0,0.166-0.134,0.3-0.3,0.3h-0.409C11.626,17.473,
                     <div className='w-full lg:w-1/3' >
                     <div className='flex gap-4'>
                       <div className='w-24 h-24 rounded-md bg-[#f6f6f6]'>
-                        <img src="\images\reviewuser.png" alt="" />
+                        <img src="images\reviewuser.png" alt="" />
                       </div>
                       <div className='flex flex-col gap-2 '>
                         <span className='text-xl font-semibold'>
@@ -1452,7 +1452,7 @@ c0.166,0,0.3,0.134,0.3,0.3v4.367c0,0.166-0.134,0.3-0.3,0.3h-0.409C11.626,17.473,
                         <tr className='border-b '>
                           <td className=' w-[12%] py-6'>
                           <div className='flex items-center  cursor-pointer'>
-                            <img src="\images\productItems1.webp" alt="" className='w-20 ' />
+                            <img src="images\productItems1.webp" alt="" className='w-20 ' />
                            </div>
                           </td>
                           <td>
@@ -1487,7 +1487,7 @@ c0.166,0,0.3,0.134,0.3,0.3v4.367c0,0.166-0.134,0.3-0.3,0.3h-0.409C11.626,17.473,
                         <tr className='border-b '>
                           <td className=' w-[12%] py-6'>
                           <div className='flex items-center  cursor-pointer'>
-                            <img src="\images\productItems1.webp" alt="" className='w-20 ' />
+                            <img src="images\productItems1.webp" alt="" className='w-20 ' />
                            </div>
                           </td>
                           <td>
@@ -1522,7 +1522,7 @@ c0.166,0,0.3,0.134,0.3,0.3v4.367c0,0.166-0.134,0.3-0.3,0.3h-0.409C11.626,17.473,
                         <tr className='border-b '>
                           <td className=' w-[12%] py-6'>
                           <div className='flex items-center  cursor-pointer'>
-                            <img src="\images\productItems1.webp" alt="" className='w-20 ' />
+                            <img src="images\productItems1.webp" alt="" className='w-20 ' />
                            </div>
                           </td>
                           <td>

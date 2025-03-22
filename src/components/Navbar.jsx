@@ -101,8 +101,9 @@ function Navbar() {
   };
 
   const cartItems = useSelector((state) => state.cart.items);
-
   const cartItemCount = cartItems.length;
+  const wishlistItems = useSelector((state) => state.wishlist.wishlist) || [];
+  const wishlistItemCount = wishlistItems.length;
 
 
   const [isSticky, setIsSticky] = useState(false);
@@ -363,7 +364,7 @@ function Navbar() {
                   </div>
                 </div>
               </li>
-              <li className=" flex items-center cursor-pointer group py-6">
+              <li className=" flex items-center cursor-pointer group py-6 ">
                 <Link to="/Product"   >
                   <div className=" after:content-[''] after:absolute after:w-0 after:h-[1px] after:bg-black after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:transition-all after:duration-300 after:ease-in-out group-hover:after:w-full group-hover:after:left-0 group-hover:after:translate-x-0 relative flex items-center peer ">
                     Product
@@ -381,6 +382,9 @@ function Navbar() {
                     </svg>
                   </div>
                 </Link>
+                {/* <span className="relative bg-black text-white px-2 py-1 text-xs absolute -mt-12 ml-9 before:content-[''] before:absolute before:bottom-[-4px] before:left-1/2 before:-translate-x-1/2 before:border-t-[4px] before:border-l-[4px] before:border-r-[4px] before:border-t-black before:border-l-transparent before:border-r-transparent">
+  Sale
+</span> */}
 
                 <div
                   className={`overflow-hidden w-[100%] absolute bg-white py-14 mt-2 left-0 opacity-0 invisible peer-hover:opacity-100 peer-hover:visible group-hover:opacity-100 group-hover:visible z-50 h-auto transition-all duration-300 ease-in-out ${isSticky ? 'top-[73px]' : 'top-[123px]'}`}
@@ -529,7 +533,7 @@ function Navbar() {
 
                 </div>
                 <div className="px-3 py-3">
-                  <img className="w-44" src=".images/logo.webp" alt="logo" />
+                  <img className="w-44" src="images/logo.webp" alt="logo" />
                 </div>
                 <ul className="flex flex-col space-y-5 mt-4 px-3 text-[13px]">
                   <li className="px-4 py-4 bg-[#f0f0f0] cursor-pointer flex justify-between items-center rounded-lg border-b border-gray-300">
@@ -711,7 +715,7 @@ function Navbar() {
                 </g>
               </svg>
               <div class="absolute top-0 right-[-5px] lg:top-0 lg:-right-1 transform translate-x-1/3 -translate-y-1/3 bg-black text-white  font-bold w-[18px] h-[18px] text-[10px] rounded-full flex items-center justify-center">
-                0
+        {wishlistItemCount}
               </div>
               </Link>
              

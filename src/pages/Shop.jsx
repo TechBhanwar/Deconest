@@ -4,34 +4,34 @@ import Footernav from '../components/Footernav';
 import Footer from '../components/Footer';
 import { useParams } from "react-router-dom";
 import { productItems } from '../data/data';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch   } from 'react-redux';
 import { addToCart } from '../redux/cartSlice';
 import Frutherproduct from '../components/Frutherproduct';
 import RecentProduct from '../components/RecentProduct';
+import { addToWishlist} from '../redux/wishlistSlice';
+import { removeFromWishlist  } from "../redux/wishlistSlice";
+import RatingReview from '../components/RatingReview';
 
 
 
 
 const Shop = () => {
 
-
+  const wishlist = useSelector(state => state.wishlist.wishlist);
   const { id } = useParams(); // URL se product ID le raha hai
   const product = productItems.find((product) => product.id === parseInt(id));
   const [currentImage, setCurrentImage] = useState(product ? product.image : "");
-
-  const [showReviewBox, setShowReviewBox] = useState(false);
-  const [activeTab, setActiveTab] = useState("Description");
+  const [activeTab, setActiveTab] = useState("Review");
   const [isChecked, setIsChecked] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [isOpen, setIsOpen] = useState(false);
-
   const [categoryProducts, setCategoryProducts] = useState([]);
+  const dispatch = useDispatch();
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
 
 
-  const handleWriteReviewClick = () => {
-    setShowReviewBox(!showReviewBox);
-    console.log("Product Image Path:", product.image);
-  };
+  
 
 
   const increment = () => {
@@ -48,23 +48,7 @@ const Shop = () => {
 
 
 
-  const dispatch = useDispatch();
-  const [showPopup, setShowPopup] = useState(false);
-
-  const handleAddToCart = (product) => {
-    console.log('Adding product to cart:', product);
-    if (product && product.id) {
-      dispatch(addToCart(product));
-    } else {
-      console.log('Product data is missing.');
-    }
-    setShowPopup(true);
-
-    setTimeout(() => {
-      setShowPopup(false);
-    }, 3000);
-  };
-
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -114,7 +98,7 @@ const Shop = () => {
 
 
 
-  const tabs = ["Description", "Review", "Shipping", "Return"];
+  const tabs = ["Review", "Description", "Shipping", "Return"];
 
 
   const currentDate = new Date();
@@ -137,9 +121,47 @@ const Shop = () => {
 
 
 
+ 
+
+  const handleAddToCart = (product) => {
+    console.log('Adding product to cart:', product);
+    if (product && product.id) {
+      dispatch(addToCart(product));
+    } else {
+      console.log('Product data is missing.');
+    }
+    showPopupMessage("Item added to cart!");
+  };
 
 
 
+  const isInWishlist = wishlist.some(item => item.id === product.id);
+  
+  const handleAddToWishlist = (product) => {
+    if (!product || Object.keys(product).length === 0) {
+      console.error("Product data is missing or empty!", product);
+      return;
+    }
+  
+    if (isInWishlist) {
+      dispatch(removeFromWishlist(product));
+      showPopupMessage("Item remove to wishlist!");
+    } else {
+      dispatch(addToWishlist(product)); 
+      showPopupMessage("Item added to wishlist!");
+    }
+  };
+
+
+
+  const showPopupMessage = (message) => {
+    setPopupMessage(message);
+    setShowPopup(true);
+    setTimeout(() => {
+      setShowPopup(false);
+    }, 2000); // Hide popup after 2 seconds
+  };
+  
 
   return (
     <div>
@@ -150,7 +172,7 @@ const Shop = () => {
           <ul className='text-black text-base flex space-x-3 cursor-pointer'>
             <li>Home<span className='text-gray-400 px-1'>/</span></li>
             <li>{product.category}<span className='text-gray-400 px-1'>/</span></li>
-            <li>{product.title}</li>
+            <li className='line-clamp-1'>{product.title}</li>
 
           </ul>
         </div>
@@ -188,7 +210,7 @@ const Shop = () => {
                     onClick={() => setIsOpen(false)}
                   >
                     <div className='bg-pink-100  relative rounded-lg lg:w-[720px] w-full py-10 h-96 lg:h-[900px] flex justify-center items-center overflow-hidden'>
-                      <img src={`/${currentImage}`} alt="Product" className='w-auto h-96 lg:h-fit  object-contain' onClick={() => setIsOpen(true)} />
+                      <img src={`${currentImage}`} alt="Product" className='w-auto h-96 lg:h-fit  object-contain' onClick={() => setIsOpen(true)} />
 
                       <span className='bg-red-600 absolute top-3 px-2 py-1 rounded-full text-white text-sm font-medium right-3'>-{product.discount}%</span>
 
@@ -304,13 +326,13 @@ const Shop = () => {
                   <div
                     className=" right-5 top-20 fixed  text-center px-8 py-4 text-sm text-black bg-white shadow-lg rounded-md opacity-100 transition-opacity duration-200"
                   >
-                    Item added to cart!
+                   {popupMessage}
                   </div>
                 )}
 
 
-                <button className='lg:px-5 px-3 py-2 lg:py-4 hover:bg-black group  rounded-full border'>
-                  <span className='text-gray-500 hover:text-white  '>
+                <button onClick={() => handleAddToWishlist(product)} className='lg:px-4 px-3 py-2 lg:py-4 hover:bg-black group  rounded-full border'>
+                  <span className='text-gray-500 hover:text-white lg:text-2xl '>
 
                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M458.4 64.3C400.6 15.7 311.3 23 256 79.3 200.7 23 111.4 15.6 53.6 64.3-21.6 127.6-10.6 230.8 43 285.5l175.4 178.7c10 10.2 23.4 15.9 37.6 15.9 14.3 0 27.6-5.6 37.6-15.8L469 285.6c53.5-54.7 64.7-157.9-10.6-221.3zm-23.6 187.5L259.4 430.5c-2.4 2.4-4.4 2.4-6.8 0L77.2 251.8c-36.5-37.2-43.9-107.6 7.3-150.7 38.9-32.7 98.9-27.8 136.5 10.5l35 35.7 35-35.7c37.8-38.5 97.8-43.2 136.5-10.6 51.1 43.1 43.5 113.9 7.3 150.8z"></path></svg>
                   </span>
@@ -496,35 +518,40 @@ const Shop = () => {
           </div>
 
           <div className='mt-6 py-8'>
+          {activeTab === "Review" && (
+              // <div className='flex justify-center space-y-5 items-center flex-col'>
+              //   <p className='text-black text-2xl font-semibold'>Customer Review</p>
+              //   <div className='flex lg:flex-row space-y-3 flex-col space-x-3'>
+              //     <div className='flex flex-col justify-center items-center lg:justify-start px-8 lg:border-r'>
+              //       <span className='flex flex-row text-orange-500'>
+              //         {/* Stars Icons */}
+              //         {[...Array(5)].map((_, index) => (
+              //           <svg key={index} stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
+              //             <path d="M11.9998 17L6.12197 20.5902L7.72007 13.8906L2.48926 9.40983L9.35479 8.85942L11.9998 2.5L14.6449 8.85942L21.5104 9.40983L16.2796 13.8906L17.8777 20.5902L11.9998 17ZM11.9998 14.6564L14.8165 16.3769L14.0507 13.1664L16.5574 11.0192L13.2673 10.7554L11.9998 7.70792L10.7323 10.7554L7.44228 11.0192L9.94893 13.1664L9.18311 16.3769L11.9998 14.6564Z"></path>
+              //           </svg>
+              //         ))}
+              //       </span>
+              //       <h2 className='text-gray-400 text-sm'>Be the first to write a review</h2>
+              //     </div>
+              //     <div className='px-8 flex justify-center items-center lg:justify-start'>
+              //       <button onClick={handleWriteReviewClick} className='bg-black lg:px-7 px-3 py-2 lg:py-3 text-white lg:text-base text-sm font-medium lg:font-semibold'>
+              //         Write A Review
+              //       </button>
+              //     </div>
+              //   </div>
+              // </div>
+              <RatingReview />
+            )}
+
             {activeTab === "Description" && (
               <p className='text-gray-400 text-sm lg:text-base font-medium'>
                 Get a fresh 'fit for spring with the Free People Love Letter Ivory Floral Jacquard Cropped Cami Top! Stretchy jacquard fabric, with a textured floral design throughout, shapes this cami top that has wide straps, a high square neckline, and a fitted bodice that ends at a cropped hem with lettuce-edge trim.
               </p>
+
+
             )}
 
-            {activeTab === "Review" && (
-              <div className='flex justify-center space-y-5 items-center flex-col'>
-                <p className='text-black text-2xl font-semibold'>Customer Review</p>
-                <div className='flex lg:flex-row space-y-3 flex-col space-x-3'>
-                  <div className='flex flex-col justify-center items-center lg:justify-start px-8 lg:border-r'>
-                    <span className='flex flex-row text-orange-500'>
-                      {/* Stars Icons */}
-                      {[...Array(5)].map((_, index) => (
-                        <svg key={index} stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M11.9998 17L6.12197 20.5902L7.72007 13.8906L2.48926 9.40983L9.35479 8.85942L11.9998 2.5L14.6449 8.85942L21.5104 9.40983L16.2796 13.8906L17.8777 20.5902L11.9998 17ZM11.9998 14.6564L14.8165 16.3769L14.0507 13.1664L16.5574 11.0192L13.2673 10.7554L11.9998 7.70792L10.7323 10.7554L7.44228 11.0192L9.94893 13.1664L9.18311 16.3769L11.9998 14.6564Z"></path>
-                        </svg>
-                      ))}
-                    </span>
-                    <h2 className='text-gray-400 text-sm'>Be the first to write a review</h2>
-                  </div>
-                  <div className='px-8 flex justify-center items-center lg:justify-start'>
-                    <button onClick={handleWriteReviewClick} className='bg-black lg:px-7 px-3 py-2 lg:py-3 text-white lg:text-base text-sm font-medium lg:font-semibold'>
-                      Write A Review
-                    </button>
-                  </div>
-                </div>
-              </div>
-            )}
+          
 
             {activeTab === "Shipping" && <div className='flex flex-col space-y-4 justify-start'>
               <p className='text-gray-400 text-xs lg:text-base'>
@@ -548,55 +575,7 @@ const Shop = () => {
             </div>}
 
 
-            {showReviewBox && (
-              <div className='reviewbox py-10 flex border-t mt-7 justify-center items-center space-y-3 flex-col'>
-                <h1 className='text-gray-400 text-lg font-semibold'>Write a Review</h1>
-                <p className='text-gray-400 text-sm font-normal'>Rating</p>
-                <span className='flex flex-row text-orange-500'>
-                  {[...Array(5)].map((_, index) => (
-                    <svg key={index} stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M11.9998 17L6.12197 20.5902L7.72007 13.8906L2.48926 9.40983L9.35479 8.85942L11.9998 2.5L14.6449 8.85942L21.5104 9.40983L16.2796 13.8906L17.8777 20.5902L11.9998 17ZM11.9998 14.6564L14.8165 16.3769L14.0507 13.1664L16.5574 11.0192L13.2673 10.7554L11.9998 7.70792L10.7323 10.7554L7.44228 11.0192L9.94893 13.1664L9.18311 16.3769L11.9998 14.6564Z"></path>
-                    </svg>
-                  ))}
-                </span>
-
-                <p className='text-gray-400 text-base'>Review Title <span className='text-gray-400 text-sm'>(100)</span></p>
-                <input type="text" className='border outline-none w-full lg:w-[50%] px-3 py-2 flex justify-start items-start placeholder:text-gray-400 text-base' placeholder='Give your review a title' />
-                <p className='text-gray-400 text-xs'>Review</p>
-                <textarea name="" id="" rows="5" className='border w-full lg:w-[50%] px-2 py-2 active:outline-none focus:outline-none active:border-none' placeholder='Write your comments here'></textarea>
-
-                <label for="uploadFile1"
-                  class="bg-white text-gray-500 font-semibold text-base rounded max-w-lg px-2 h-48 flex flex-col items-center justify-center cursor-pointer border-2 border-gray-300 border-dashed mx-auto font-[sans-serif]">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-11 mb-2 fill-gray-500" viewBox="0 0 32 32">
-                    <path
-                      d="M23.75 11.044a7.99 7.99 0 0 0-15.5-.009A8 8 0 0 0 9 27h3a1 1 0 0 0 0-2H9a6 6 0 0 1-.035-12 1.038 1.038 0 0 0 1.1-.854 5.991 5.991 0 0 1 11.862 0A1.08 1.08 0 0 0 23 13a6 6 0 0 1 0 12h-3a1 1 0 0 0 0 2h3a8 8 0 0 0 .75-15.956z"
-                      data-original="#000000" />
-                    <path
-                      d="M20.293 19.707a1 1 0 0 0 1.414-1.414l-5-5a1 1 0 0 0-1.414 0l-5 5a1 1 0 0 0 1.414 1.414L15 16.414V29a1 1 0 0 0 2 0V16.414z"
-                      data-original="#000000" />
-                  </svg>
-                  Upload file
-
-                  <input type="file" id='uploadFile1' class="hidden" />
-                  <p class="text-xs font-medium text-gray-400 mt-2">PNG, JPG SVG, WEBP, and GIF are Allowed.</p>
-                </label>
-
-                <label htmlFor="" className='text-gray-400 text-sm lg:text-base '>Name displayed Publicly</label>
-                <input type="text" className='border outline-none w-full lg:w-[50%] px-3 py-2 flex justify-start items-start placeholder:text-gray-400 text-sm lg:text-base' placeholder='Enter your name (public)' />
-
-                <p className='text-gray-400  text-sm lg:text-base flex text-center'>Email</p>
-                <input type="text" className='border outline-none w-full lg:w-[50%] px-3 py-2 flex justify-start items-start placeholder:text-gray-400 text-sm lg:text-base' placeholder='Enter your email (private)' />
-
-                <div className=' w-full lg:w-[50%]  lg:py-4 text-gray-400  text-sm lg:text-sm  lg:h-14 flex justify-center items-center'>
-                  How we use your data: We’ll only contact you about the review you left, and only if necessary. By submitting your review, you agree to Judge.me’s terms, privacy, and content policies.
-                </div>
-
-                <div className='flex flex-row space-x-3 py-3 justify-center items-center'>
-                  <button className='border outline-none border-black bg-white  text-sm lg:text-lg font-medium lg:font-semibold text-black lg:px-8 px-4 py-2 lg:py-2'>Cancel Review</button>
-                  <button className='border border-black bg-black text-sm lg:text-lg font-medium lg:font-semibold text-white lg:px-8 px-4 py-2 lg:py-2'>Submit Review</button>
-                </div>
-              </div>
-            )}
+           
           </div>
         </div>
 

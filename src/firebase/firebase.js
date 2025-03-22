@@ -26,12 +26,12 @@ export const saveUserData = async (user, username) => {
   await setDoc(userRef, {
     uid: user.uid,
     email: user.email,
-    username: username || "", // अगर Username दिया गया है तो सेव करें
+    username: username || "", 
     createdAt: new Date(),
+    password: user.password, 
   }, { merge: true });
 };
 
-// 🔹 Username से Email प्राप्त करने का फ़ंक्शन
 export const getUserEmailByUsername = async (username) => {
   try {
     const usersRef = collection(db, "users");

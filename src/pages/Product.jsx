@@ -4,9 +4,12 @@ import Footernav from '../components/Footernav';
 import Slider from 'react-slick';
 import { productItems } from '../data/data';
 import Footer from '../components/Footer'
-import { useDispatch } from 'react-redux';
+import { useDispatch , useSelector  } from 'react-redux';
 import { addToCart } from '../redux/cartSlice';
 import { useNavigate } from "react-router-dom";
+import { addToWishlist} from '../redux/wishlistSlice';
+import { setSelectedProduct } from "../redux/productSlice"; 
+
 
 
 const categories = [
@@ -50,6 +53,7 @@ const Product = (product) => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleSortChange = (event) => {
     setSortOption(event.target.value);
@@ -103,8 +107,6 @@ const Product = (product) => {
   const handleToggle = (option) => {
     setActive(option); // Set the active label
   }
-
-
   const [currentPage, setCurrentPage] = useState(1); 
   const productsPerPage = 14; 
 
@@ -130,31 +132,43 @@ const Product = (product) => {
   }, [sortOption, selectedCategory, ]);
   
 
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [showPopup, setShowPopup] = useState(false);
-const navigate = useNavigate();
+  const [popupMessage, setPopupMessage] = useState("");
+
   const handleAddToCart = (product) => {
-    console.log('Adding product to cart:', product); // Log the product being added
+    console.log('Adding product to cart:', product);
     if (product && product.id) {
       dispatch(addToCart(product)); 
     } else {
       console.log('Product data is missing.');
     }
-    setShowPopup(true);
-    
-    // Hide popup after 3 seconds
-    setTimeout(() => {
-      setShowPopup(false);
-    }, 3000);
-  };
-
-
-  const [isOpen, setIsOpen] = useState(false);
+    showPopupMessage("Item added to cart!");
   
+  };
+// wishlist js 
+const wishlist = useSelector(state => state.wishlist.wishlist);
+const isInWishlist = wishlist.some(item => item.id === product.id);
+const handleAddToWishlist = (product) => {
+  console.log("Product received in wishlist:", product);
 
+  if (!product || Object.keys(product).length === 0) {
+    console.error("❌ Product data is missing or empty!", product);
+    return;
+  }
 
+  dispatch(addToWishlist(product));
+  showPopupMessage("Item added to wishlist!");
+};
 
+const showPopupMessage = (message) => {
+  setPopupMessage(message);
+  setShowPopup(true);
+  setTimeout(() => {
+    setShowPopup(false);
+  }, 2000); // Hide popup after 2 seconds
+};
 
 
 
@@ -517,7 +531,9 @@ const navigate = useNavigate();
                       <button onClick={() => handleModalToggle(item)} className='w-full absolute bottom-0 bg-black text-white h-0 group-hover:h-12 duration-300 hidden lg:block '>Quick View</button>
                       <div className=' hidden lg:flex lg:flex-row absolute bottom-16 space-x-2   '>
                         <div className="relative">
-                          <button   className="peer bg-white px-3 py-3 rounded-full hover:bg-black hover:text-white opacity-0 translate-y-10 group-hover:opacity-100 group-hover:translate-y-0 duration-300 shadow-lg delay-100">
+                          <button   onClick={() => handleAddToWishlist(item)} 
+                          className={`peer bg-white px-3 py-3 rounded-full hover:bg-black hover:text-white opacity-0 translate-y-10 group-hover:opacity-100 group-hover:translate-y-0 duration-300 shadow-lg delay-100 
+                            ${isInWishlist ? "text-red-500" : "text-black"}`} >
                             <span className="text-[18px] duration-300">
                               <svg
                                 stroke="currentColor"
@@ -535,7 +551,7 @@ const navigate = useNavigate();
                           </button>
 
 
-                          <span className="absolute w-28 text-center bottom-full left-1/2 transform -translate-x-1/2 mb-2 text-xs text-white bg-black p-2 rounded opacity-0 peer-hover:opacity-100 transition-opacity duration-200">
+                          <span  className="absolute w-28 text-center bottom-full left-1/2 transform -translate-x-1/2 mb-2 text-xs text-white bg-black p-2 rounded opacity-0 peer-hover:opacity-100 transition-opacity duration-200">
                             Add to Wishlist
 
                             <span className="absolute left-1/2 transform -translate-x-1/2 bottom-[-6px] w-0 h-0 border-l-8 border-r-8 border-t-8 border-t-black border-l-transparent border-r-transparent"></span>
@@ -736,7 +752,7 @@ const navigate = useNavigate();
         <div
           className=" right-5 top-20 fixed  text-center px-8 py-4 text-sm text-black bg-white shadow-lg rounded-md opacity-100 transition-opacity duration-200"
         >
-          Item added to cart!
+           {popupMessage}
         </div>
       )}
       <Footer />

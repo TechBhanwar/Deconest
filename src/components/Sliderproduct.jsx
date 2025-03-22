@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState  } from 'react';
 import Slider from 'react-slick';
 import { productItems } from '../data/data';
 import { useNavigate } from "react-router-dom";
+import { useDispatch , useSelector  } from 'react-redux';
+import { addToCart } from "../redux/cartSlice";
+import { addToWishlist} from '../redux/wishlistSlice';
+
 
 
 const Sliderproduct = () => {
@@ -50,7 +54,43 @@ const Sliderproduct = () => {
     return false; // Skip extra items
   });
 
- 
+    const [popupMessage, setPopupMessage] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
+  const dispatch = useDispatch();
+  //  const handleAddToCart = (product) => {
+  //    console.log('Adding product to cart:', product);
+  //    if (product && product.id) {
+  //      dispatch(addToCart(product)); 
+  //      showPopupMessage("Item added to cart!");
+  //    } else {
+  //      console.log('Product data is missing.');
+  //    }
+    
+   
+  //  };
+
+   
+   const handleAddToWishlist = (product) => {
+     console.log("Product received in wishlist:", product);
+   
+     if (!product || Object.keys(product).length === 0) {
+       console.error("❌ Product data is missing or empty!", product);
+       return;
+     }
+   
+     dispatch(addToWishlist(product));
+     showPopupMessage("Item added to wishlist!");
+   };
+
+  
+   const showPopupMessage = (message) => {
+    setPopupMessage(message);
+    setShowPopup(true);
+    setTimeout(() => {
+      setShowPopup(false);
+    }, 2000); // Hide popup after 2 seconds
+  };
+  
 
   return (
 
@@ -95,7 +135,7 @@ const Sliderproduct = () => {
               <div className='flex flex-row absolute bottom-20 gap-1 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out justify-center items-center'>
 
                 <div className="relative">
-                  <button className="peer bg-white px-3 py-3 rounded-full hover:bg-black hover:text-white opacity-0 translate-y-10 group-hover:opacity-100 group-hover:translate-y-0 duration-300 shadow-lg delay-100">
+                  <button   onClick={() => handleAddToWishlist(item)}   className="peer bg-white px-3 py-3 rounded-full hover:bg-black hover:text-white opacity-0 translate-y-10 group-hover:opacity-100 group-hover:translate-y-0 duration-300 shadow-lg delay-100">
                     <span className="text-[18px] duration-300">
                       <svg
                         stroke="currentColor"
@@ -130,7 +170,12 @@ const Sliderproduct = () => {
                   </span>
                 </div>
                 <div className="relative">
-                  <button className='peer bg-white px-3 py-3 rounded-full   hover:bg-black hover:text-white opacity-0 translate-y-10 group-hover:opacity-100 group-hover:translate-y-0 duration-300 shadow-lg delay-300'>
+                  <button 
+                  onClick={() => {
+                    dispatch(addToCart(item));  
+                    showPopupMessage("Item added to cart!");
+                  }}
+                  className='peer bg-white px-3 py-3 rounded-full   hover:bg-black hover:text-white opacity-0 translate-y-10 group-hover:opacity-100 group-hover:translate-y-0 duration-300 shadow-lg delay-300'>
                     <span className='text-[18px]  duration-300   '><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M80 176a16 16 0 0 0-16 16v216c0 30.24 25.76 56 56 56h272c30.24 0 56-24.51 56-54.75V192a16 16 0 0 0-16-16zm80 0v-32a96 96 0 0 1 96-96h0a96 96 0 0 1 96 96v32"></path><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M160 224v16a96 96 0 0 0 96 96h0a96 96 0 0 0 96-96v-16"></path></svg></span>
                   </button>
                   <span className="absolute w-28 text-center bottom-full left-1/2 transform -translate-x-1/2 mb-2 text-xs text-white bg-black p-2 rounded opacity-0 peer-hover:opacity-100 transition-opacity duration-200">
@@ -201,6 +246,14 @@ const Sliderproduct = () => {
           </div>
         ))}
       </Slider>
+      
+      {showPopup && (
+        <div
+          className=" right-5 top-20 fixed  text-center px-8 py-4 text-sm text-black bg-white shadow-lg rounded-md opacity-100 transition-opacity duration-200"
+        >
+           {popupMessage}
+        </div>
+      )}
     </div>
   );
 };

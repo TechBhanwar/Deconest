@@ -11,40 +11,47 @@ const Singup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
-  const [showPopup, setShowPopup] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
+    const [popupMessage, setPopupMessage] = useState("");
 
   const handleSignUp = async () => {
     if (!username || !email || !password || !confirmPassword) {
-      alert("All fields are required!");
+      showPopupMessage("All fields are required!");
       return;
     }
     if (password !== confirmPassword) {
-      alert("Passwords do not match!");
+      showPopupMessage("Passwords do not match!");
       return;
     }
     try {
       await signUp(email, password, username);
-      setShowPopup(true);
-    
-      setTimeout(() => {
-        setShowPopup(false);
-      }, 5000);
+      showPopupMessage("  Singup successfully ");
       navigate("/login");
     } catch (error) {
       console.error("Error signing up:", error.message);
-      alert(error.message);
-    }
+      showPopupMessage(error.message);    }
   };
 
   const handleGoogleSignIn = async () => {
     try {
       await signInWithGoogle();
-      alert("Google sign-in successful!");
+      showPopupMessage("  Google sign-in successful! ");
       navigate("/");
     } catch (error) {
       console.error("Error signing in with Google:", error.message);
-      alert(error.message);
+      showPopupMessage(error.message); 
+      
     }
+  };
+
+
+
+  const showPopupMessage = (message) => {
+    setPopupMessage(message);
+    setShowPopup(true);
+    setTimeout(() => {
+      setShowPopup(false);
+    }, 2000); // Hide popup after 2 seconds
   };
 
   return (
@@ -61,7 +68,7 @@ const Singup = () => {
                 <span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg></span>
                 <input
                  type="text" 
-                 name="" id="" className='bg-transparent text-black focus:border-none focus: outline-none w-full'
+                 name="username" id="" className='bg-transparent text-black focus:border-none focus: outline-none w-full'
                  placeholder='Username...' 
                  value={username}
                  onChange={(e) => setUsername(e.target.value)}
@@ -73,8 +80,8 @@ const Singup = () => {
                   <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="432" cy="128" r="64"></circle><path d="M382.9 203.4L256 288 80 170.7V128l176 117.3 101.1-67.4c-9.5-14.3-15.1-31.5-15.1-49.9 0-17.6 5.1-34.1 13.9-48H74.7C51.2 80 32 99.2 32 122.7v266.7c0 23.5 19.2 42.7 42.7 42.7h362.7c23.5 0 42.7-19.2 42.7-42.7V204.1c-13.9 8.8-30.4 13.9-48 13.9-18.2 0-35.1-5.4-49.2-14.6z"></path></svg>
                 </span>
                 <input 
-                  type="text" 
-                   name="" id=""
+                  type="email" 
+                   name="email" id=""
                     className='bg-transparent text-black focus:border-none focus: outline-none w-full'
                      placeholder='Email...'
                      value={email}
@@ -86,7 +93,7 @@ const Singup = () => {
                   <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M18 8H20C20.5523 8 21 8.44772 21 9V21C21 21.5523 20.5523 22 20 22H4C3.44772 22 3 21.5523 3 21V9C3 8.44772 3.44772 8 4 8H6V7C6 3.68629 8.68629 1 12 1C15.3137 1 18 3.68629 18 7V8ZM16 8V7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7V8H16ZM11 14V16H13V14H11ZM7 14V16H9V14H7ZM15 14V16H17V14H15Z"></path></svg>
                 </span>
                 <input
-                 type="text"
+                 type="password"
                   name=""
                    id=""
                     className='bg-transparent text-black focus:border-none focus: outline-none w-full'
@@ -99,7 +106,7 @@ const Singup = () => {
                   <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M18 8H20C20.5523 8 21 8.44772 21 9V21C21 21.5523 20.5523 22 20 22H4C3.44772 22 3 21.5523 3 21V9C3 8.44772 3.44772 8 4 8H6V7C6 3.68629 8.68629 1 12 1C15.3137 1 18 3.68629 18 7V8ZM16 8V7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7V8H16ZM11 14V16H13V14H11ZM7 14V16H9V14H7ZM15 14V16H17V14H15Z"></path></svg>
                 </span>
                 <input
-                 type="text"
+                 type="password"
                   name=""
                    id=""
                     className='bg-transparent text-black focus:border-none focus: outline-none w-full'
@@ -139,7 +146,7 @@ const Singup = () => {
         <div
           className=" right-5 top-20 fixed  text-center px-8 py-4 text-sm text-black bg-white shadow-lg rounded-md opacity-100 transition-opacity duration-200"
         >
-          Singup successfully 
+        {popupMessage}
         </div>
       )}
 
