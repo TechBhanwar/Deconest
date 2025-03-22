@@ -134,7 +134,7 @@ const Testimonials = () => {
 
                     </div>
                     <div className='flex px-1 lg:px-0 justify-start lg:justify-end'>
-                        <img src="images/testimonial1.webp" alt="" className=' w-full lg:w-full rounded-lg ' />
+                        <img src="images/test.jpg" alt="" className=' w-full lg:w-full rounded-lg ' />
                     </div>
                 </div>
             </div>

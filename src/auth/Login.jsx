@@ -80,8 +80,11 @@ const Login = () => {
         <div className='flex justify-center items-center py-10'>
           <div className='bg-white border w-full lg:w-[80%] h-auto lg:h-[700px] flex-col lg:flex-row flex rounded-xl overflow-hidden'>
           <form action="" className='w-full lg:w-[45%]  order-2 lg:order-1 '>
-            <div className='px-4 lg:px-16 py-5 lg:py-20 flex flex-col space-y-4'>
+            <div className='px-4 lg:px-16 hidden py-5 lg:py-20  flex-col space-y-4'>
+
+
               <div className='flex items-center text-3xl justify-center space-x-3 font-semibold'><h1>Login</h1></div>
+              
             
               <div className='bg-[#f2f4f3] py-4 px-5 rounded-3xl flex space-x-2 items-center'>
                 <span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg></span>
@@ -134,7 +137,7 @@ const Login = () => {
               </div>
 
               <button onClick={handleGoogleLogin} className="flex items-center justify-center gap-2 border border-gray-300 font-semibold  py-4 px-5 rounded-3xl w-full  hover:bg-[#f2f4f3] transition duration-300">
-                <img src="/images/google.webp" alt="" className="w-5 h-5" />
+                <img src="images/google.webp" alt="" className="w-5 h-5" />
                 <span>Continue with Google</span>
               </button>
               <span className='px-2'>Don't have an account?
@@ -142,6 +145,27 @@ const Login = () => {
 
 
             </div>
+            
+            <div className="flex px-4 lg:px-16 py-5 justify-center h-full lg:py-20 space-y-4 flex-col">
+
+
+              <div className='flex items-center text-3xl justify-center space-x-3 font-semibold'><h1>Forget Password</h1></div> 
+              <div className='bg-[#f2f4f3] py-4 px-5 rounded-3xl flex space-x-2 items-center'>
+                <span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg></span>
+                <input type="text" name="" id="" className='bg-transparent text-black focus:border-none focus: outline-none w-full ' placeholder='Username...'
+                 value={username} 
+                 onChange={(e) => setUsername(e.target.value)} 
+                />
+              </div>
+           
+           <Link to="/otp">
+              <button type="button" className='bg-[#f2f4f3] w-full py-4 px-5 rounded-3xl text-[#787878] text-xl font-semibold' > 
+                Send Verrifaction 
+              </button>
+              </Link>
+
+
+              </div>
             </form>
             <div className='w-full  lg:w-[55%] order-1 lg:order-2 h-full relative'>
               <img src="images/login.webp" alt="" className='w-full h-full' />
