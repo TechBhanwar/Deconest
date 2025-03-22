@@ -53,7 +53,7 @@ const Footer = () => {
                                 <li><Link to="/faqs">FAQs</Link></li>
                                
                                 <li><Link to="/track">Track</Link></li>
-                                <li><Link to="/order">Your Order</Link></li>
+                                <li>Your Order</li>
                                 <li><Link to="/userprofile">My Account</Link></li>
                             </ul>
                         </div>
@@ -64,7 +64,7 @@ const Footer = () => {
                                
                                 <li><Link to="/return">Return</Link></li>
                                 <li>Shipping Information</li>
-                                <li><Link to="/contact">Wholesale</Link> </li>
+                                <li>Wholesale</li>
                             </ul>
                         </div>
                     </div>

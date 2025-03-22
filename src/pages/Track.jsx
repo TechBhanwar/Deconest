@@ -34,7 +34,7 @@ const Track = () => {
 <div className='w-full border rounded-md flex flex-col lg:flex-row gap-5  p-4 shadow-sm'>
               <div className='w-[62%] lg:w-[19%] '>
                 <div className='bg-pink-100 h-full flex justify-center rounded-lg items-center'>
-                  <img src="images/productItems1.webp" alt="" className='w-[72%] ' />
+                  <img src="\images\productItems1.webp" alt="" className='w-[72%] ' />
                   </div>  
               </div>
               <div className='w-3/4 flex flex-col gap-1'>

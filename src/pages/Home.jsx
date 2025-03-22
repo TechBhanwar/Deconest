@@ -14,7 +14,6 @@ import News from '../components/News'
 import Footernav from '../components/Footernav'
 import CookieConsent from '../components/CookieConsent'
 import Experince from '../components/Experince'
-import Yourdream from '../components/Yourdream'
 // import OnloadPopup from '../components/OnloadPopup'
 
 
@@ -27,14 +26,12 @@ const Home = () => {
      <Category />
 <CookieConsent />
      <Sliderproduct />
-     <Yourdream />
      <Newarrival />
      <Experince />
    <Testimonials />
    <News />
    <Footer />
    <Footernav />
-  
    
     </div>
   )
